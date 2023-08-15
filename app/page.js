@@ -336,6 +336,7 @@ function FromTheBlog(){
     // More posts...
   ]
 
+  
 
   return(
     <div className="bg-gray-100">
