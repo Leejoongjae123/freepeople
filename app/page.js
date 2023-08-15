@@ -151,13 +151,13 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="mx-auto flex px-6 py-12">
+    <div className="grid mx-auto flex px-6 py-12 lg:grid-cols-3 sm:grid-cols-1 sm:gap-3">
       <ListView></ListView>
       <ListView></ListView>
       <ListView></ListView>
     </div>
 
-    <div className="grid mx-auto flex px-6 py-12 grid-cols-3"> 
+    <div className="grid mx-auto flex px-6 py-12 lg:grid-cols-3 sm:lg:grid-cols-1"> 
       <ApexCharts 
       type="bar" 
       series={[
