@@ -5,8 +5,9 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
-
-import ApexCharts from "react-apexcharts";
+import dynamic from 'next/dynamic'
+// import ApexCharts from "react-apexcharts";
+const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const callouts = [
   {
