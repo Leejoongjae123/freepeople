@@ -31,27 +31,6 @@ const callouts = [
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },
-  {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
 ]
 
 const features = [
@@ -127,7 +106,7 @@ export default function Home() {
         <div className="mx-auto py-8 sm:py-24 lg:max-w-none lg:py-8">
           <h2 className="text-2xl font-bold mb-6 text-gray-900">Collections</h2>
 
-          <div className="mt-2 space-y-12 lg:grid lg:grid-cols-6 lg:gap-x-3 lg:space-y-0">
+          <div className="mt-2 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-3 lg:space-y-0">
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
@@ -151,7 +130,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="grid mx-auto flex px-6 py-12 lg:grid-cols-3 sm:grid-cols-1 sm:gap-3">
+    <div className="grid mx-auto w-full lg:grid-cols-3 sm:grid-cols-1">
       <ListView></ListView>
       <ListView></ListView>
       <ListView></ListView>
@@ -198,7 +177,7 @@ export default function Home() {
 
 function ListView(){
   return(
-    <div className="w-full p-4 mx-3 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="p-4 mx-3 my-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex items-center justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
       </div>
@@ -360,7 +339,7 @@ function FromTheBlog(){
 
   return(
     <div className="bg-gray-100">
-    <div className="mx-auto px-6 lg:px-8 sm:py-6" >
+    <div className="mx-auto px-6 lg:px-8 sm:py-8" >
       <div className="mx-auto lg:mx-0">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
