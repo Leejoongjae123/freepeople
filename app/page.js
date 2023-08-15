@@ -6,6 +6,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
+import ApexCharts from "react-apexcharts";
+
 const callouts = [
   {
     name: 'Desk and Office',
@@ -88,20 +90,20 @@ export default function Home() {
 
   return (
     <>
-    <div className="bg-white py-12 sm:py-16">
+    <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Everything you need to deploy your app
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-3 text-lg leading-8 text-gray-600">
             Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
             pulvinar et feugiat blandit at. In mi viverra elit nunc.
           </p>
         </div>
-      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-        <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+      <div className="mx-auto my-10 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl">
+        <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-y-6">
           {features.map((feature) => (
             <div key={feature.name} className="relative pl-16">
               <dt className="text-base font-semibold leading-7 text-gray-900">
@@ -120,9 +122,9 @@ export default function Home() {
 
     
     <div className="bg-gray-100">
-      <div className="mx-auto px-6 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto px-6 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto py-8 sm:py-24 lg:max-w-none lg:py-8">
-          <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">Collections</h2>
 
           <div className="mt-2 space-y-12 lg:grid lg:grid-cols-6 lg:gap-x-3 lg:space-y-0">
             {callouts.map((callout) => (
@@ -147,13 +149,38 @@ export default function Home() {
         </div>
       </div>
     </div>
-    
-
 
     <div className="mx-auto flex px-6 py-12">
       <ListView></ListView>
       <ListView></ListView>
       <ListView></ListView>
+    </div>
+
+    <div className="grid mx-auto flex px-6 py-12 grid-cols-3"> 
+      <ApexCharts 
+      type="bar" 
+      series={[
+        { name: "오늘의 기온", data: [19, 26, 20, 9], }, 
+      { name: "내일의 기온", data: [30, 26, 34, 10], },
+      ]} 
+      options={{ chart : { height: 100, width: 100, }, }}> 
+      </ApexCharts>
+      <ApexCharts 
+      type="line" 
+      series={[
+        { name: "오늘의 기온", data: [19, 26, 20, 9], }, 
+      { name: "내일의 기온", data: [30, 26, 34, 10], },
+      ]} 
+      options={{ chart : { height: 100, width: 100, }, }}> 
+      </ApexCharts>
+      <ApexCharts 
+      type="area" 
+      series={[
+        { name: "오늘의 기온", data: [19, 26, 20, 9], }, 
+      { name: "내일의 기온", data: [30, 26, 34, 10], },
+      ]} 
+      options={{ chart : { height: 100, width: 100, }, }}> 
+      </ApexCharts>
     </div>
 
     <div className="mx-auto flex py-3">
@@ -381,3 +408,59 @@ function FromTheBlog(){
   </div>
   )
 }
+
+function Carousel(){
+  return(
+    
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+        
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="/docs/images/carousel/carousel-2.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+        
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/docs/images/carousel/carousel-3.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+        
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/docs/images/carousel/carousel-4.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/docs/images/carousel/carousel-5.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+    </div>
+
+    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+
+    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+  )
+}
+
