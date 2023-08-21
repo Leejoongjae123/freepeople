@@ -152,7 +152,7 @@ export default function Home() {
               
             </div>
             <div className="group relative">
-              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 보도자료</h2>
+              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 브리핑</h2>
               {
                 captainBriefs.map((captainBrief)=>{
                   return (
@@ -189,10 +189,9 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className="grid mx-auto w-full lg:grid-cols-3 sm:grid-cols-1">
-      <ListView></ListView>
-      <ListView></ListView>
-      <ListView></ListView>
+    <div className="grid mx-auto w-full lg:grid-cols-2 sm:grid-cols-1">
+      <ListViewPeoplePower></ListViewPeoplePower>
+      <ListViewTogetherPeople></ListViewTogetherPeople>
     </div>
 
     <div className="grid mx-auto flex px-6 py-12 lg:grid-cols-3 sm:lg:grid-cols-1"> 
@@ -234,103 +233,134 @@ export default function Home() {
   )
 }
 
-function ListView(){
+function ListViewPeoplePower(){
+  
+  const PeoplePower=[
+    {
+      date:'2023-08-21',
+      category:'논평',
+      title:'‘남 탓’일관 책임 떠넘기기와 ‘정쟁’의 소용돌이 속에서는 결코 진실을 규명할 수 없다. [국민의힘 유상범 수석대변인 논평]'
+    },
+    {
+      date:'2023-08-21',
+      category:'보도자료',
+      title:'‘	최고위원회의 주요내용 [보도자료]'
+    },
+    {
+      date:'2023-08-21',
+      category:'논평',
+      title:'한미일 정상회의에 대한 민주당의 폄하는 질투로 가득 찬 피해의식에 불과하다. [국민의힘 신주호 상근부대변인 논평]'
+    },
+    {
+      date:'2023-08-21',
+      category:'논평',
+      title:'대한민국 사법 시스템을 혼탁하게 만드는 법꾸라지 이재명 대표, 거짓의 악순환 끝에는 단죄만 남을 것이다. [국민의힘 김민수 대변인 논평]'
+    },
+    {
+      date:'2023-08-21',
+      category:'논평',
+      title:'국민의힘과 윤석열 정부는 ‘엘피아 카르텔’ 혁파를 통해 국민 안전에 만전을 기할 것이다. [국민의힘 배윤주 상근부대변인 논평]'
+    }
+  ]
+
   return(
     <div className="p-4 mx-3 my-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex items-center justify-between mb-4">
-        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
+      <div className="flex items-center justify-center mb-4">
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">국민의힘</h5>
       </div>
         <div className="flow-root">
           <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-              <li className="py-3 sm:py-4">
-                  <div className="flex items-center space-x-4">
+              {PeoplePower.map((elem)=>{
+                return(
+                  <li className="py-3 sm:py-4">
+                    <div className="flex items-center space-x-4">
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                          {elem.category}
+                      </div>
                       <div className="flex-shrink-0">
                       </div>
                       <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                              Neil Sims
+                            {elem.title}
                           </p>
                           <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                              email@windster.com
+                            {elem.date}
                           </p>
                       </div>
-                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          $320
-                      </div>
-                  </div>
-              </li>
-              <li className="py-3 sm:py-4">
-                  <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0">
-                          
-                      </div>
-                      <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                              Bonnie Green
-                          </p>
-                          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                              email@windster.com
-                          </p>
-                      </div>
-                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          $3467
-                      </div>
-                  </div>
-              </li>
-              <li className="py-3 sm:py-4">
-                  <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0">
-                          
-                      </div>
-                      <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                              Michael Gough
-                          </p>
-                          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                              email@windster.com
-                          </p>
-                      </div>
-                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          $67
-                      </div>
-                  </div>
-              </li>
-              <li className="py-3 sm:py-4">
-                  <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0">
-                          
-                      </div>
-                      <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                              Lana Byrd
-                          </p>
-                          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                              email@windster.com
-                          </p>
-                      </div>
-                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          $367
-                      </div>
-                  </div>
-              </li>
-              <li className="pt-3 pb-0 sm:pt-4">
-                  <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0">
-                          
-                      </div>
-                      <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                              Thomes Lean
-                          </p>
-                          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                              email@windster.com
-                          </p>
-                      </div>
-                      <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          $2367
-                      </div>
-                  </div>
-              </li>
+
+                    </div>
+                  </li>
+                )
+              })}
+              
+              
+          </ul>
+    </div>
+  </div>
+  )
+
+
+}
+
+function ListViewTogetherPeople(){
+  
+  const TogetherPeople=[
+    {
+      date:'2023-08-21',
+      category:'서면브리핑',
+      title:'[권칠승 수석대변인] 윤석열 대통령은 한반도 핵전쟁의 공포를 조장하려고 합니까?'
+    },
+    {
+      date:'2023-08-21',
+      category:'논평',
+      title:'[이경 상근부대변인] 국민의힘이 국민 안전을 책임지겠다면 최인호 관악구의원을 징계하십시오'
+    },
+    {
+      date:'2023-08-21',
+      category:'서면브리핑',
+      title:'[최민석 대변인] 지지자들에게 쪼개기 후원을 독려하는 것이 국민의힘의 청년정치입니까?'
+    },
+    {
+      date:'2023-08-21',
+      category:'브리핑',
+      title:'[박성준 대변인 브리핑] 국방부는 해병대 1사단장의 책임을 면해주려고, 그 난리를 피웠습니까?'
+    },
+    {
+      date:'2023-08-21',
+      category:'브리핑',
+      title:'[권칠승 수석대변인] 윤석열 대통령은 대한민국의 미래를 ‘시계제로’ 상황에 빠뜨리려고 합니까?'
+    }
+  ]
+
+  return(
+    <div className="p-4 mx-3 my-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex items-center justify-center mb-4">
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">더불어민주당</h5>
+      </div>
+        <div className="flow-root">
+        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+          {
+            TogetherPeople.map((elem)=>(
+            <li className="py-3 sm:py-4">
+              <div className="flex items-center space-x-4">
+              <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    {elem.category}
+                </div>
+                <div className="flex-shrink-0">
+                </div>
+                <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                      {elem.title}
+                    </p>
+                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                      {elem.date}
+                    </p>
+                </div>
+
+              </div>
+            </li>
+            ))
+          }              
           </ul>
     </div>
   </div>
