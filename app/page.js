@@ -72,14 +72,16 @@ export default function Home() {
     <>
     <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+        <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 포털</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+            미 래 민 중
           </p>
           <p className="mt-3 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+            미래 민중은 민중의, 민중을 위한, 민중에 의한 정치/경제 종합 포털 사이트입니다.
+          </p>
+          <p className="mt-3 text-lg leading-8 text-gray-600">
+            객관성, 균형성, 미래성을 가지는 공동체성의 회복을 지향합니다.
           </p>
         </div>
       <div className="mx-auto my-10 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl">
