@@ -6,59 +6,13 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 // import ApexCharts from "react-apexcharts";
 const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const callouts = [
-  {
-    name: 'Desk and Office',
-    description: 'Work from home accessories',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
-    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-    href: '#',
-  },
-  {
-    name: 'Self-Improvement',
-    description: 'Journals and note-taking',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
-  },
-  {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-]
 
-const features = [
-  {
-    name: 'Push to deploy',
-    description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
-  },
-  {
-    name: 'SSL certificates',
-    description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon,
-  },
-  {
-    name: 'Simple queues',
-    description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
-  },
-  {
-    name: 'Advanced security',
-    description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon,
-  },
-]
+
+
 
 
 function classNames(...classNamees) {
@@ -68,70 +22,173 @@ function classNames(...classNamees) {
 export default function Home() {
   let varaaa=[]
 
+  const jijidoReal = 
+    {
+      date: '2023-08-21',
+      title: '[리얼미터 8월 3주 차 주간 동향] 尹 대통령 긍정평가 35.6%(2.7%P↓)…부정평가 61.2%…14주 만에 60%대 진입',
+      imageSrc: 'http://www.realmeter.net/wp-content/uploads/2023/08/98599_134406_1692420381-351x185.jpg',
+      imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
+      groupName:'대통령지지도(리얼미터)',
+      readMore:'http://www.realmeter.net/category/politics/',
+      href: '#',
+    }
+  const jijidoNBS={
+      date: '2023-08-17',
+      title: '전국지표조사 리포트 제103호(2023년 8월 3주)',
+      imageSrc: 'https://i0.wp.com/nbsurvey.kr/wp-content/uploads/2020/08/logo_2-e1597095556507.png?fit=822%2C359',
+      imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
+      groupName:'대통령지지도(NBS)',
+      readMore:'http://nbsurvey.kr/',
+      href: '#',
+    }
+  const captainBriefs=[{
+      date: '2023-08-21',
+      title: "尹 대통령, 캠프 데이비드 정상회의는 포괄적 협력체계를 제도화한 '매우 특별한 회의'",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 브리핑',
+      readMore:'https://www.president.go.kr/newsroom/briefing',
+      href: '#',
+    },
+    {
+      date: '2023-08-21',
+      title: "尹 대통령, 한 총리에 '묻지마 범죄' 근본적 대책 마련 지시",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 브리핑',
+      readMore:'https://www.president.go.kr/newsroom/briefing',
+      href: '#',
+    },
+    {
+      date: '2023.08.21',
+      title: "尹 대통령, 을지 국가안전보장회의 주재",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 브리핑',
+      readMore:'https://www.president.go.kr/newsroom/briefing',
+      href: '#',
+    }]
+  const captainPresss=[{
+      date: '2023-08-18',
+      title: "한미일 정상회의 계기 한일 정상회담 결과",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 보도자료',
+      readMore:'https://www.president.go.kr/newsroom/press',
+      href: '#',
+    },
+    {
+      date: '2023-08-18',
+      title: "캠프 데이비드 한미 정상회담 결과",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 보도자료',
+      readMore:'https://www.president.go.kr/newsroom/press',
+      href: '#',
+    },
+    {
+      date: '2023-08-18',
+      title: "캠프 데이비드 정신: 한미일 정상회의 공동성명",
+      imageSrc: "",
+      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+      groupName:'대통령실 보도자료',
+      readMore:'https://www.president.go.kr/newsroom/press',
+      href: '#',
+    }]
+
   return (
     <>
     <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 포털</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="mt-2 font-bold tracking-tight text-gray-900 sm:text-4xl">
             미 래 민 중
-          </p>
+          </h1>
           <p className="mt-3 text-lg leading-8 text-gray-600">
             미래 민중은 민중의, 민중을 위한, 민중에 의한 정치/경제 종합 포털 사이트입니다.
           </p>
           <p className="mt-3 text-lg leading-8 text-gray-600">
-            객관성, 균형성, 미래성을 가지는 공동체성의 회복을 지향합니다.
+            객관성, 균형성, 미래성 있는 자료를 바탕으로 공동체성의 회복을 지향합니다.
           </p>
-        </div>
-      <div className="mx-auto my-10 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl">
-        <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-y-6">
-          {features.map((feature) => (
-            <div key={feature.name} className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                  <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                </div>
-                {feature.name}
-              </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
-            </div>
-            ))}
-          </dl>
         </div>
       </div>
     </div>
 
     
     <div className="bg-gray-100">
-      <div className="mx-auto px-6 py-6 sm:px-6 lg:px-8">
-        <div className="mx-auto py-8 sm:py-24 lg:max-w-none lg:py-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Collections</h2>
-
-          <div className="mt-2 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-3 lg:space-y-0">
-            {callouts.map((callout) => (
-              <div key={callout.name} className="group relative">
+      <div className="mx-auto px-6 py-6">
+        <div className="mx-auto px-10 py-10 sm:py-24 lg:py-6">
+          <div className="mt-2 space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:space-y-3">
+            <div className="group relative">
+              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">{jijidoReal.groupName}</h2>
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                  <img
-                    src={callout.imageSrc}
-                    alt={callout.imageAlt}
-                    className="h-full w-full object-cover object-center"
-                  />
+                <img
+                src={jijidoReal.imageSrc}
+                alt={jijidoReal.imageAlt}
+                className="h-full w-full object-cover object-center"
+                />
                 </div>
-                <h3 className="mt-6 text-sm text-gray-500">
-
-                    <span className="absolute inset-0" />
-                    {callout.name}
-
-                </h3>
-                <p className="text-base font-semibold text-gray-900">{callout.description}</p>
-              </div>
-            ))}
+              <h3 className="mt-6 text-sm text-gray-500">
+                  {jijidoReal.date}
+              </h3>
+              <p className="text-base font-semibold text-gray-900">{jijidoReal.title}</p>
+              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={jijidoReal.readMore}>Read more</Link></p>
+            </div>
+            <div className="group relative">
+              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">{jijidoNBS.groupName}</h2>
+                <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                <img
+                src={jijidoNBS.imageSrc}
+                alt={jijidoNBS.imageAlt}
+                className="h-full w-full object-cover object-center"
+                />
+                </div>
+              <h3 className="mt-6 text-sm text-gray-500">
+                  {jijidoNBS.date}
+              </h3>
+              <p className="text-base font-semibold text-gray-900">{jijidoNBS.title}</p>
+              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={jijidoNBS.readMore}>Read more</Link></p>
+              
+            </div>
+            <div className="group relative">
+              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 보도자료</h2>
+              {
+                captainBriefs.map((captainBrief)=>{
+                  return (
+                  <div>
+                    <h3 className="mt-6 text-sm text-gray-500">
+                        {captainBrief.date}
+                    </h3>
+                    <p className="text-base font-semibold text-gray-900">{captainBrief.title}</p>
+                  </div>
+    
+                  )
+                })
+              }
+              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={captainBriefs[0].readMore}>Read more</Link></p>       
+            </div>
+            <div className="group relative">
+              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 보도자료</h2>
+              {
+                captainPresss.map((captainPress)=>{
+                  return (
+                  <div>
+                    <h3 className="mt-6 text-sm text-gray-500">
+                        {captainPress.date}
+                    </h3>
+                    <p className="text-base font-semibold text-gray-900">{captainPress.title}</p>
+                  </div>
+    
+                  )
+                })
+              }
+              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={captainPresss[0].readMore}>Read more</Link></p>       
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <div className="grid mx-auto w-full lg:grid-cols-3 sm:grid-cols-1">
       <ListView></ListView>
       <ListView></ListView>
@@ -350,8 +407,8 @@ function FromTheBlog(){
         </p>
       </div>
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 border-t border-gray-200 pt-6 sm:mt-6 sm:pt-6 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {posts.map((post) => (
-          <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
+        {posts.map((post,index) => (
+          <article key={index} className="flex max-w-xl flex-col items-start justify-between">
             <div className="flex items-center gap-x-4 text-xs">
               <time dateTime={post.datetime} className="text-gray-500">
                 {post.date}
