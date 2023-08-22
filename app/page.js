@@ -168,7 +168,7 @@ export default function Home() {
               }
               <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={captainBriefs[0].readMore}>Read more</Link></p>       
             </div>
-            <div className="group relative">
+            <div className="group relative ">
               <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 보도자료</h2>
               {
                 captainPresss.map((captainPress)=>{
@@ -189,7 +189,8 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className="grid mx-auto w-full lg:grid-cols-2 sm:grid-cols-1">
+
+    <div className="grid lg:grid-cols-2 sm:grid-cols-1">
       <ListViewPeoplePower></ListViewPeoplePower>
       <ListViewTogetherPeople></ListViewTogetherPeople>
     </div>
@@ -264,9 +265,9 @@ function ListViewPeoplePower(){
   ]
 
   return(
-    <div className="p-4 mx-3 my-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="border border-gray-200 m-5 p-5 rounded-lg shadow">
       <div className="flex items-center justify-center mb-4">
-        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">국민의힘</h5>
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">국민의힘 논평</h5>
       </div>
         <div className="flow-root">
           <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -295,6 +296,7 @@ function ListViewPeoplePower(){
               
               
           </ul>
+          <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href='https://www.naver.com'>Read more</Link></p>       
     </div>
   </div>
   )
@@ -333,9 +335,9 @@ function ListViewTogetherPeople(){
   ]
 
   return(
-    <div className="p-4 mx-3 my-2 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="border border-gray-200 m-5 p-5 rounded-lg shadow">
       <div className="flex items-center justify-center mb-4">
-        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">더불어민주당</h5>
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">더불어민주당 논평</h5>
       </div>
         <div className="flow-root">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -362,6 +364,7 @@ function ListViewTogetherPeople(){
             ))
           }              
           </ul>
+          <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href='https://www.naver.com'>Read more</Link></p>       
     </div>
   </div>
   )
