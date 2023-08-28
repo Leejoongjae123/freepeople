@@ -1,12 +1,23 @@
 'use client'
 import React from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import Link from 'next/link'
+
+import {Link} from 'react-scroll'
 import { usePathname, useRouter } from 'next/navigation';
 
 
 export default function Navbar() {
 
+  const scrollDown = () => {
+    // 스크롤할 픽셀 값
+    const scrollAmount = 300; // 원하는 만큼 조정
+
+    // 현재 스크롤 위치
+    const currentPosition = window.pageYOffset;
+
+    // 원하는 만큼 아래로 스크롤
+    window.scrollTo(0, currentPosition + scrollAmount);
+  };
 
     const navigation = [
         { name: '홈', href: '/', current: false },
@@ -29,8 +40,9 @@ export default function Navbar() {
             <>
               <div className="mx-auto px-2 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-center relative flex h-16 space-x-4 text-lg">
-                        {navigation.map((item) => (
-                          <Link
+                        {navigation.map((item,index) => (
+                          <Link to={index} spy={true} smooth={true} offset={-50}>
+                          <button
                             key={item.name}
                             href={item.href}
                             className={classNames(
@@ -40,11 +52,14 @@ export default function Navbar() {
                             aria-current={item.current ? 'page' : undefined}
                           >
                             {item.name}
+                          </button>
                           </Link>
                         ))}
-    
+                
+                
                 </div>
               </div>
+
     
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">

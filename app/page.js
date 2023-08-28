@@ -15,6 +15,7 @@ import FromTheBlog from '@/components/FromTheBlog'
 import JijidoReal from '@/components/JijidoReal'
 import JijidoNBS from '@/components/JijidoNBS'
 import {FcVoicePresentation} from 'react-icons/fc'
+import { Element } from 'react-scroll' 
 
 
 function classNames(...classNamees) {
@@ -83,6 +84,7 @@ export default function Home() {
 
   return (
     <div>
+    <Element name="0"></Element>
     <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
@@ -97,15 +99,16 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="mx-auto px-20 pb-10 bg-gray-100">
+    <div id="mySection" className="mx-auto px-20 pb-10 bg-gray-100">
       <FromTheBlog></FromTheBlog>
     </div>
 
-    
+    <Element name="2"></Element>
     <div className="bg-white px-20 py-10">
       <div className="mx-auto flex-col lg:mx-0 px-6">
         <div className='flex items-center'>
             <FcVoicePresentation size='40'></FcVoicePresentation>
+            
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">국민/대통령</h2>
         </div>
         <div>

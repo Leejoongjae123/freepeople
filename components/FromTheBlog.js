@@ -7,35 +7,9 @@ import Spinner from './Spinner'
 import {FcKindle} from 'react-icons/fc'
 import './styles.css'
 import ArticleModal from './ArticleModal'
+import { Element } from 'react-scroll'
 
 export default function FromTheBlog(){
-    let columnPostings=[
-      {
-        title:"한국 의회 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'이제는 전부 개선해야 합니다.'
-      },
-      {
-        title:"중국 의회 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'이제는 전부 개선해야 합니다.'
-      },
-      {
-        title:"미국 의회 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'이제는 전부 개선해야 합니다.'
-      },
-      {
-        title:"일본 의회 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'이제는 전부 개선해야 합니다.'
-      },
-      {
-        title:"영국 의회 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'이제는 전부 개선해야 합니다.'
-      }
-    ]
     
     const [bigKindsData, setBigKindsData] = useState([]);
     const [bigKindsLoading, setBigKindsLoading] = useState(true);
@@ -183,6 +157,8 @@ export default function FromTheBlog(){
 
 
     return(
+      <>
+      <Element name="1"></Element>
       <div className="w-full bg-gray-100 py-10">
       <div className="mx-auto sm:py-2" >
         {/* 헤더부분 */}
@@ -400,5 +376,6 @@ export default function FromTheBlog(){
       }
       
     </div>
+    </>
     )
   }

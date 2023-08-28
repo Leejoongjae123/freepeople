@@ -8,7 +8,7 @@ export default function Footer() {
   
   if (pathname==="/"){
     return (
-<footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-white dark:bg-gray-900">
             <div class="mx-auto ">
               <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                 <div>

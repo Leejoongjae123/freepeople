@@ -18,7 +18,8 @@
     "react-apexcharts": "^1.4.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
-    "react-multi-carousel": "^2.8.4"
+    "react-multi-carousel": "^2.8.4",
+    "react-scroll": "^1.8.9"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
