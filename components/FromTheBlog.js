@@ -53,7 +53,10 @@ export default function FromTheBlog(){
     const [columnNoList,setColumnNoList]=useState([1,2,3,4,5]);
 
     const [showModal,setShowModal]=useState(false);
+    
+    const [modalTitle,setModalTitle]=useState("")
 
+    const [modalText,setModalText]=useState(["","",""])
     
     useEffect(() => {
       // 데이터를 가져오는 함수를 정의합니다.
@@ -101,14 +104,6 @@ export default function FromTheBlog(){
       fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
     }, [columnNo]);
     
-
-
-
-
-    console.log('bigNo:',bigKindsNo)
-    console.log('Data:',bigKindsData)
-    
-
     const handleLinkClick1 = (event, number) => {
       event.preventDefault(); // 기본 링크 동작 방지
       setBigKindsNo(number);
@@ -176,10 +171,16 @@ export default function FromTheBlog(){
       setShowModal(false);
     };
 
-    const handleButtonClick = (event) => {
-      const buttonValue = event.currentTarget.value;
-      console.log(`Clicked button with value: ${buttonValue}`);
+    const handleButtonClick = (title,contents,imageUrl) => {
+      console.log(title)
+      console.log(contents)
+      console.log(imageUrl)
+      setModalText([title,contents,imageUrl])
+      toggleModal()
     };
+
+    console.log("modaltitle:",modalTitle)
+
 
     return(
       <div className="w-full bg-gray-100 py-10">
@@ -215,7 +216,7 @@ export default function FromTheBlog(){
                 <div className='flex flex-col'>
                   <img className="p-5 overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
                     <div className="p-5">
-                      <button value={bigKindsData.id} onClick={handleButtonClick}>
+                      <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
                         <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
                       </button>
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
@@ -276,9 +277,11 @@ export default function FromTheBlog(){
                             {elem.regiDate}
                         </div>
                         <div className="flex-1">
+                            <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
                             <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
                               {elem.title}
                             </p>
+                            </button>
                             {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
                             </p> */}
@@ -340,9 +343,11 @@ export default function FromTheBlog(){
                             {elem.regiDate}
                         </div>
                         <div className="flex-1">
+                            <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
                             <p id="truncate" className="text-sm font-bold text-gray-900 truncate dark:text-white">
                               {elem.title}
                             </p>
+                            </button>
                             {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
                             </p> */}
@@ -390,11 +395,8 @@ export default function FromTheBlog(){
 
         </div>
       </div>
-      <button onClick={toggleModal} data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-      Toggle modal
-      </button>
       {
-        showModal&&(<ArticleModal closeModal={closeModal}></ArticleModal>)
+        showModal&&(<ArticleModal modalText={modalText} closeModal={closeModal}></ArticleModal>)
       }
       
     </div>
