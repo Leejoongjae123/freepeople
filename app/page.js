@@ -14,7 +14,7 @@ const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 import FromTheBlog from '@/components/FromTheBlog'
 import JijidoReal from '@/components/JijidoReal'
 import JijidoNBS from '@/components/JijidoNBS'
-
+import {FcVoicePresentation} from 'react-icons/fc'
 
 
 function classNames(...classNamees) {
@@ -102,12 +102,18 @@ export default function Home() {
     </div>
 
     
-    <div className="bg-white px-20 py-10 ">
-      <div className="mx-auto lg:mx-0 ">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">국민/대통령</h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
-          정부/대통령 관련 자료
-        </p>
+    <div className="bg-white px-20 py-10">
+      <div className="mx-auto flex-col lg:mx-0 px-6">
+        <div className='flex items-center'>
+            <FcVoicePresentation size='40'></FcVoicePresentation>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">국민/대통령</h2>
+        </div>
+        <div>
+            <p className="mt-2 text-lg leading-8 text-gray-600">
+            정부/대통령 관련 자료
+            </p>
+        </div>
+        
       </div>
       
       <div className="mx-auto px-6 border-t border-gray-200 mt-6">

@@ -4,40 +4,11 @@ import Link from 'next/link'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import Spinner from './Spinner'
-
+import {FcKindle} from 'react-icons/fc'
+import './styles.css'
+import ArticleModal from './ArticleModal'
 
 export default function FromTheBlog(){
-
-
-
-    let futurePostings=[
-      {
-        title:"한국 정치 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'현재 문제가 매우 많습니다.'
-      },
-      {
-        title:"중국 정치 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'현재 문제가 매우 많습니다.'
-      },
-      {
-        title:"미국 정치 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'현재 문제가 매우 많습니다.'
-      },
-      {
-        title:"일본 정치 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'현재 문제가 매우 많습니다.'
-      },
-      {
-        title:"영국 정치 이대로 괜찮은가?",
-        regiDate:"2023-08-27",
-        contents:'현재 문제가 매우 많습니다.'
-      }
-    ]
-
     let columnPostings=[
       {
         title:"한국 의회 이대로 괜찮은가?",
@@ -66,106 +37,257 @@ export default function FromTheBlog(){
       }
     ]
     
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [bigKindsData, setBigKindsData] = useState([]);
+    const [bigKindsLoading, setBigKindsLoading] = useState(true);
+    const [bigKindsNo,setBigKindsNo]=useState(1);
+    const [bigKindsNoList,setBigKindsNoList]=useState([1,2,3,4,5]);
+
+    const [futureData, setFutureData] = useState([]);
+    const [futureLoading, setFutureLoading] = useState(true);
+    const [futureNo,setFutureNo]=useState(1);
+    const [futureNoList,setFutureNoList]=useState([1,2,3,4,5]);
+
+    const [columnData, setColumnData] = useState([]);
+    const [columnLoading, setColumnLoading] = useState(true);
+    const [columnNo,setColumnNo]=useState(1);
+    const [columnNoList,setColumnNoList]=useState([1,2,3,4,5]);
+
+    const [showModal,setShowModal]=useState(false);
+
     
     useEffect(() => {
       // 데이터를 가져오는 함수를 정의합니다.
       const fetchData = async () => {
         try {
-          const response = await axios.get('https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getBigKinds?page=1');
-          setData(response.data[0]);
-          setLoading(false);
+          const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getBigKinds?page=${bigKindsNo}`);
+          setBigKindsData(response.data[0]);
+          setBigKindsLoading(false);
+          console.log("loading완료")
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       };
-  
       fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
-    }, []);
+    }, [bigKindsNo]);
+
+    useEffect(() => {
+      // 데이터를 가져오는 함수를 정의합니다.
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getFuturePosting?page=${futureNo}`);
+          setFutureData(response.data);
+          setFutureLoading(false);
+          console.log("loading완료")
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
+    }, [futureNo]);
+
+
+    useEffect(() => {
+      // 데이터를 가져오는 함수를 정의합니다.
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getColumnPosting?page=${columnNo}`);
+          setColumnData(response.data);
+          setColumnLoading(false);
+          console.log("loading완료")
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
+    }, [columnNo]);
     
+
+
+
+
+    console.log('bigNo:',bigKindsNo)
+    console.log('Data:',bigKindsData)
+    
+
+    const handleLinkClick1 = (event, number) => {
+      event.preventDefault(); // 기본 링크 동작 방지
+      setBigKindsNo(number);
+    };
+    const handleLinkClick2 = (event, number) => {
+      event.preventDefault(); // 기본 링크 동작 방지
+      setFutureNo(number);
+    };
+
+    const handleLinkClick3 = (event, number) => {
+      event.preventDefault(); // 기본 링크 동작 방지
+      setColumnNo(number);
+    };
+    const handleNextClick1 = () => {
+      const updatedList = bigKindsNoList.map(number => number + 5);
+      
+      setBigKindsNoList(updatedList)
+      setBigKindsNo(updatedList[0])
+    };
+    const handleNextClick2 = () => {
+      const updatedList = futureNoList.map(number => number + 5);
+      
+      setFutureNoList(updatedList)
+      setFutureNo(updatedList[0])
+    };
+    const handleNextClick3 = () => {
+      const updatedList = columnNoList.map(number => number + 5);
+      
+      setColumnNoList(updatedList)
+      setColumnNo(updatedList[0])
+    };
+    const handlePreviousClick1 = () => {
+      const updatedList = bigKindsNoList.map(number => number -5 );
+      if (bigKindsNo>=6){
+        setBigKindsNoList(updatedList)
+        setBigKindsNo(updatedList[0])
+      }else{
+        console.log('error')
+      }
+    };
+    const handlePreviousClick2 = () => {
+      const updatedList = futureNoList.map(number => number -5 );
+      if (futureNo>=6){
+        setFutureNoList(updatedList)
+        setFutureNo(updatedList[0])
+      }else{
+        console.log('error')
+      }
+    };
+    const handlePreviousClick3 = () => {
+      const updatedList = columnNoList.map(number => number -5 );
+      if (columnNo>=6){
+        setColumnNoList(updatedList)
+        setColumnNo(updatedList[0])
+      }else{
+        console.log('error')
+      }
+    };
+
+    const toggleModal = () => {
+      setShowModal(!showModal);
+    };
+
+    const closeModal = () => {
+      setShowModal(false);
+    };
+
+    const handleButtonClick = (event) => {
+      const buttonValue = event.currentTarget.value;
+      console.log(`Clicked button with value: ${buttonValue}`);
+    };
 
     return(
       <div className="w-full bg-gray-100 py-10">
-      <div className="mx-auto px-6 lg:px-8 sm:py-2" >
+      <div className="mx-auto sm:py-2" >
         {/* 헤더부분 */}
-        <div className="mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">컬럼/연구</h2>
-          <p className="mt-2 text-lg leading-8 text-gray-600">
-            각종 컬럼 및 연구자료
-          </p>
+        <div className="flex flex-col mx-auto lg:mx-0">
+          <div className='flex'>
+            <FcKindle size='40'></FcKindle>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">컬럼/연구</h2>
+          </div>
+          <div className=''>
+            <p className="mt-2 text-lg leading-8 text-gray-600">
+              각종 컬럼 및 연구자료
+            </p>
+          </div>
+          
         </div>
 
         
         
         <div className="mx-auto grid grid-cols-1 gap-x-8 border-t border-gray-200 pt-6 sm:mt-6 sm:pt-6 sm:grid-cols-1 lg:mx-0 lg:grid-cols-3">
             {/* 첫번째 섹션 */}
-            <div className='bg-white border border-gray-200 rounded-lg shadow'>
+            <div className= 'bg-white border border-gray-200 rounded-lg shadow'>
+            <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
+
             {
-              loading?(
+              bigKindsLoading?(
+                <div className='flex w-full h-full'> 
                   <Spinner></Spinner>
+                </div> 
               ):(
                 <>
-                <div>
-                  <img className="overflow-hidden rounded-t-lg" src={data.imageUrl} alt="" />
+                <div className='flex flex-col'>
+                  <img className="p-5 overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
                     <div className="p-5">
-                      <a href="#">
-                          <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{data.title}</h5>
-                      </a>
-                      <p className="text-center mb-3 font-normal text-gray-700 dark:text-gray-400">{data.contents}</p>
-                      <p className="text-center mb-3 font-normal text-gray-700 dark:text-gray-400">{data.regiDate}</p>
+                      <button value={bigKindsData.id} onClick={handleButtonClick}>
+                        <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
+                      </button>
+                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
+                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
                     </div>
                 </div> 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                   <img src="https://shop-phinf.pstatic.net/20221220_60/1671512155404m34vw_JPEG/72647989066429637_1719202779.jpg?type=m510" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
                 </div>
+                <div className='flex justify-center my-3'>
+                  <ul className="inline-flex -space-x-px text-sm">
+                    <li>
+                      <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
+                    </li>
+                    <li>
+                      <button value={1} onClick={(e) => handleLinkClick1(e,bigKindsNoList[0])} className={`${bigKindsNo==bigKindsNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[0]}</button>
+                    </li>
+                    <li>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[1])} className={`${bigKindsNo==bigKindsNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[1]}</button>
+                    </li>
+                    <li>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[2])} className={`${bigKindsNo==bigKindsNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[2]}</button>
+                    </li>
+                    {/* <li>
+                      <a href="#" aria-current="" className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                    </li> */}
+                    <li>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[3])} className={`${bigKindsNo==bigKindsNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[3]}</button>
+                    </li>
+                    <li>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[4])} className={`${bigKindsNo==bigKindsNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[4]}</button>
+                    </li>
+                    <li>
+                      <button onClick={() => handleNextClick1()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                    </li>
+                  </ul>
+                </div>
                 </>
               )
             }
-            <div className='flex justify-center my-3'>
-              <ul className="inline-flex -space-x-px text-sm">
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                </li>
-                <li>
-                  <a href="#" aria-current="page" className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                </li>
-              </ul>
-              </div>
+
             </div>
             
-          
-            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-center'>
+            {/* 두번째 섹션 */}
+            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
+              <h1 className='text-2xl font-bold text-center'>미래민중 논평</h1>
+              {futureLoading?(
+                 
+                <Spinner></Spinner>
+              ):(
               <div className='flex flex-col'>
-                <ul className="grid h-full justify-start ml-10 grid-rows-5 gap-4 items-center">
-                  {futurePostings.map((elem,index)=>(
-                      <li key={index*111} className="pb-3 mx-auto sm:pb-4">
+                <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
+                  
+                  {futureData.map((elem,index)=>(
+                      <li key={index*111} className="pb-3 mx-auto sm:pb-4 border-b-2">
                       <div className="flex items-center space-x-4">
-                        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        <div className="flex items-center text-base font-semibold text-gray-900 dark:text-white">
                             {elem.regiDate}
                         </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <div className="flex-1">
+                            <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
                               {elem.title}
                             </p>
-                            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
-                            </p>
+                            </p> */}
+                            <div >
+                              <p id="truncate" className="text-sm text-gray-500 dark:text-gray-400">
+                                {elem.contents}
+                              </p>
+                            </div>
+                            
                         </div>
                       </div>
                     </li>   
@@ -175,48 +297,61 @@ export default function FromTheBlog(){
                 <div className='flex justify-center my-3'>
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                      <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                      <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[0]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[1])} className={`${futureNo==futureNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[1]}</button>
                     </li>
                     <li>
-                      <a href="#" aria-current="page" className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[2])} className={`${futureNo==futureNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[2]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[3])} className={`${futureNo==futureNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[3]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[4])} className={`${futureNo==futureNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[4]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                      <button onClick={() => handleNextClick2()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
                     </li>
                   </ul>
                 </div>
-              </div>                    
+              </div>  
+              )}
+                               
             </div>
 
             {/* 세번째 섹션 */}
-            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-center'>
+            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
+              <h1 className='text-2xl font-bold text-center'>칼럼 논평</h1>
+              {futureLoading?(
+                <Spinner></Spinner>
+              ):(
               <div className='flex flex-col'>
-                <ul className="grid h-full justify-start ml-10 grid-rows-5 gap-4 items-center">
-                  {futurePostings.map((elem,index)=>(
-                      <li key={index*111} className="pb-3 mx-auto sm:pb-4">
+                <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
+                  
+                  {columnData.map((elem,index)=>(
+                      <li key={index*111} className="pb-3 mx-auto sm:pb-4 border-b-2">
                       <div className="flex items-center space-x-4">
-                        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        <div className="flex items-center text-base font-semibold text-gray-900 dark:text-white">
                             {elem.regiDate}
                         </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <div className="flex-1">
+                            <p id="truncate" className="text-sm font-bold text-gray-900 truncate dark:text-white">
                               {elem.title}
                             </p>
-                            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                            {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
-                            </p>
+                            </p> */}
+                            <div>
+                              <p id="truncate" className="text-sm text-gray-500 dark:text-gray-400">
+                                {elem.contents}
+                              </p>
+                            </div>
+                            
                         </div>
                       </div>
                     </li>   
@@ -226,33 +361,42 @@ export default function FromTheBlog(){
                 <div className='flex justify-center my-3'>
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                      <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                      <button value={1} onClick={(e) => handleLinkClick3(e,columnNoList[0])} className={`${columnNo==columnNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[0]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[1])} className={`${columnNo==columnNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[1]}</button>
                     </li>
                     <li>
-                      <a href="#" aria-current="page" className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[2])} className={`${columnNo==columnNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[2]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[3])} className={`${columnNo==columnNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[3]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[4])} className={`${columnNo==columnNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[4]}</button>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                      <button onClick={() => handleNextClick3()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
                     </li>
                   </ul>
                 </div>
-              </div>                    
+              </div>  
+              )}
+                               
             </div>
 
         </div>
       </div>
+      <button onClick={toggleModal} data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+      Toggle modal
+      </button>
+      {
+        showModal&&(<ArticleModal closeModal={closeModal}></ArticleModal>)
+      }
+      
     </div>
     )
   }

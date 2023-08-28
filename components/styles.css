@@ -18,3 +18,17 @@
   .react-multi-carousel-list {
   padding: 0rem 0 2rem 0;
   }
+
+  #truncate {
+    display: block;        
+    font-weight: bolder !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1 ;
+    -webkit-box-orient: vertical;
+}
