@@ -9,9 +9,9 @@ export default function Navbar() {
 
 
     const navigation = [
-        { name: '소개', href: '/', current: false },
+        { name: '홈', href: '/', current: false },
+        { name: '컬럼/연구', href: '/', current: false },
         { name: '국민/대통령', href: '/', current: false },
-        { name: '국회/정당', href: '/', current: false },
         { name: '정책/이슈', href: '/', current: false },
         { name: '컬럼/연구', href: '/', current: false },
         { name: '통계/선거', href: '/', current: false },

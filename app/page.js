@@ -12,8 +12,8 @@ import Slider from '@/components/Slider'
 // import ApexCharts from "react-apexcharts";
 const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 import FromTheBlog from '@/components/FromTheBlog'
-
-
+import JijidoReal from '@/components/JijidoReal'
+import JijidoNBS from '@/components/JijidoNBS'
 
 
 
@@ -24,25 +24,8 @@ function classNames(...classNamees) {
 export default function Home() {
   let varaaa=[]
 
-  const jijidoReal = 
-    {
-      date: '2023-08-21',
-      title: '[리얼미터 8월 3주 차 주간 동향] 尹 대통령 긍정평가 35.6%(2.7%P↓)…부정평가 61.2%…14주 만에 60%대 진입',
-      imageSrc: 'http://www.realmeter.net/wp-content/uploads/2023/08/98599_134406_1692420381-351x185.jpg',
-      imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-      groupName:'대통령지지도(리얼미터)',
-      readMore:'http://www.realmeter.net/category/politics/',
-      href: '#',
-    }
-  const jijidoNBS={
-      date: '2023-08-17',
-      title: '전국지표조사 리포트 제103호(2023년 8월 3주)',
-      imageSrc: 'https://i0.wp.com/nbsurvey.kr/wp-content/uploads/2020/08/logo_2-e1597095556507.png?fit=822%2C359',
-      imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-      groupName:'대통령지지도(NBS)',
-      readMore:'http://nbsurvey.kr/',
-      href: '#',
-    }
+
+
   const captainBriefs=[{
       date: '2023-08-21',
       title: "尹 대통령, 캠프 데이비드 정상회의는 포괄적 협력체계를 제도화한 '매우 특별한 회의'",
@@ -103,57 +86,35 @@ export default function Home() {
     <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2>
           <h1 className="mt-2 font-bold tracking-tight text-gray-900 lg:text-4xl sm:text-2xl">
             미 래 민 중
           </h1>
-          <p className="mt-3 text-lg leading-8 text-gray-600">
+          <p className="mt-3 font-bold text-lg leading-8 text-gray-600">
             미래 민중은 민중의, 민중을 위한, 민중에 의한
           </p>
         </div>
       </div>
     </div>
 
-    <div className="mx-auto flex px-20 bg-gray-100">
+    <div className="mx-auto px-20 pb-10 bg-gray-100">
       <FromTheBlog></FromTheBlog>
     </div>
 
     
-    <div className="bg-white px-20">
-      <div className="mx-auto px-6 py-6">
-        <div className="mx-auto px-10 py-10 sm:py-24 lg:py-6">
+    <div className="bg-white px-20 py-10 ">
+      <div className="mx-auto lg:mx-0 ">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">국민/대통령</h2>
+        <p className="mt-2 text-lg leading-8 text-gray-600">
+          정부/대통령 관련 자료
+        </p>
+      </div>
+      
+      <div className="mx-auto px-6 border-t border-gray-200 mt-6">
+        <div className="mx-auto px-10 sm:py-6">
           <div className="mt-2 space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:space-y-3">
-            <div className="group relative">
-              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">{jijidoReal.groupName}</h2>
-                <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                <img
-                src={jijidoReal.imageSrc}
-                alt={jijidoReal.imageAlt}
-                className="h-full w-full object-cover object-center"
-                />
-                </div>
-              <h3 className="mt-6 text-sm text-gray-500">
-                  {jijidoReal.date}
-              </h3>
-              <p className="text-base font-semibold text-gray-900">{jijidoReal.title}</p>
-              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={jijidoReal.readMore}>Read more</Link></p>
-            </div>
-            <div className="group relative">
-              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">{jijidoNBS.groupName}</h2>
-                <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                <img
-                src={jijidoNBS.imageSrc}
-                alt={jijidoNBS.imageAlt}
-                className="h-full w-full object-cover object-center"
-                />
-                </div>
-              <h3 className="mt-6 text-sm text-gray-500">
-                  {jijidoNBS.date}
-              </h3>
-              <p className="text-base font-semibold text-gray-900">{jijidoNBS.title}</p>
-              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={jijidoNBS.readMore}>Read more</Link></p>
-              
-            </div>
+            <JijidoReal></JijidoReal>
+            <JijidoNBS></JijidoNBS>
             <div className="group relative">
               <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 브리핑</h2>
               {
@@ -710,9 +671,9 @@ function ListViewPeoplePower(){
       </div>
         <div className="flow-root">
           <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-              {PeoplePower.map((elem)=>{
+              {PeoplePower.map((elem,index)=>{
                 return(
-                  <li className="py-3 sm:py-4">
+                  <li key={index} className="py-3 sm:py-4">
                     <div className="flex items-center space-x-4">
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                           {elem.category}
@@ -781,8 +742,8 @@ function ListViewTogetherPeople(){
         <div className="flow-root">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
           {
-            TogetherPeople.map((elem)=>(
-            <li className="py-3 sm:py-4">
+            TogetherPeople.map((elem,index)=>(
+            <li key={index} className="py-3 sm:py-4">
               <div className="flex items-center space-x-4">
               <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     {elem.category}
