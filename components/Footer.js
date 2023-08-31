@@ -1,13 +1,15 @@
 'use client'
 import React from 'react'
 import { usePathname, useRouter } from 'next/navigation';
-
+import LoginBtn from './LoginBtn';
+import Link from 'next/link';
 export default function Footer() {
   const pathname = usePathname();
   const router = useRouter();
   
   if (pathname==="/"){
     return (
+    <div>
     <footer class="bg-white dark:bg-gray-900">
             <div class="mx-auto ">
               <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
@@ -60,21 +62,27 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">관리자센터</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">iOS</a>
+                            <LoginBtn></LoginBtn>
+                            
                         </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Android</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Windows</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">MacOS</a>
+                        <li>
+                        
+                        <button
+                        type="submit"
+                        className="flex justify-center rounded-md bg-gray-200 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        
+                        >
+                        <Link href='/admin/list'>
+                        관리자 사이트로 이동
+                        </Link>
+                        </button>
+                        
                         </li>
                     </ul>
+
                 </div>
             </div>
             <div class="px-4 py-6 bg-gray-300 dark:bg-gray-700 md:flex md:items-center md:justify-between">
@@ -111,12 +119,16 @@ export default function Footer() {
                         </svg>
                           <span class="sr-only">Dribbble account</span>
                       </a>
+
                 </div>
               </div>
+
             </div>
+
         </footer>
+      </div>
     )
   }else{
-    return null
+    return <div></div>
   }
 }

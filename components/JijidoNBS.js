@@ -6,7 +6,6 @@ export default function JijidoNBS() {
     date: '2023-08-17',
     title: '전국지표조사 리포트 제103호(2023년 8월 3주)',
     imageSrc: 'https://i0.wp.com/nbsurvey.kr/wp-content/uploads/2020/08/logo_2-e1597095556507.png?fit=822%2C359',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
     groupName:'대통령지지도(NBS)',
     readMore:'http://nbsurvey.kr/',
     href: '#',

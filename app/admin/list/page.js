@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import TopicsList from '@/components/TopicsList'
 export default function page() {
+  
   return (
     <>
     <div className='flex'>

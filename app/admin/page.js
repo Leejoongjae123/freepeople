@@ -1,5 +1,6 @@
 import React from 'react'
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import LoginBtn from '@/components/LoginBtn'
 
 export default function Admin() {
   return (

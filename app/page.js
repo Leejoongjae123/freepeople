@@ -16,8 +16,8 @@ import JijidoReal from '@/components/JijidoReal'
 import JijidoNBS from '@/components/JijidoNBS'
 import {FcVoicePresentation} from 'react-icons/fc'
 import { Element } from 'react-scroll' 
-
-
+import LoginBtn from '@/components/LoginBtn'
+import President from '@/components/President'
 function classNames(...classNamees) {
   return classNamees.filter(Boolean).join(' ')
 }
@@ -84,8 +84,10 @@ export default function Home() {
 
   return (
     <div>
+    
     <Element name="0"></Element>
     <div className="bg-white py-6 sm:py-6">
+      
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2>
@@ -95,6 +97,7 @@ export default function Home() {
           <p className="mt-3 font-bold text-lg leading-8 text-gray-600">
             미래 민중은 민중의, 민중을 위한, 민중에 의한
           </p>
+          
         </div>
       </div>
     </div>
@@ -105,7 +108,7 @@ export default function Home() {
 
     <Element name="2"></Element>
     <div className="bg-white px-20 py-10">
-      <div className="mx-auto flex-col lg:mx-0 px-6">
+      {/* <div className="mx-auto flex-col lg:mx-0 px-6">
         <div className='flex items-center'>
             <FcVoicePresentation size='40'></FcVoicePresentation>
             
@@ -160,7 +163,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <President></President>
+
     </div>
 
     <div className="grid lg:grid-cols-2 sm:grid-cols-1">

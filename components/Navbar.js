@@ -39,7 +39,7 @@ export default function Navbar() {
           {({ open }) => (
             <>
               <div className="mx-auto px-2 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-center relative flex h-16 space-x-4 text-lg">
+                <div className="items-center justify-center relative flex h-16 space-x-4 text-lg">
                         {navigation.map((item,index) => (
                           <Link to={index} spy={true} smooth={true} offset={-50}>
                           <button
@@ -81,6 +81,7 @@ export default function Navbar() {
               </Disclosure.Panel>
             </>
           )}
+          
           </Disclosure>
       )
   } else{
