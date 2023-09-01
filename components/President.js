@@ -60,14 +60,14 @@ export default function President() {
         <div className="py-8 px-4 mx-auto max-w-screen-2xl lg:py-8 lg:px-6 ">
 
             
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="px-20 pt-10 grid gap-8 md:grid-cols-2">
                 {presidentRealmeterLoading?(
                   <div className='flex w-full h-full'> 
                     <Spinner></Spinner>
                   </div> 
                 ):(
                 <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                  <div className='w-full h-3/4'>
+                  <div className='w-full h-full h-3/4'>
                     <img className="h-full w-full object-cover rounded-t-lg " src={presidentRealmeter[0]['imageSrc']} alt="Bonnie Avatar"/>
                   </div>
                   <div className="mt-5 h-1/4 w-full">
@@ -93,7 +93,7 @@ export default function President() {
                   ):(
                   <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                     <div className='w-full h-3/4'>
-                      <img className="h-full w-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
+                      <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
                     </div>
                     <div className="mt-5 h-1/4 w-full">
                       <h3 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">

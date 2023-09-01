@@ -177,7 +177,7 @@ export default function FromTheBlog(){
 
         
         
-        <div className="mx-auto grid grid-cols-1 gap-x-8 border-t border-gray-200 pt-6 sm:mt-6 sm:pt-6 sm:grid-cols-1 lg:mx-0 lg:grid-cols-3">
+        <div className="mx-auto grid grid-cols-1 gap-x-8 px-20 border-t border-gray-200 pt-6 sm:mt-6 sm:pt-6 sm:grid-cols-1 lg:mx-0 lg:grid-cols-3">
             {/* 첫번째 섹션 */}
             <div className= 'bg-white border border-gray-200 rounded-lg shadow'>
             <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
