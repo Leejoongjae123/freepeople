@@ -18,6 +18,9 @@ import {FcVoicePresentation} from 'react-icons/fc'
 import { Element } from 'react-scroll' 
 import LoginBtn from '@/components/LoginBtn'
 import President from '@/components/President'
+import Parliament from '@/components/Parliament'
+
+
 function classNames(...classNamees) {
   return classNamees.filter(Boolean).join(' ')
 }
@@ -108,69 +111,13 @@ export default function Home() {
 
     <Element name="2"></Element>
     <div className="bg-white px-20 py-10">
-      {/* <div className="mx-auto flex-col lg:mx-0 px-6">
-        <div className='flex items-center'>
-            <FcVoicePresentation size='40'></FcVoicePresentation>
-            
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">국민/대통령</h2>
-        </div>
-        <div>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-            정부/대통령 관련 자료
-            </p>
-        </div>
-        
-      </div>
-      
-      <div className="mx-auto px-6 border-t border-gray-200 mt-6">
-        <div className="mx-auto px-10 sm:py-6">
-          <div className="mt-2 space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:space-y-3">
-            <JijidoReal></JijidoReal>
-            <JijidoNBS></JijidoNBS>
-            <div className="group relative">
-              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 브리핑</h2>
-              {
-                captainBriefs.map((captainBrief)=>{
-                  return (
-                  <div>
-                    <h3 className="mt-6 text-sm text-gray-500">
-                        {captainBrief.date}
-                    </h3>
-                    <p className="text-base font-semibold text-gray-900">{captainBrief.title}</p>
-                  </div>
-    
-                  )
-                })
-              }
-              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={captainBriefs[0].readMore}>Read more</Link></p>       
-            </div>
-            <div className="group relative ">
-              <h2 className="text-center text-2xl font-bold mb-6 text-gray-900">대통령실 보도자료</h2>
-              {
-                captainPresss.map((captainPress)=>{
-                  return (
-                  <div>
-                    <h3 className="mt-6 text-sm text-gray-500">
-                        {captainPress.date}
-                    </h3>
-                    <p className="text-base font-semibold text-gray-900">{captainPress.title}</p>
-                  </div>
-    
-                  )
-                })
-              }
-              <p className="text-base font-semibold text-blue-500 underline mt-2 text-right"><Link target='_blank' className='z-50' href={captainPresss[0].readMore}>Read more</Link></p>       
-            </div>
-          </div>
-        </div>
-      </div> */}
       <President></President>
-
     </div>
 
-    <div className="grid lg:grid-cols-2 sm:grid-cols-1">
-      <ListViewPeoplePower></ListViewPeoplePower>
-      <ListViewTogetherPeople></ListViewTogetherPeople>
+    <div className="bg-gray-100 px-20 py-10">
+      <Parliament></Parliament>
+      {/* <ListViewPeoplePower></ListViewPeoplePower>
+      <ListViewTogetherPeople></ListViewTogetherPeople> */}
     </div>
     
     

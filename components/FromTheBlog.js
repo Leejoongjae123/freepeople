@@ -169,7 +169,7 @@ export default function FromTheBlog(){
           </div>
           <div className=''>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              각종 컬럼 및 연구자료
+              미래민중 논평 및 컬럼
             </p>
           </div>
           

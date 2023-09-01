@@ -13,6 +13,12 @@ export default function President() {
   const [presidentNBS,setPresidentNBS] = useState([]);
   const [presidentNBSLoading, setPresidentNBSLoading] = useState(true);
 
+  const [presidentbrief,setPresidentbrief] = useState([]);
+  const [presidentbriefLoading, setPresidentbriefLoading] = useState(true);
+
+  const [presidentpress,setPresidentpress] = useState([]);
+  const [presidentpressLoading, setPresidentpressLoading] = useState(true);
+
   useEffect(() => {
     // 데이터를 가져오는 함수를 정의합니다.
     const fetchData1 = async () => {
@@ -35,12 +41,32 @@ export default function President() {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchData3 = async () => {
+      try {
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getpresidentbrief?page=1`);
+        setPresidentbrief(response.data);
+        setPresidentbriefLoading(false);
+        console.log("loading완료3")
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    const fetchData4 = async () => {
+      try {
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getpresidentpress?page=1`);
+        setPresidentpress(response.data);
+        setPresidentpressLoading(false);
+        console.log("loading완료4")
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
     fetchData1(); // 함수를 호출하여 데이터를 가져옵니다.
     fetchData2(); // 함수를 호출하여 데이터를 가져옵니다.
+    fetchData3(); // 함수를 호출하여 데이터를 가져옵니다.
+    fetchData4(); // 함수를 호출하여 데이터를 가져옵니다.
   }, []);
 
-  console.log('presidentRealmeter:',presidentRealmeter)
-  console.log('presidentNBS:',presidentNBS)
 
   return (
     <>
@@ -51,7 +77,7 @@ export default function President() {
         </div>
         <div>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-            정부/대통령 관련 자료
+            행정부처 관련 자료
             </p>
         </div>   
       </div>
@@ -60,12 +86,14 @@ export default function President() {
         <div className="py-8 px-4 mx-auto max-w-screen-2xl lg:py-8 lg:px-6 ">
 
             
-            <div className="px-20 pt-10 grid gap-8 md:grid-cols-2">
+            <div className="pt-10 grid gap-8 md:grid-cols-2">
                 {presidentRealmeterLoading?(
                   <div className='flex w-full h-full'> 
                     <Spinner></Spinner>
                   </div> 
                 ):(
+                <div className='h-full'> 
+                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
                 <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                   <div className='w-full h-full h-3/4'>
                     <img className="h-full w-full object-cover rounded-t-lg " src={presidentRealmeter[0]['imageSrc']} alt="Bonnie Avatar"/>
@@ -77,11 +105,12 @@ export default function President() {
                     <div className='text-center'>
                       <span className="text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
                     </div>
-                    <div className='text-right pr-5'>
-                      <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
-                    </div>  
+
                   </div>
-                  
+                  </div>
+                  <div className='text-right pr-5'>
+                      <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+                  </div>  
                   
                 </div> 
                 )}
@@ -91,250 +120,125 @@ export default function President() {
                     <Spinner></Spinner>
                   </div> 
                   ):(
-                  <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                    <div className='w-full h-3/4'>
-                      <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
-                    </div>
-                    <div className="mt-5 h-1/4 w-full">
-                      <h3 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                        {presidentNBS[0]['title']}
-                      </h3>
-                      <div className='text-center'>
-                        <span className="text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
+                    // <div className='grid grid-col-[5,3,2]'>
+                    //   <div className=' bg-red-100'>11</div>
+                    //   <div className=' bg-blue-100'>22</div>
+                    //   <div className=' bg-green-100'>33</div>
+
+
+                  <div>
+                    <div className='h-full flex flex-col'>
+                      <div className=''>
+                        <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
                       </div>
+                      <div className="flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+                        <div className='w-full h-3/4'>
+                          <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
+                        </div>
+                        <div className="mt-5 h-1/4 w-full">
+                          <h3 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            {presidentNBS[0]['title']}
+                          </h3>
+                          <div className='text-center'>
+                            <span className="text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
+                          </div>
+                        </div>            
+                      </div> 
                       <div className='text-right pr-5'>
                         <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/'>Read more</Link></p>
                       </div>  
                     </div>
-                    
-                    
-                  </div> 
+                  </div>
                 )}
+                
 
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                          <tr>
-                              <th scope="col" class="px-6 py-3">
-                                  Product name
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Color
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Category
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Price
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Action
-                              </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Apple MacBook Pro 17"
-                              </th>
-                              <td class="px-6 py-4">
-                                  Silver
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop
-                              </td>
-                              <td class="px-6 py-4">
-                                  $2999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Microsoft Surface Pro
-                              </th>
-                              <td class="px-6 py-4">
-                                  White
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop PC
-                              </td>
-                              <td class="px-6 py-4">
-                                  $1999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Magic Mouse 2
-                              </th>
-                              <td class="px-6 py-4">
-                                  Black
-                              </td>
-                              <td class="px-6 py-4">
-                                  Accessories
-                              </td>
-                              <td class="px-6 py-4">
-                                  $99
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Google Pixel Phone
-                              </th>
-                              <td class="px-6 py-4">
-                                  Gray
-                              </td>
-                              <td class="px-6 py-4">
-                                  Phone
-                              </td>
-                              <td class="px-6 py-4">
-                                  $799
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr>
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Apple Watch 5
-                              </th>
-                              <td class="px-6 py-4">
-                                  Red
-                              </td>
-                              <td class="px-6 py-4">
-                                  Wearables
-                              </td>
-                              <td class="px-6 py-4">
-                                  $999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
+                <div>
+                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
+                  <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div>
+                    <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="px-6 py-3">
+                                    제목
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    작성일
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                              presidentbrief.map((elem,index)=>{
+                                return (
+                                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                  <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                      {elem['title']}
+                                  </th>
+                                  <td className="w-1/4 px-6 py-4">
+                                      {elem['regiDate']}
+                                  </td>
+                              </tr>
+                                )
+                              })
+                            }
+
+                            
+                        </tbody>
+                    </table>
+
+                  </div>
                 </div>
-
-
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                          <tr>
-                              <th scope="col" class="px-6 py-3">
-                                  Product name
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Color
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Category
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Price
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Action
-                              </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Apple MacBook Pro 17"
-                              </th>
-                              <td class="px-6 py-4">
-                                  Silver
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop
-                              </td>
-                              <td class="px-6 py-4">
-                                  $2999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Microsoft Surface Pro
-                              </th>
-                              <td class="px-6 py-4">
-                                  White
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop PC
-                              </td>
-                              <td class="px-6 py-4">
-                                  $1999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Magic Mouse 2
-                              </th>
-                              <td class="px-6 py-4">
-                                  Black
-                              </td>
-                              <td class="px-6 py-4">
-                                  Accessories
-                              </td>
-                              <td class="px-6 py-4">
-                                  $99
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Google Pixel Phone
-                              </th>
-                              <td class="px-6 py-4">
-                                  Gray
-                              </td>
-                              <td class="px-6 py-4">
-                                  Phone
-                              </td>
-                              <td class="px-6 py-4">
-                                  $799
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                          <tr>
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Apple Watch 5
-                              </th>
-                              <td class="px-6 py-4">
-                                  Red
-                              </td>
-                              <td class="px-6 py-4">
-                                  Wearables
-                              </td>
-                              <td class="px-6 py-4">
-                                  $999
-                              </td>
-                              <td class="px-6 py-4">
-                                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
+                  <div className='text-right my-2 pr-5'>
+                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/briefing'>Read more</Link></p>
+                  </div>  
                 </div>
+                
+                
+                <div>
+                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 보도자료</h1>
+                  <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div>
+                    <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="px-6 py-3">
+                                    제목
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    작성일
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                              presidentpress.map((elem,index)=>{
+                                return (
+                                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                  <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                      {elem['title']}
+                                  </th>
+                                  <td className="w-1/4 px-6 py-4">
+                                      {elem['regiDate']}
+                                  </td>
+                              </tr>
+                                )
+                              })
+                            }
 
+                            
+                        </tbody>
+                    </table>
+
+                  </div>
+                </div>
+                <div className='text-right my-2 pr-5'>
+                  <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/press'>Read more</Link></p>
+                </div>  
+              </div>    
+            
             </div>  
+            
         </div>
       </section>
     </>
