@@ -26,11 +26,11 @@ export default function Navbar() {
     const router = useRouter();
   if (pathname==="/"){
     return (
-        <Disclosure as="nav" className="bg-gray-800 fixed w-full z-50">
+        <Disclosure as="nav" className="w-full bg-gray-800 fixed lg:w-full z-50">
           {({ open }) => (
             <>
-              <div className="mx-auto px-2 sm:px-6 lg:px-8">
-                <div className="items-center justify-center relative flex h-16 space-x-4 text-lg">
+              <div className="mx-auto px-2 sm:px-1 lg:px-8">
+                <div className="items-center justify-center relative flex h-16 sm:space-x-1 lg:space-x-4 text-xs lg:text-lg">
                         {navigation.map((item,index) => (
                           <Link to={index} spy={true} smooth={true} offset={-50}>
                           <button

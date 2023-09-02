@@ -33,7 +33,7 @@ export default function Home() {
     <Element name="0"></Element>
     <div className="bg-white py-6 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
+        <div className="mx-auto max-w-2xl text-center mt-20">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2>
           <h1 className="mt-2 font-bold tracking-tight text-gray-900 lg:text-4xl sm:text-2xl">
             미 래 민 중
@@ -51,7 +51,7 @@ export default function Home() {
 
 
     <Element name="1"></Element>
-    <div id="mySection" className="mx-auto px-20 pb-10 bg-gray-100">
+    <div id="mySection" className="mx-auto px-10 lg:px-20 pb-10 bg-gray-100">
       <FromTheBlog></FromTheBlog>
     </div>
 
