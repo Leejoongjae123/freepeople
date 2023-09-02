@@ -83,10 +83,10 @@ export default function President() {
       </div>
 
     <section className="bg-white dark:bg-gray-900 ">
-        <div className="py-8 px-4 mx-auto max-w-screen-2xl lg:py-8 lg:px-6 ">
+        <div className="px-4 mx-auto max-w-screen-2xl ">
 
             
-            <div className="pt-10 grid gap-8 md:grid-cols-2">
+            <div className="grid gap-8 md:grid-cols-2 border-t mt-6">
                 {presidentRealmeterLoading?(
                   <div className='flex w-full h-full'> 
                     <Spinner></Spinner>

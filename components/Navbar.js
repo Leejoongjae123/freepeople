@@ -8,23 +8,14 @@ import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
 
-  const scrollDown = () => {
-    // 스크롤할 픽셀 값
-    const scrollAmount = 300; // 원하는 만큼 조정
 
-    // 현재 스크롤 위치
-    const currentPosition = window.pageYOffset;
-
-    // 원하는 만큼 아래로 스크롤
-    window.scrollTo(0, currentPosition + scrollAmount);
-  };
 
     const navigation = [
         { name: '홈', href: '/', current: false },
         { name: '컬럼/연구', href: '/', current: false },
         { name: '국민/대통령', href: '/', current: false },
+        { name: '국회/정당', href: '/', current: false },
         { name: '정책/이슈', href: '/', current: false },
-        { name: '컬럼/연구', href: '/', current: false },
         { name: '통계/선거', href: '/', current: false },
         ]
     function classNames(...classes) {

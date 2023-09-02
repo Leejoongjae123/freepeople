@@ -26,71 +26,12 @@ function classNames(...classNamees) {
 }
 
 export default function Home() {
-  let varaaa=[]
-
-
-
-  const captainBriefs=[{
-      date: '2023-08-21',
-      title: "尹 대통령, 캠프 데이비드 정상회의는 포괄적 협력체계를 제도화한 '매우 특별한 회의'",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 브리핑',
-      readMore:'https://www.president.go.kr/newsroom/briefing',
-      href: '#',
-    },
-    {
-      date: '2023-08-21',
-      title: "尹 대통령, 한 총리에 '묻지마 범죄' 근본적 대책 마련 지시",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 브리핑',
-      readMore:'https://www.president.go.kr/newsroom/briefing',
-      href: '#',
-    },
-    {
-      date: '2023.08.21',
-      title: "尹 대통령, 을지 국가안전보장회의 주재",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 브리핑',
-      readMore:'https://www.president.go.kr/newsroom/briefing',
-      href: '#',
-    }]
-  const captainPresss=[{
-      date: '2023-08-18',
-      title: "한미일 정상회의 계기 한일 정상회담 결과",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 보도자료',
-      readMore:'https://www.president.go.kr/newsroom/press',
-      href: '#',
-    },
-    {
-      date: '2023-08-18',
-      title: "캠프 데이비드 한미 정상회담 결과",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 보도자료',
-      readMore:'https://www.president.go.kr/newsroom/press',
-      href: '#',
-    },
-    {
-      date: '2023-08-18',
-      title: "캠프 데이비드 정신: 한미일 정상회의 공동성명",
-      imageSrc: "",
-      imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      groupName:'대통령실 보도자료',
-      readMore:'https://www.president.go.kr/newsroom/press',
-      href: '#',
-    }]
 
   return (
     <div>
     
     <Element name="0"></Element>
     <div className="bg-white py-6 sm:py-6">
-      
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center lg:mt-20">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2>
@@ -105,6 +46,11 @@ export default function Home() {
       </div>
     </div>
 
+
+   
+
+
+    <Element name="1"></Element>
     <div id="mySection" className="mx-auto px-20 pb-10 bg-gray-100">
       <FromTheBlog></FromTheBlog>
     </div>
@@ -113,11 +59,10 @@ export default function Home() {
     <div className="bg-white px-20 py-10">
       <President></President>
     </div>
-
+    
+    <Element name="3"></Element>
     <div className="bg-gray-100 px-20 py-10">
       <Parliament></Parliament>
-      {/* <ListViewPeoplePower></ListViewPeoplePower>
-      <ListViewTogetherPeople></ListViewTogetherPeople> */}
     </div>
     
     
