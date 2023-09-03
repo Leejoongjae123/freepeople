@@ -86,33 +86,46 @@ export default function President() {
         <div className="px-4 mx-auto max-w-screen-2xl ">
 
             
-            <div className="grid gap-8 md:grid-cols-2 border-t mt-6">
+            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 border-t mt-6">
                 {presidentRealmeterLoading?(
                   <div className='flex w-full h-full'> 
                     <Spinner></Spinner>
                   </div> 
                 ):(
-                <div className='h-full'> 
-                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
-                <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                  <div className='w-full h-full h-3/4'>
-                    <img className="h-full w-full object-cover rounded-t-lg " src={presidentRealmeter[0]['imageSrc']} alt="Bonnie Avatar"/>
-                  </div>
-                  <div className="mt-5 h-1/4 w-full">
-                    <h3 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                      {presidentRealmeter[0]['title']}
-                    </h3>
-                    <div className='text-center'>
-                      <span className="text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
-                    </div>
+                // <div className='h-full'> 
+                // <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
+                // <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+                //   <div className='w-full h-full h-3/4'>
+                //     <img className="h-full w-full object-cover rounded-t-lg " src={presidentRealmeter[0]['imageSrc']} alt="Bonnie Avatar"/>
+                //   </div>
+                //   <div className="mt-5 h-1/4 w-full">
+                //     <h3 className="truncate ... text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                //       {presidentRealmeter[0]['title']}
+                //     </h3>
+                //     <div className='text-center'>
+                //       <span className="text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
+                //     </div>
 
-                  </div>
-                  </div>
-                  <div className='text-right pr-5'>
-                      <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
-                  </div>  
+                //   </div>
+                //   </div>
+                //   <div className='text-right pr-5'>
+                //       <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+                //   </div>  
                   
-                </div> 
+                // </div> 
+                <div className="mt-6 w-full flex flex-col justify-center items-center bg-white">
+                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
+                  <div className="flex flex-col items-center">
+                      <img className="object-cover my-5 shadow-lg" src={presidentRealmeter[0]['imageSrc']} alt="Bonnie image"/>
+                      <div className='px-20'>
+                        <h5 className="text-center mb-1 text-xl font-bold text-gray-900 dark:text-white">{presidentRealmeter[0]['title']}</h5>
+                      </div>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
+                  </div>
+                    <div className='w-full pr-5'>
+                      <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+                    </div>  
+                </div>
                 )}
 
                 {presidentNBSLoading?(
@@ -126,29 +139,41 @@ export default function President() {
                     //   <div className=' bg-green-100'>33</div>
 
 
-                  <div>
-                    <div className='h-full flex flex-col'>
-                      <div className=''>
-                        <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
-                      </div>
-                      <div className="flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                        <div className='w-full h-3/4'>
-                          <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
-                        </div>
-                        <div className="mt-5 h-1/4 w-full">
-                          <h3 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                            {presidentNBS[0]['title']}
-                          </h3>
-                          <div className='text-center'>
-                            <span className="text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
-                          </div>
-                        </div>            
-                      </div> 
-                      <div className='text-right pr-5'>
-                        <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/'>Read more</Link></p>
-                      </div>  
-                    </div>
+                  // <div>
+                  //   <div className='h-full flex flex-col'>
+                  //     <div className=''>
+                  //       <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
+                  //     </div>
+                  //     <div className="flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+                  //       <div className='w-full h-3/4'>
+                  //         <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
+                  //       </div>
+                  //       <div className="mt-5 h-1/4 w-full">
+                  //         <h3 className="truncate ... text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                  //           {presidentNBS[0]['title']}
+                  //         </h3>
+                  //         <div className='text-center'>
+                  //           <span className="text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
+                  //         </div>
+                  //       </div>            
+                  //     </div> 
+                  //     <div className='text-right pr-5'>
+                  //       <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/'>Read more</Link></p>
+                  //     </div>  
+                  //   </div>
+                  // </div>
+                <div className="flex flex-col justify-center bg-white">
+                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
+                  <div className='flex flex-col mx-auto'>
+                    <img className="object-cover shadow-lg max-w-md" src={presidentNBS[0]['imageSrc']} alt="Bonnie image"/>
+                    <h5 className="text-center mb-1 text-xl font-bold text-gray-900 dark:text-white">{presidentNBS[0]['title']}</h5>
+                    <span className="text-center text-sm text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
                   </div>
+
+                  <div className='w-full pr-5'>
+                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+                  </div>  
+                </div>
                 )}
                 
 

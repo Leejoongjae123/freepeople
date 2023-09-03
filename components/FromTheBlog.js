@@ -177,7 +177,7 @@ export default function FromTheBlog(){
 
         
         
-        <div className="mx-auto grid grid-cols-1 lg:gap-x-8 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
+        <div className="mx-auto grid grid-cols-1 gap-x-8 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
             {/* 첫번째 섹션 */}
             <div className= 'bg-white border border-gray-200 rounded-lg shadow'>
             <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
@@ -203,7 +203,8 @@ export default function FromTheBlog(){
                   <img src="https://shop-phinf.pstatic.net/20221220_60/1671512155404m34vw_JPEG/72647989066429637_1719202779.jpg?type=m510" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
                 </div>
                 <div className='flex justify-center my-3'>
-                  <ul className="inline-flex -space-x-px text-sm">
+                  <div className=''>
+                  <ul className="flex">
                     <li>
                       <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
                     </li>
@@ -229,6 +230,7 @@ export default function FromTheBlog(){
                       <button onClick={() => handleNextClick1()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
                     </li>
                   </ul>
+                </div>
                 </div>
                 </>
               )
