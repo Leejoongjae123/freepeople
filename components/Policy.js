@@ -9,41 +9,70 @@ import Link from 'next/link';
 
 export default function Policy() {
 
-  const [gukhimarticle,setGukhimarticle] = useState([]);
-  const [gukhimarticleLoading, setGukhimarticleLoading] = useState(true);
+  const [kdipolicy,setKdipolicy] = useState([]);
+  const [kdipolicyLoading, setKdipolicyLoading] = useState(true);
 
-  const [minjuarticle,setMinjuarticle] = useState([]);
-  const [minjuarticleLoading, setMinjuarticleLoading] = useState(true);
+  const [kdistatus,setKdistatus] = useState([]);
+  const [kdistatusLoading, setKdistatusLoading] = useState(true);
+
+  const [yyd,setYyd] = useState([]);
+  const [yydLoading, setYydLoading] = useState(true);
+
+  const [minju,setMinju] = useState([]);
+  const [minjuLoading, setMinjuLoading] = useState(true);
 
 
   useEffect(() => {
     // 데이터를 가져오는 함수를 정의합니다.
+    const fetchData1 = async () => {
+      try {
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getKDIpolicy?page=1`);
+        setKdipolicy(response.data);
+        setKdipolicyLoading(false);
+        console.log("loading완료1")
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    const fetchData2 = async () => {
+      try {
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getKDIstatus?page=1`);
+        setKdistatus(response.data);
+        setKdistatusLoading(false);
+        console.log("loading완료2")
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
     const fetchData3 = async () => {
       try {
-        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getgukhimarticle?page=1`);
-        setGukhimarticle(response.data);
-        setGukhimarticleLoading(false);
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getyyd?page=1`);
+        setYyd(response.data);
+        setYydLoading(false);
         console.log("loading완료3")
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
+
     const fetchData4 = async () => {
       try {
-        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getminjuarticle?page=1`);
-        setMinjuarticle(response.data);
-        setMinjuarticleLoading(false);
+        const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getminju?page=1`);
+        setMinju(response.data);
+        setMinjuLoading(false);
         console.log("loading완료4")
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
+    fetchData1(); // 함수를 호출하여 데이터를 가져옵니다.
+    fetchData2(); // 함수를 호출하여 데이터를 가져옵니다.
     fetchData3(); // 함수를 호출하여 데이터를 가져옵니다.
     fetchData4(); // 함수를 호출하여 데이터를 가져옵니다.
   }, []);
 
-  
+  console.log('kdistatus:',kdistatus)
 
   return (
     <>
@@ -71,36 +100,16 @@ export default function Policy() {
             </div>
             
             <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-              <li className="flex items-center space-x-3">
-                  <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                  </svg>
-                  <span>Individual configuration</span>
+              {kdipolicy.map((elem,index)=>{
+                return(
+                  <li key={index} className="flex items-center space-x-3">
+                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                    </svg>
+                  <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
               </li>
-              <li className="flex items-center space-x-3">
-                  <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                  </svg>
-                  <span>No setup, or hidden fees</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                  <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                  </svg>
-                  <span>Team size: <span className="font-semibold text-gray-900 dark:text-white">1 developer</span></span>
-              </li>
-              <li className="flex items-center space-x-3">
-                  <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                  </svg>
-                  <span>Premium support: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-              </li>
-              <li className="flex items-center space-x-3">
-                  <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                  </svg>
-                  <span>Free updates: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-              </li>
+                )
+              })}
             </ul>              
           </div>
         </div> 
@@ -113,36 +122,20 @@ export default function Policy() {
                 <h3 className='text-2xl text-center font-bold my-3'>정책자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Individual configuration</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>No setup, or hidden fees</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Team size: <span className="font-semibold text-gray-900 dark:text-white">1 developer</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Premium support: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Free updates: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
+                {
+                  yyd.map((elem,index)=>{
+                    return (
+                    <li key={index} className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                      </svg>
+                      <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                    </li>
+                    )
+                  })
+                }
+
+                
               </ul>                
             </div>
           </div> 
@@ -157,36 +150,19 @@ export default function Policy() {
                 <h3 className='text-2xl text-center font-bold my-3'>정책자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Individual configuration</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>No setup, or hidden fees</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Team size: <span className="font-semibold text-gray-900 dark:text-white">1 developer</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Premium support: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Free updates: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
+                {
+                  minju.map((elem,index)=>{
+                    return (
+                    <li key={index} className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                        </svg>
+                        <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                    </li>
+                    )
+                  })
+                }
+                
               </ul>                
             </div>
           </div> 
@@ -199,36 +175,19 @@ export default function Policy() {
                 <h3 className='text-2xl text-center font-bold my-3'>동향자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Individual configuration</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>No setup, or hidden fees</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Team size: <span className="font-semibold text-gray-900 dark:text-white">1 developer</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Premium support: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
-                <li className="flex items-center space-x-3">
-                    <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                    <span>Free updates: <span className="font-semibold text-gray-900 dark:text-white">6 months</span></span>
-                </li>
+                {
+                  kdistatus.map((elem,index)=>{
+                    return (
+                    <li className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                      </svg>
+                      <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                    </li>
+                    )
+                  })
+                }
+
               </ul>              
             </div>
           </div>  
