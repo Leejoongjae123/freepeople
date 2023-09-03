@@ -92,27 +92,6 @@ export default function President() {
                     <Spinner></Spinner>
                   </div> 
                 ):(
-                // <div className='h-full'> 
-                // <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
-                // <div className="flex flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                //   <div className='w-full h-full h-3/4'>
-                //     <img className="h-full w-full object-cover rounded-t-lg " src={presidentRealmeter[0]['imageSrc']} alt="Bonnie Avatar"/>
-                //   </div>
-                //   <div className="mt-5 h-1/4 w-full">
-                //     <h3 className="truncate ... text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                //       {presidentRealmeter[0]['title']}
-                //     </h3>
-                //     <div className='text-center'>
-                //       <span className="text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
-                //     </div>
-
-                //   </div>
-                //   </div>
-                //   <div className='text-right pr-5'>
-                //       <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
-                //   </div>  
-                  
-                // </div> 
                 <div className="mt-6 w-full flex flex-col justify-center items-center bg-white">
                   <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
                   <div className="flex flex-col items-center">
@@ -133,35 +112,6 @@ export default function President() {
                     <Spinner></Spinner>
                   </div> 
                   ):(
-                    // <div className='grid grid-col-[5,3,2]'>
-                    //   <div className=' bg-red-100'>11</div>
-                    //   <div className=' bg-blue-100'>22</div>
-                    //   <div className=' bg-green-100'>33</div>
-
-
-                  // <div>
-                  //   <div className='h-full flex flex-col'>
-                  //     <div className=''>
-                  //       <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
-                  //     </div>
-                  //     <div className="flex-col items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
-                  //       <div className='w-full h-3/4'>
-                  //         <img className="w-full h-full object-cover rounded-t-lg " src={presidentNBS[0]['imageSrc']} alt="Bonnie Avatar"/>
-                  //       </div>
-                  //       <div className="mt-5 h-1/4 w-full">
-                  //         <h3 className="truncate ... text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                  //           {presidentNBS[0]['title']}
-                  //         </h3>
-                  //         <div className='text-center'>
-                  //           <span className="text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
-                  //         </div>
-                  //       </div>            
-                  //     </div> 
-                  //     <div className='text-right pr-5'>
-                  //       <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/'>Read more</Link></p>
-                  //     </div>  
-                  //   </div>
-                  // </div>
                 <div className="flex flex-col justify-center bg-white">
                   <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
                   <div className='flex flex-col mx-auto'>
@@ -171,7 +121,7 @@ export default function President() {
                   </div>
 
                   <div className='w-full pr-5'>
-                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/ '>Read more</Link></p>
                   </div>  
                 </div>
                 )}

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {FcVoicePresentation} from 'react-icons/fc'
+import {FcDocument, FcVoicePresentation} from 'react-icons/fc'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
@@ -52,7 +52,7 @@ export default function Parliament() {
         </div>
         <div>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-            여/야 보도 자료
+            여/야 주요 보도자료
             </p>
         </div>   
       </div>
