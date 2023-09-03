@@ -82,7 +82,7 @@ export default function Parliament() {
                         return (
                         <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                           <th scope="row" className="inline-block w-[400px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              {elem['title']}
+                              <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
                           <td className="w-1/4 px-6 py-4">
                               {elem['category']}
@@ -129,7 +129,7 @@ export default function Parliament() {
                       return (
                       <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th scope="row" className="inline-block w-[400px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {elem['title']}
+                            <a target='_blank' href={elem.url}>{elem['title']}</a>
                         </th>
                         <td className="w-1/4 px-6 py-4">
                             {elem['category']}
