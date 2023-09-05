@@ -5,8 +5,11 @@ import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
 import { useState,useEffect } from "react";
 import axios from "axios";
+import Slider from "react-slick";
+import Image from "next/image";
 
-export default function Slider() {
+
+export default function PresidentSlider() {
   const [presidentRealmeter,setPresidentRealmeter] = useState([]);
   const [presidentRealmeterLoading, setPresidentRealmeterLoading] = useState(true);
 
@@ -27,48 +30,44 @@ export default function Slider() {
 
   console.log('presidentRealmeter:',presidentRealmeter)
 
-    const responsive = {
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3,
-          slidesToSlide: 1 // optional, default to 1.
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 768 },
-          items: 3,
-          slidesToSlide: 1 // optional, default to 1.
-        },
-        mobile: {
-          breakpoint: { max: 767, min: 464 },
-          items: 1,
-          slidesToSlide: 1 // optional, default to 1.
-        }
-      };
-  
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 767, min: 464 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
+
       
     return (
-      <Carousel 
+      <div className="parent">
+      <Carousel
         responsive={responsive}
         autoPlay={true}
+        infinite={true}
         partialVisible={false}
-        dotListclassName="custom-dot-list-style"
       >
         {presidentRealmeter.map((elem, index) => {
           return (
-
-            <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className="grid grid-rows-7 flex-col mx-auto justify-center">
-                <div className="flex mx-auto">
-                  <img className="" src={elem.imageSrc} alt="" />
-                </div>
-                
-                <div className="text-center row-span-1 text-black font-bold">{elem.title}</div>
-                <div className="text-center row-span-1 text-gray-600">{elem.regiDate}</div>
-              </div>
+            <div className="flex flex-col slider" key={index}>
+              <img className=""src={elem.imageSrc} alt="movie" />
+              <p className="font-bold text-base">
+                {elem.title}
+              </p>
+              <p className="text-right text-gray-500">
+                {elem.regiDate}
+              </p>
             </div>
           );
         })}
       </Carousel>
+    </div>
+
     
   )
 }

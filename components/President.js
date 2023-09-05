@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
 import Link from 'next/link';
-import Slider from './Slider';
+import PresidentSlider from './Slider';
 export default function President() {
 
   const [presidentRealmeter,setPresidentRealmeter] = useState([]);
@@ -88,11 +88,11 @@ export default function President() {
 
             <div className='border-t mt-6 pt-8'>
             <div>
-              <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
-              <Slider></Slider>
+              <h1 className=' text-2xl my-5 font-bold text-center'>리얼미터</h1>
+              <PresidentSlider></PresidentSlider>
             </div>
             
-            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-6">                
+            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 ">                
               <div>
                 <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
