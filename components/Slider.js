@@ -40,7 +40,7 @@ export default function Slider() {
         },
         mobile: {
           breakpoint: { max: 767, min: 464 },
-          items: 2,
+          items: 1,
           slidesToSlide: 1 // optional, default to 1.
         }
       };
@@ -62,8 +62,8 @@ export default function Slider() {
                   <img className="" src={elem.imageSrc} alt="" />
                 </div>
                 
-                <div className="row-span-1 text-black font-bold">{elem.title}</div>
-                <div className="row-span-1 text-black font-bold">{elem.regiDate}</div>
+                <div className="text-center row-span-1 text-black font-bold">{elem.title}</div>
+                <div className="text-center row-span-1 text-gray-600">{elem.regiDate}</div>
               </div>
             </div>
           );
