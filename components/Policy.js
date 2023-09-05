@@ -97,7 +97,7 @@ export default function Policy() {
             </div>
             <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-3'>정책자료</h3>
+                <h3 className='text-2xl text-center font-bold my-3'>동향자료</h3>
               </div>
               
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
