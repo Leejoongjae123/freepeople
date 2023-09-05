@@ -101,7 +101,7 @@ export default function Policy() {
               </div>
               
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                {kdipolicy.map((elem,index)=>{
+                {kdistatus.map((elem,index)=>{
                   return(
                     <li key={index} className="flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -123,7 +123,7 @@ export default function Policy() {
         <div>
           <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
             <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Jese Avatar"/>
+              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             </div>
             <div className="col-span-2 p-5">
               <div>
@@ -131,7 +131,7 @@ export default function Policy() {
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
-                  yyd.map((elem,index)=>{
+                  kdipolicy.map((elem,index)=>{
                     return (
                     <li key={index} className="flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -154,7 +154,7 @@ export default function Policy() {
         <div>
           <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
             <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Michael Avatar"/>
+              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
             </div>
 
 
@@ -164,7 +164,7 @@ export default function Policy() {
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
-                  minju.map((elem,index)=>{
+                  yyd.map((elem,index)=>{
                     return (
                     <li key={index} className="flex items-center space-x-3">
                         <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -187,7 +187,7 @@ export default function Policy() {
           <div>
           <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
             <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Sofia Avatar"/>
+              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
             </div>
             <div className="col-span-2 p-5">
               <div>
@@ -195,9 +195,9 @@ export default function Policy() {
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
-                  kdistatus.map((elem,index)=>{
+                  minju.map((elem,index)=>{
                     return (
-                    <li className="flex items-center space-x-3">
+                    <li key={index} className="flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>

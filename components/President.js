@@ -5,6 +5,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
 import Link from 'next/link';
+import Slider from './Slider';
 export default function President() {
 
   const [presidentRealmeter,setPresidentRealmeter] = useState([]);
@@ -85,134 +86,111 @@ export default function President() {
     <section className="bg-white dark:bg-gray-900 ">
         <div className="px-4 mx-auto max-w-screen-2xl ">
 
+            <div className='border-t mt-6 pt-8'>
+            <div>
+              <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
+              <Slider></Slider>
+            </div>
             
-            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 border-t mt-6">
-                {presidentRealmeterLoading?(
-                  <div className='flex w-full h-full'> 
-                    <Spinner></Spinner>
-                  </div> 
-                ):(
-                <div className="mt-6 w-full flex flex-col justify-center items-center bg-white">
-                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>리얼미터</h1>
-                  <div className="flex flex-col items-center">
-                      <img className="object-cover my-5 shadow-lg" src={presidentRealmeter[0]['imageSrc']} alt="Bonnie image"/>
-                      <div className='px-20'>
-                        <h5 className="text-center mb-1 text-xl font-bold text-gray-900 dark:text-white">{presidentRealmeter[0]['title']}</h5>
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">{presidentRealmeter[0]['regiDate']}</span>
-                  </div>
-                    <div className='w-full pr-5'>
-                      <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
-                    </div>  
-                </div>
-                )}
-
-                {presidentNBSLoading?(
-                  <div className='flex w-full h-full'> 
-                    <Spinner></Spinner>
-                  </div> 
-                  ):(
-                <div className="flex flex-col justify-center bg-white">
-                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
-                  <div className='flex flex-col mx-auto'>
-                    <img className="object-cover shadow-lg max-w-md" src={presidentNBS[0]['imageSrc']} alt="Bonnie image"/>
-                    <h5 className="text-center mb-1 text-xl font-bold text-gray-900 dark:text-white">{presidentNBS[0]['title']}</h5>
-                    <span className="text-center text-sm text-gray-500 dark:text-gray-400">{presidentNBS[0]['regiDate']}</span>
-                  </div>
-
-                  <div className='w-full pr-5'>
-                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/ '>Read more</Link></p>
-                  </div>  
-                </div>
-                )}
-                
-
-                <div>
-                  <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
-                  <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <div>
-                    <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    제목
+            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-6">                
+              <div>
+                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
+                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                  <div>
+                  <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                          <tr>
+                              <th scope="col" className="px-6 py-3">
+                                  제목
+                              </th>
+                              <th scope="col" className="px-6 py-3">
+                                  작성일
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {
+                            presidentbrief.map((elem,index)=>{
+                              return (
+                              <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <a target='_blank' href={elem.url}>{elem['title']}</a>
                                 </th>
-                                <th scope="col" className="px-6 py-3">
-                                    작성일
-                                </th>
+                                <td className="w-1/4 px-6 py-4">
+                                    {elem['regiDate']}
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {
-                              presidentbrief.map((elem,index)=>{
-                                return (
-                                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                  <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                      <a target='_blank' href={elem.url}>{elem['title']}</a>
-                                  </th>
-                                  <td className="w-1/4 px-6 py-4">
-                                      {elem['regiDate']}
-                                  </td>
-                              </tr>
-                                )
-                              })
-                            }
+                              )
+                            })
+                          }
 
-                            
-                        </tbody>
-                    </table>
+                          
+                      </tbody>
+                  </table>
 
-                  </div>
+                </div>
                 </div>
                   <div className='text-right my-2 pr-5'>
                     <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/briefing'>Read more</Link></p>
-                  </div>  
-                </div>
-                
-                
-                <div>
-                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 보도자료</h1>
-                  <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <div>
-                    <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    제목
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    작성일
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                              presidentpress.map((elem,index)=>{
-                                return (
-                                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                  <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                      <a target='_blank' href={elem.url}>{elem['title']}</a>
-                                  </th>
-                                  <td className="w-1/4 px-6 py-4">
-                                      {elem['regiDate']}
-                                  </td>
-                              </tr>
-                                )
-                              })
-                            }
-
-                            
-                        </tbody>
-                    </table>
-
-                  </div>
-                </div>
-                <div className='text-right my-2 pr-5'>
-                  <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/press'>Read more</Link></p>
                 </div>  
-              </div>    
-            
-            </div>  
+              </div>
+
+
+              <div>
+                <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
+                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                  <div>
+                  <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                          <tr>
+                              <th scope="col" className="px-6 py-3">
+                                  제목
+                              </th>
+                              <th scope="col" className="px-6 py-3">
+                                  내용
+                              </th>
+                              <th scope="col" className="px-6 py-3">
+                                  작성일
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {
+                            presidentNBS.map((elem,index)=>{
+                              return (
+                              
+                              <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <td className="w-1 px-6 py-4">
+                                  <div className="truncate w-[200px]">
+                                  <a target='_blank' href={elem.url}>{elem['title']}</a>
+                                  </div>
+
+                                  
+                                </td>
+                                <td className="w-1/2 px-6 py-4">
+                                  <div className="truncate w-[300px]">{elem['contents']}</div>
+                                </td>
+                                <td className="w-1/3 px-6 py-4">
+                                    <div className="truncate">{elem['regiDate']}</div>
+                                </td>
+                            </tr>
+                              )
+                            })
+                          }
+
+                          
+                      </tbody>
+                  </table>
+
+                </div>
+                </div>
+                  <div className='text-right my-2 pr-5'>
+                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr/'>Read more</Link></p>
+                </div>  
+              </div>              
+            </div>
+            </div>
+              
             
         </div>
       </section>
