@@ -97,7 +97,7 @@ export default function President() {
                 <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                   <div>
-                  <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                           <tr>
                               <th scope="col" className="px-6 py-3">
@@ -113,13 +113,16 @@ export default function President() {
                             presidentbrief.map((elem,index)=>{
                               return (
                               <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row" className="inline-block w-[500px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a target='_blank' href={elem.url}>{elem['title']}</a>
-                                </th>
-                                <td className="w-1/4 px-6 py-4">
-                                    {elem['regiDate']}
+                                <td className="px-6 py-4">
+                                  <div className="truncate w-[300px] font-bold text-black">
+                                  <a target='_blank' href={elem.url}>{elem['title']}</a>
+                                  </div>
+                                  <div className="truncate w-[400px]">{elem['contents']}</div>
                                 </td>
-                            </tr>
+                                <td className="px-6 py-4">
+                                    <div className="truncate">{elem['regiDate']}</div>
+                                </td>
+                              </tr>
                               )
                             })
                           }
@@ -140,14 +143,11 @@ export default function President() {
                 <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                   <div>
-                  <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                           <tr>
                               <th scope="col" className="px-6 py-3">
                                   제목
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                  내용
                               </th>
                               <th scope="col" className="px-6 py-3">
                                   작성일
@@ -160,17 +160,13 @@ export default function President() {
                               return (
                               
                               <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td className="w-1 px-6 py-4">
-                                  <div className="truncate w-[200px]">
+                                <td className="px-6 py-4">
+                                  <div className="truncate w-[300px] font-bold text-black">
                                   <a target='_blank' href={elem.url}>{elem['title']}</a>
                                   </div>
-
-                                  
+                                  <div className="truncate w-[400px]">{elem['contents']}</div>
                                 </td>
-                                <td className="w-1/2 px-6 py-4">
-                                  <div className="truncate w-[300px]">{elem['contents']}</div>
-                                </td>
-                                <td className="w-1/3 px-6 py-4">
+                                <td className="px-6 py-4">
                                     <div className="truncate">{elem['regiDate']}</div>
                                 </td>
                             </tr>
