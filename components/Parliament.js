@@ -77,8 +77,8 @@ export default function Parliament() {
           <h1 className='mb-5 text-2xl font-bold text-center'>국민의힘</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">  
               <div>
-                <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table className="table-fixed w-full text-sm text-left text-gray-500 ">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                       <tr>
                           <th scope="col" className="text-center px-6 py-3 w-1/2">
                               제목
@@ -95,8 +95,8 @@ export default function Parliament() {
                       {
                         gukhimarticle.map((elem,index)=>{
                           return (
-                          <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                            <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          <tr key={index} className="bg-white border-b ">
+                            <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                 <a target='_blank' href={elem.url}>{elem['title']}</a>
                             </th>
                             <td className="truncate w-1/4 px-6 py-4">
@@ -127,8 +127,8 @@ export default function Parliament() {
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
             
             <div>
-              <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <table className="table-fixed w-full text-sm text-left text-gray-500 ">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
                     <th scope="col" className="text-center px-6 py-3 w-1/2">
                         제목
@@ -145,8 +145,8 @@ export default function Parliament() {
                     {
                       minjuarticle.map((elem,index)=>{
                         return (
-                        <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr key={index} className="bg-white border-b ">
+                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
                           <td className="truncate w-1/4 px-6 py-4">
@@ -173,8 +173,8 @@ export default function Parliament() {
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
             
             <div>
-              <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <table className="table-fixed w-full text-sm text-left text-gray-500 ">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
                     <th scope="col" className="text-center  px-6 py-3 w-1/2">
                         제목
@@ -191,8 +191,8 @@ export default function Parliament() {
                     {
                       parliamentCreator.map((elem,index)=>{
                         return (
-                        <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr key={index} className="bg-white border-b ">
+                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
                           <td className="truncate w-1/4 px-6 py-4">
