@@ -65,7 +65,7 @@ export default function Home() {
     </div>
     
     <Element name="3"></Element>
-    <div className="bg-gray-100 px-20 py-10">
+    <div className="bg-gray-100 px-10 py-10 lg:px-20">
       <Parliament></Parliament>
     </div>
     
@@ -73,7 +73,7 @@ export default function Home() {
 
     
     <Element name="4"></Element>
-    <div className="bg-white-100 px-20 py-10">
+    <div className="bg-white-100 px-10 lg:px-20 py-10">
       <Policy></Policy>
     </div>
 

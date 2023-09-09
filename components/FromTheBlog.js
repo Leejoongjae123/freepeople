@@ -213,25 +213,25 @@ export default function FromTheBlog(){
                       <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100`} ><FcPrevious size={10}></FcPrevious></button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick1(e,bigKindsNoList[0])} className={`${bigKindsNo==bigKindsNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[0]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick1(e,bigKindsNoList[0])} className={`${bigKindsNo==bigKindsNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[0]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[1])} className={`${bigKindsNo==bigKindsNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[1]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[1])} className={`${bigKindsNo==bigKindsNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[1]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[2])} className={`${bigKindsNo==bigKindsNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[2]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[2])} className={`${bigKindsNo==bigKindsNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[2]}</button>
                     </li>
                     {/* <li>
                       <a href="#" aria-current="" className="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
                     </li> */}
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[3])} className={`${bigKindsNo==bigKindsNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[3]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[3])} className={`${bigKindsNo==bigKindsNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[3]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[4])} className={`${bigKindsNo==bigKindsNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[4]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick1(e, bigKindsNoList[4])} className={`${bigKindsNo==bigKindsNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[4]}</button>
                     </li>
                     <li>
-                      <button onClick={() => handleNextClick1()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><FcNext size={10}></FcNext></button>
+                      <button onClick={() => handleNextClick1()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 "><FcNext size={10}></FcNext></button>
                     </li>
                   </ul>
                 </div>
@@ -288,22 +288,22 @@ export default function FromTheBlog(){
                       <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `}><FcPrevious size={10}></FcPrevious> </button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[0]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[0]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[1])} className={`${futureNo==futureNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[1]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[1])} className={`${futureNo==futureNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[1]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[2])} className={`${futureNo==futureNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[2]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[2])} className={`${futureNo==futureNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[2]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[3])} className={`${futureNo==futureNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[3]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[3])} className={`${futureNo==futureNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[3]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[4])} className={`${futureNo==futureNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[4]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[4])} className={`${futureNo==futureNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[4]}</button>
                     </li>
                     <li>
-                      <button onClick={() => handleNextClick2()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><FcNext size={10}></FcNext></button>
+                      <button onClick={() => handleNextClick2()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 "><FcNext size={10}></FcNext></button>
                     </li>
                   </ul>
                 </div>
@@ -358,22 +358,22 @@ export default function FromTheBlog(){
                       <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `} ><FcPrevious size={10}></FcPrevious></button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick3(e,columnNoList[0])} className={`${columnNo==columnNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[0]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick3(e,columnNoList[0])} className={`${columnNo==columnNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[0]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[1])} className={`${columnNo==columnNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[1]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[1])} className={`${columnNo==columnNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[1]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[2])} className={`${columnNo==columnNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[2]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[2])} className={`${columnNo==columnNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[2]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[3])} className={`${columnNo==columnNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[3]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[3])} className={`${columnNo==columnNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[3]}</button>
                     </li>
                     <li>
-                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[4])} className={`${columnNo==columnNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[4]}</button>
+                      <button value={1} onClick={(e) => handleLinkClick3(e, columnNoList[4])} className={`${columnNo==columnNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[4]}</button>
                     </li>
                     <li>
-                      <button onClick={() => handleNextClick3()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><FcNext size={10}></FcNext></button>
+                      <button onClick={() => handleNextClick3()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 "><FcNext size={10}></FcNext></button>
                     </li>
                   </ul>
                 </div>

@@ -88,7 +88,7 @@ export default function Policy() {
         </div>   
       </div>
       
-      <div className=' py-10 px-40'>
+      <div className=' py-10 lg:px-20'>
       <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
         <div>
           <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
