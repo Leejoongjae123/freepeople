@@ -32,7 +32,7 @@ export default function Navbar() {
               <div className="mx-auto px-2 sm:px-1 lg:px-8">
                 <div className="items-center justify-center relative flex h-16 sm:space-x-1 lg:space-x-4 text-xs lg:text-lg">
                         {navigation.map((item,index) => (
-                          <Link to={index} spy={true} smooth={true} offset={-50}>
+                          <Link to={index.toString()} spy={true} smooth={true} offset={-50} key={index}>
                           <button
                             key={item.name}
                             href={item.href}

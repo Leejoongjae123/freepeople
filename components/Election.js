@@ -2,6 +2,7 @@ import React from 'react';
 import SearchCard from './SearchCard';
 import SliderKOSIS from './SliderKOSIS';
 import { FcStatistics } from "react-icons/fc";
+import Statistics from './Statistics';
 import Policy from '@/components/Policy';
 
 export default function Election() {
@@ -18,10 +19,14 @@ export default function Election() {
             </p>
         </div>   
       </div>
-      <div className='grid grid-cols-2 items-center px-20'>
+      <div className='grid grid-cols-3 items-center px-20'>
         <SearchCard></SearchCard>
         <SearchCard></SearchCard>
+        <Statistics></Statistics>
       </div>
+      {/* <div className='justify-center mx-20'>
+      
+      </div> */}
       <div className='justify-center mx-20'>
         <SliderKOSIS></SliderKOSIS>
       </div>    

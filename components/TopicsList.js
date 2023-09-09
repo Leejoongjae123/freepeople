@@ -13,7 +13,7 @@ export default function TopicsList() {
         <div className="flex flex-col justify-between p-4 ">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            <mark class="w-24 text-center px-2 text-white bg-blue-600 rounded dark:bg-blue-500">빅카인즈</mark>
+            <mark className="w-24 text-center px-2 text-white bg-blue-600 rounded dark:bg-blue-500">빅카인즈</mark>
         </div>
         <div className='flex gap-2'>
         <RemoveBtn/>

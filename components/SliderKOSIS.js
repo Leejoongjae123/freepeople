@@ -59,10 +59,17 @@ export default function SliderKOSIS() {
               <div className="relative">
                 <img src={elem.imageSrc} alt="이미지 설명" className="w-full h-auto" />
 
-                <div className="absolute top-0 left-0 text-white p-2 text-xs">
+                <div className="flex absolute top-0 left-0 text-white p-2 text-xs">
+                
                   <span id="badge-dismiss-default" className="truncate ... text-xs font-bold text-gray-800">
-                    {elem.category}
+                    {elem.category}  
                   </span>
+                
+                  <span className="truncate ... text-gray-500">
+                    (단위:{elem.unit})
+                  </span>
+                
+                  
 
                 </div>
               </div>
@@ -70,16 +77,16 @@ export default function SliderKOSIS() {
                 <p className="font-bold text-sm truncate ...">
                   {elem.title}
                 </p>
-                <div className="flex justify-evenly">
-                  <p className="text-sm font-bold text-cyan-600 text-gray-500">
+                <div className="flex justify-evenly items-center">
+                  <p className="text-base font-bold text-cyan-600 text-gray-500">
                     {elem.value}
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs text-gray-500">
                     ({elem.year}기준)
                   </p>
                 </div>
                 <div className="flex mx-auto">
-                <p className="text-sm text-gray-500">
+                <p className="text-xs text-gray-500">
                   {elem.prev}
                 </p>
 

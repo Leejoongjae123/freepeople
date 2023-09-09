@@ -8,6 +8,7 @@ import {FcKindle} from 'react-icons/fc'
 import './styles.css'
 import ArticleModal from './ArticleModal'
 import { Element } from 'react-scroll'
+import CardSkeleton from './CardSkeleton'
 
 export default function FromTheBlog(){
     
@@ -179,16 +180,18 @@ export default function FromTheBlog(){
         
         <div className="mx-auto grid grid-cols-1 gap-x-8 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
             {/* 첫번째 섹션 */}
-            <div className= 'bg-white border border-gray-200 rounded-lg shadow'>
-            <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
+            
 
             {
               bigKindsLoading?(
                 <div className='flex w-full h-full'> 
                   <Spinner></Spinner>
                 </div> 
+                  
               ):(
                 <>
+                <div className= 'bg-white border border-gray-200 rounded-lg shadow max-h-lg'>
+                <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
                 <div className='flex flex-col'>
                   <img className="p-5 overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
                     <div className="p-5">
@@ -199,14 +202,14 @@ export default function FromTheBlog(){
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
                     </div>
                 </div> 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <img src="https://shop-phinf.pstatic.net/20221220_60/1671512155404m34vw_JPEG/72647989066429637_1719202779.jpg?type=m510" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                  <img src="https://shop-phinf.pstatic.net/20221220_60/1671512155404m34vw_JPEG/72647989066429637_1719202779.jpg?type=m510" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
                 </div>
                 <div className='flex justify-center my-3'>
                   <div className=''>
                   <ul className="flex">
                     <li>
-                      <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
+                      <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100`} >Previous</button>
                     </li>
                     <li>
                       <button value={1} onClick={(e) => handleLinkClick1(e,bigKindsNoList[0])} className={`${bigKindsNo==bigKindsNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{bigKindsNoList[0]}</button>
@@ -232,19 +235,22 @@ export default function FromTheBlog(){
                   </ul>
                 </div>
                 </div>
+                </div>
                 </>
               )
             }
 
-            </div>
+
             
             {/* 두번째 섹션 */}
-            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
-              <h1 className='text-2xl font-bold text-center'>미래민중 논평</h1>
+            
               {futureLoading?(
-                 
+              <div className='flex w-full h-full'> 
                 <Spinner></Spinner>
+              </div> 
               ):(
+              <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
+              <h1 className='text-2xl font-bold text-center'>미래민중 논평</h1>
               <div className='flex flex-col'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
@@ -278,7 +284,7 @@ export default function FromTheBlog(){
                 <div className='flex justify-center my-3'>
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
-                      <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
+                      <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `} >Previous</button>
                     </li>
                     <li>
                       <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{futureNoList[0]}</button>
@@ -301,16 +307,20 @@ export default function FromTheBlog(){
                   </ul>
                 </div>
               </div>  
+              </div>
               )}
                                
-            </div>
+
 
             {/* 세번째 섹션 */}
-            <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
-              <h1 className='text-2xl font-bold text-center'>칼럼 논평</h1>
+            
               {futureLoading?(
-                <Spinner></Spinner>
+                <div className='flex w-full h-full'> 
+                  <Spinner></Spinner>
+                </div> 
               ):(
+              <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
+              <h1 className='text-2xl font-bold text-center'>칼럼 논평</h1>
               <div className='flex flex-col'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
@@ -344,7 +354,7 @@ export default function FromTheBlog(){
                 <div className='flex justify-center my-3'>
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
-                      <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`} >Previous</button>
+                      <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `} >Previous</button>
                     </li>
                     <li>
                       <button value={1} onClick={(e) => handleLinkClick3(e,columnNoList[0])} className={`${columnNo==columnNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}>{columnNoList[0]}</button>
@@ -367,9 +377,10 @@ export default function FromTheBlog(){
                   </ul>
                 </div>
               </div>  
+              </div>
               )}
                                
-            </div>
+
 
         </div>
       </div>

@@ -7,8 +7,6 @@ import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import SmallCarousel from '@/components/Slider'
-import Slider from '@/components/Slider'
 // import ApexCharts from "react-apexcharts";
 const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 import FromTheBlog from '@/components/FromTheBlog'
