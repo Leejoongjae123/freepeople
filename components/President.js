@@ -136,7 +136,7 @@ export default function President() {
       
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 ">
           <div className='truncate'>
-            <h1 className='text-2xl font-bold text-center'>대통령 브리핑</h1>
+            <h1 className='text-2xl font-bold text-center my-5'>대통령 브리핑</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg"></div>
 
             <div>
@@ -174,10 +174,10 @@ export default function President() {
           
           
           <div className='truncate'>
-            <h1 className='text-2xl font-bold text-center'>NBS</h1>
+            <h1 className='text-2xl font-bold text-center my-5'>NBS</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg"></div>
 
-            <div>
+            <div className='rounded-lg'>
               <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>

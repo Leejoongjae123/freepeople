@@ -89,9 +89,9 @@ export default function Policy() {
       </div>
       
       <div className=' py-10 lg:px-20'>
-      <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-        <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+        <div className='flex flex-col'>
+          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
             <div className='col-span-1'>
               <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
             </div>
@@ -114,6 +114,7 @@ export default function Policy() {
               </ul>
                   
             </div>
+
           </div> 
           <div className='text-right my-3 pr-5'>
             <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://eiec.kdi.re.kr/policy/materialList.do?topic=P'>Read more</Link></p>
@@ -121,7 +122,7 @@ export default function Policy() {
         </div>
         
         <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
+          <div className="items-center bg-gray-50 rounded-lg shadow grid md:grid-cols-3 grid-cols-1">
             <div className='col-span-1'>
               <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             </div>
@@ -152,7 +153,7 @@ export default function Policy() {
           </div>  
         </div>
         <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
+          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
             <div className='col-span-1'>
               <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
             </div>
@@ -185,7 +186,7 @@ export default function Policy() {
           </div>
 
           <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow grid grid-cols-3">
+          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
             <div className='col-span-1'>
               <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
             </div>
