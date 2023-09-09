@@ -7,6 +7,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import Image from "next/image";
+import { FcUp,FcDown } from "react-icons/fc";
 
 
 export default function SliderKOSIS() {
@@ -69,15 +70,30 @@ export default function SliderKOSIS() {
                 <p className="font-bold text-sm truncate ...">
                   {elem.title}
                 </p>
-                <p className="text-sm text-gray-500">
-                  {elem.value}
-                </p>
+                <div className="flex justify-evenly">
+                  <p className="text-sm font-bold text-cyan-600 text-gray-500">
+                    {elem.value}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    ({elem.year}기준)
+                  </p>
+                </div>
+                <div className="flex mx-auto">
                 <p className="text-sm text-gray-500">
                   {elem.prev}
                 </p>
-                <p className="text-sm text-gray-500">
-                  {elem.year}
-                </p>
+
+                
+                {elem.updown==="up"?(
+                  
+                  <p><FcUp size={20} className="text-red-500"></FcUp></p>
+                ):(
+                  <p><FcDown size={20} className="text-red-500"></FcDown></p>
+                )}
+                  
+                </div>
+                
+
               </div>
               
             </div>
