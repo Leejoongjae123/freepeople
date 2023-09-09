@@ -179,7 +179,7 @@ export default function FromTheBlog(){
 
         
         
-        <div className="mx-auto grid grid-cols-1 gap-x-8 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
+        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
             {/* 첫번째 섹션 */}
             
 
