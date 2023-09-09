@@ -22,7 +22,6 @@ export default async function RootLayout({ children }) {
       <Navbar></Navbar>
         {children}
       <Footer></Footer>
-      <LoginBtn></LoginBtn>
       </body>
     </html>
   )

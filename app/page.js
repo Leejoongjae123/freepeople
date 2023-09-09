@@ -82,10 +82,6 @@ export default function Home() {
     <div className="bg-gray-100 px-20 py-10">
       <Election></Election>
     </div>
-
-
-
-
     
 
     </div>
