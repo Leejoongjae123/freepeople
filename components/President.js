@@ -102,7 +102,7 @@ export default function President() {
         </div>   
       </div>
 
-    <section className="bg-white dark:bg-gray-900 ">
+    <section className="bg-white">
         <div className="px-4 mx-auto max-w-screen-2xl ">
 
             <div className='border-t mt-6 pt-8'>
@@ -116,8 +116,8 @@ export default function President() {
                 <h1 className='pt-5 text-2xl my-5 font-bold text-center'>대통령 브리핑</h1>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                   <div>
-                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 ">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                           <tr>
                               <th scope="col" className="px-6 py-3">
                                   제목
@@ -131,7 +131,7 @@ export default function President() {
                           {
                             presidentbrief.map((elem,index)=>{
                               return (
-                              <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                              <tr key={index} className="bg-white border-b ">
                                 <td className="px-6 py-4">
                                   <div className="truncate w-[300px] font-bold text-black">
                                   <a target='_blank' href={elem.url}>{elem['title']}</a>
@@ -162,8 +162,8 @@ export default function President() {
                 <h1 className='pt-5 text-2xl my-5 font-bold text-center'>NBS</h1>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                   <div>
-                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <table className="table-auto w-full h-full text-sm text-left text-gray-500 ">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                           <tr>
                               <th scope="col" className="px-6 py-3">
                                   제목
@@ -178,7 +178,7 @@ export default function President() {
                             presidentNBS.map((elem,index)=>{
                               return (
                               
-                              <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                              <tr key={index} className="bg-white border-b ">
                                 <td className="px-6 py-4">
                                   <div className="truncate w-[300px] font-bold text-black">
                                   <a target='_blank' href={elem.url}>{elem['title']}</a>
