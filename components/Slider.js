@@ -28,8 +28,6 @@ export default function PresidentSlider() {
     fetchData1(); // 함수를 호출하여 데이터를 가져옵니다.
   }, []);
 
-  console.log('presidentRealmeter:',presidentRealmeter)
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -54,7 +52,7 @@ export default function PresidentSlider() {
       >
         {presidentRealmeter.map((elem, index) => {
           return (
-            <div className="flex flex-col slider" key={index}>
+            <div className="flex flex-col slider max-w-sm" key={index}>
               <img className=""src={elem.imageSrc} alt="movie" />
               <p className="font-bold text-base">
                 {elem.title}

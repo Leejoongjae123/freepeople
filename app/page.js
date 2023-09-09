@@ -20,6 +20,7 @@ import Parliament from '@/components/Parliament'
 import { FcDocument } from 'react-icons/fc'
 import Policy from '@/components/Policy'
 import Election from '@/components/Election'
+import Test from '@/components/Test'
 
 
 function classNames(...classNamees) {
@@ -49,7 +50,9 @@ export default function Home() {
 
 
    
-
+    <div>
+      <Test></Test>
+    </div>  
 
     <Element name="1"></Element>
     <div id="mySection" className="mx-auto px-10 lg:px-20 pb-10 bg-gray-100">
@@ -57,7 +60,7 @@ export default function Home() {
     </div>
 
     <Element name="2"></Element>
-    <div className="bg-white px-20 py-10">
+    <div className="bg-white px-10 lg:px-20 py-10">
       <President></President>
     </div>
     

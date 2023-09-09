@@ -164,7 +164,7 @@ export default function FromTheBlog(){
       <div className="w-full bg-gray-100 py-10">
       <div className="mx-auto sm:py-2" >
         {/* 헤더부분 */}
-        <div className="flex flex-col items-center mx-auto lg:mx-0">
+        <div className="items-center mx-auto lg:mx-0">
           <div className='flex'>
             <FcKindle size='40'></FcKindle>
             <h2 className="font-bold tracking-tight text-gray-900 text-2xl md:text-4xl">컬럼/연구</h2>
@@ -192,7 +192,7 @@ export default function FromTheBlog(){
               ):(
                 <>
                 <div className= 'bg-white border border-gray-200 rounded-lg shadow max-h-lg'>
-                <h1 className='pt-5 text-2xl font-bold text-center'>빅카인즈 논평</h1>
+                <h1 className='pt-5 text-2xl font-bold text-center my-5'>빅카인즈 논평</h1>
                 <div className='flex flex-col'>
                   <img className="p-5 overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
                     <div className="p-5">
@@ -251,7 +251,7 @@ export default function FromTheBlog(){
               </div> 
               ):(
               <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
-              <h1 className='text-2xl font-bold text-center'>미래민중 논평</h1>
+              <h1 className='text-2xl font-bold text-center my-5'>미래민중 논평</h1>
               <div className='flex flex-col'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
@@ -321,7 +321,7 @@ export default function FromTheBlog(){
                 </div> 
               ):(
               <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
-              <h1 className='text-2xl font-bold text-center'>칼럼 논평</h1>
+              <h1 className='text-2xl font-bold text-center my-5'>칼럼 논평</h1>
               <div className='flex flex-col'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   

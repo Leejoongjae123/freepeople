@@ -77,16 +77,16 @@ export default function Parliament() {
           <h1 className='mb-5 text-2xl font-bold text-center'>국민의힘</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">  
               <div>
-                <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                       <tr>
-                          <th scope="col" className="px-6 py-3">
+                          <th scope="col" className="px-6 py-3 w-1/2">
                               제목
                           </th>
-                          <th scope="col" className="px-6 py-3">
+                          <th scope="col" className="px-6 py-3 w-1/4">
                               카테고리
                           </th>
-                          <th scope="col" className="px-6 py-3">
+                          <th scope="col" className="px-6 py-3 w-1/4">
                               작성일
                           </th>
                       </tr>
@@ -96,13 +96,13 @@ export default function Parliament() {
                         gukhimarticle.map((elem,index)=>{
                           return (
                           <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                            <th scope="row" className="inline-block w-[400px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <a target='_blank' href={elem.url}>{elem['title']}</a>
                             </th>
-                            <td className="w-1/4 px-6 py-4">
+                            <td className="truncate w-1/4 px-6 py-4">
                                 {elem['category']}
                             </td>
-                            <td className="w-1/4 px-6 py-4">
+                            <td className="truncate w-1/4 px-6 py-4">
                                 {elem['regiDate']}
                             </td>
                         </tr>
@@ -127,16 +127,16 @@ export default function Parliament() {
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
             
             <div>
-              <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 w-1/2">
                         제목
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 w-1/4">
                         카테고리
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 w-1/4">
                         작성일
                     </th>
                   </tr>
@@ -146,13 +146,13 @@ export default function Parliament() {
                       minjuarticle.map((elem,index)=>{
                         return (
                         <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                          <th scope="row" className="inline-block w-[400px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
-                          <td className="w-1/4 px-6 py-4">
+                          <td className="truncate w-1/4 px-6 py-4">
                               {elem['category']}
                           </td>
-                          <td className="w-1/4 px-6 py-4">
+                          <td className="truncate w-1/4 px-6 py-4">
                               {elem['regiDate']}
                           </td>
                       </tr>
@@ -173,16 +173,16 @@ export default function Parliament() {
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
             
             <div>
-              <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className=" px-6 py-3 w-1/2">
                         제목
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className=" px-6 py-3 w-1/4">
                         작성자
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className=" px-6 py-3 w-1/4">
                         작성일
                     </th>
                   </tr>
@@ -192,13 +192,13 @@ export default function Parliament() {
                       parliamentCreator.map((elem,index)=>{
                         return (
                         <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                          <th scope="row" className="inline-block w-[400px] truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
-                          <td className="w-1/4 px-6 py-4">
+                          <td className="truncate w-1/4 px-6 py-4">
                               {elem['writer']}
                           </td>
-                          <td className="w-1/4 px-6 py-4">
+                          <td className="truncate w-1/4 px-6 py-4">
                               {elem['regiDate']}
                           </td>
                       </tr>
