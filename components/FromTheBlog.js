@@ -170,7 +170,7 @@ export default function FromTheBlog(){
             <h2 className="font-bold tracking-tight text-gray-900 text-2xl md:text-4xl">컬럼/연구</h2>
           </div>
           <div className=''>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
+            <p className="mt-2 pb-5 text-lg leading-8 text-gray-600 border-b border-gray-200">
               미래민중 논평 및 컬럼
             </p>
           </div>
@@ -178,12 +178,9 @@ export default function FromTheBlog(){
         </div>
 
         
-        
-        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20 border-t border-gray-200 pt-6 mt-6 lg:mx-0 lg:grid-cols-3">
-            {/* 첫번째 섹션 */}
-            
-
-            {
+        <div className='flex flex-col justify-center  pt-10 '>
+        <div className='lg:px-20'>
+        {
               bigKindsLoading?(
                 <div className='flex w-full h-full'> 
                   <Spinner></Spinner>
@@ -192,16 +189,18 @@ export default function FromTheBlog(){
               ):(
                 <>
                 <div className= 'bg-white border border-gray-200 rounded-lg shadow max-h-lg'>
-                <h1 className='pt-5 text-2xl font-bold text-center my-5'>빅카인즈 논평</h1>
-                <div className='flex flex-col'>
-                  <img className="p-5 overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
-                    <div className="p-5">
-                      <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
-                        <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
-                      </button>
-                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
-                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
-                    </div>
+                <h1 className='text-2xl font-bold text-center mt-5'>빅카인즈 논평</h1>
+                <div className='grid grid-cols-2 items-center'>
+                  <div className='flex justify-center'>
+                    <img className="w-1/2 object-cover overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
+                  </div>
+                  <div className="">
+                    <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
+                      <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
+                    </button>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
+                  </div>
                 </div> 
                 <div className="hidden duration-700 ease-in-out" data-carousel-item>
                   <img src="https://shop-phinf.pstatic.net/20221220_60/1671512155404m34vw_JPEG/72647989066429637_1719202779.jpg?type=m510" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
@@ -240,6 +239,10 @@ export default function FromTheBlog(){
                 </>
               )
             }
+        </div>
+        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20  pt-6 mt-6 lg:mx-0 lg:grid-cols-2">
+
+            
 
 
             
@@ -383,6 +386,7 @@ export default function FromTheBlog(){
                                
 
 
+        </div>
         </div>
       </div>
       {

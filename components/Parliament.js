@@ -72,7 +72,7 @@ export default function Parliament() {
         </div>   
       </div>
       
-      <div className="pt-10 grid gap-8 md:grid-cols-2">
+      <div className="pt-10 grid gap-8 md:grid-cols-1">
         <div>
           <h1 className='mb-5 text-2xl font-bold text-center'>국민의힘</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">  
