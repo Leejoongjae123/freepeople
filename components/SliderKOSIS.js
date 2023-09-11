@@ -49,6 +49,9 @@ export default function SliderKOSIS() {
       
     return (
       <div className="parent">
+        <h2 className="text-2xl leading-tight font-bold">
+          통계청 주요 지표
+        </h2>
       <Carousel
         responsive={responsive}
         autoPlay={true}

@@ -1,5 +1,6 @@
 import React from 'react';
-import SearchCard from './SearchCard';
+import SearchCard1 from './SearchCard1';
+import SearchCard2 from './SearchCard2';
 import SliderKOSIS from './SliderKOSIS';
 import { FcStatistics } from "react-icons/fc";
 import Statistics from './Statistics';
@@ -20,19 +21,20 @@ export default function Election() {
         </div>   
       </div>
       <div className='grid grid-cols-2 items-center lg:px-10'>
-        <SearchCard></SearchCard>
-        <SearchCard></SearchCard>
+        <SearchCard1></SearchCard1>
+        <SearchCard2></SearchCard2>
         
       </div>
+      <div className='justify-center mx-20'>
+        <SliderKOSIS></SliderKOSIS>
+      </div>    
       <div>
         <Statistics></Statistics>
       </div>
       {/* <div className='justify-center mx-20'>
       
       </div> */}
-      <div className='justify-center mx-20'>
-        <SliderKOSIS></SliderKOSIS>
-      </div>    
+
     </div>
   )
 }

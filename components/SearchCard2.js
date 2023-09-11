@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function SearchCard() {
+export default function SearchCard2() {
   return (
     <div>
       <div className="container w-full px-4 mx-auto sm:px-8">
         <div className="py-8">
             <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
-                <h2 className="text-2xl leading-tight">
-                    정당정책정보
+                <h2 className="text-2xl leading-tight font-bold">
+                    선거공약정보
                 </h2>
                 <div className="flex gap-x-2 text-end">
                   <select defaultValue="BIG" id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
