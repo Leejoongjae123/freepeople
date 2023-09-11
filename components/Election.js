@@ -19,9 +19,12 @@ export default function Election() {
             </p>
         </div>   
       </div>
-      <div className='grid grid-cols-3 items-center px-20'>
+      <div className='grid grid-cols-2 items-center lg:px-10'>
         <SearchCard></SearchCard>
         <SearchCard></SearchCard>
+        
+      </div>
+      <div>
         <Statistics></Statistics>
       </div>
       {/* <div className='justify-center mx-20'>

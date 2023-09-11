@@ -3,7 +3,7 @@ import React from 'react'
 export default function SearchCard() {
   return (
     <div>
-      <div className="container max-w-3xl px-4 mx-auto sm:px-8">
+      <div className="container w-full px-4 mx-auto sm:px-8">
         <div className="py-8">
             <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
                 <h2 className="text-2xl leading-tight">

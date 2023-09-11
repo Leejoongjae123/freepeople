@@ -79,7 +79,7 @@ export default function Home() {
 
 
     <Element name="5"></Element>
-    <div className="bg-gray-100 px-20 py-10">
+    <div className="bg-gray-100 px-10 lg:px-20 py-10">
       <Election></Election>
     </div>
     
