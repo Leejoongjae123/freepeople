@@ -99,10 +99,10 @@ export default function Parliament() {
                             <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
                                 <a target='_blank' href={elem.url}>{elem['title']}</a>
                             </th>
-                            <td className="truncate w-1/4 px-6 py-4">
+                            <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem['category']}
                             </td>
-                            <td className="truncate w-1/4 px-6 py-4">
+                            <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem['regiDate']}
                             </td>
                         </tr>
@@ -149,10 +149,10 @@ export default function Parliament() {
                           <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
-                          <td className="truncate w-1/4 px-6 py-4">
+                          <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem['category']}
                           </td>
-                          <td className="truncate w-1/4 px-6 py-4">
+                          <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem['regiDate']}
                           </td>
                       </tr>
@@ -195,10 +195,10 @@ export default function Parliament() {
                           <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
-                          <td className="truncate w-1/4 px-6 py-4">
+                          <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem['writer']}
                           </td>
-                          <td className="truncate w-1/4 px-6 py-4">
+                          <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem['regiDate']}
                           </td>
                       </tr>

@@ -54,11 +54,12 @@ export default function PresidentSlider() {
         autoPlay={true}
         infinite={true}
         partialVisible={false}
+        
       >
         {presidentRealmeter.map((elem, index) => {
           return (
-            <div className="flex flex-col slider max-w-sm" key={index}>
-              <img className=""src={elem.imageSrc} alt="movie" />
+            <div className="flex flex-col slider h-2/3" key={index}>
+              <img className="object-cover" src={elem.imageSrc} alt="movie" />
               <p className="font-bold text-base">
                 {elem.title}
               </p>

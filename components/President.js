@@ -8,7 +8,7 @@ import {mdOilBarrel} from 'react-icons/md'
 import { useState,useEffect } from 'react';
 import Spinner from './Spinner';
 import Link from 'next/link';
-import PresidentSlider from './Slider';
+import PresidentSlider from './PresidentSlider';
 import axios from 'axios';
 
 export default function President() {
@@ -233,7 +233,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">환율(USD)</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.exchange} 원/달러</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.exchange} <span className='text-xs text-gray-500 font-normal'>(원/달러)</span></p>
               </div>
               
             </div>
@@ -247,7 +247,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">코스피</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.kospi}</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.kospi}</p>
               </div>
               
             </div>
@@ -261,7 +261,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">코스닥</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.kosdaq}</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.kosdaq}</p>
               </div>
               
             </div>
@@ -276,7 +276,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">유가(두바이)</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.oil} 달러/배럴</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.oil} <span className='text-xs text-gray-500 font-normal'>(달러/배럴)</span></p>
               </div>
             </div>
             <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
@@ -289,7 +289,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">금 시세</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.gold} 달러/t oz</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.gold} <span className='text-xs text-gray-500 font-normal'>(달러/toz)</span></p>
               </div>
             </div>
             <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
@@ -302,7 +302,7 @@ export default function President() {
 
               <div className="ml-4">
                 <h2 className="font-semibold">CD금리(91일)</h2>
-                <p className="mt-2 text-sm text-gray-500">{economyIndicators.cdinterest} %/년</p>
+                <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.cdinterest} <span className='text-xs text-gray-500 font-normal'>(%/년)</span></p>
               </div>
             </div>
           </div>

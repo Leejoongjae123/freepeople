@@ -196,10 +196,10 @@ export default function Review(){
                   </div>
                   <div className="">
                     <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
-                      <h5 className="text-center mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
+                      <h5 className="text-center mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
                     </button>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
+                    <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
+                    <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
                   </div>
                 </div> 
                 <div className="hidden duration-700 ease-in-out" data-carousel-item>
@@ -266,12 +266,12 @@ export default function Review(){
                               {elem.contents}
                             </p> */}
                             <div className="col-span-1">
-                              <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                              <p className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
                                 {elem.contents}
                               </p>
                             </div>
                           </div>
-                          <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
+                          <div className="col-span-1 text-sm text-center text-gray-900 dark:text-white">
                               {elem.regiDate}
                           </div>
                         </div>
@@ -336,12 +336,12 @@ export default function Review(){
                             {elem.contents}
                           </p> */}
                           <div>
-                            <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                            <p className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
                               {elem.contents}
                             </p>
                           </div>
                         </div>
-                        <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
+                        <div className="col-span-1 text-sm text-center text-gray-900 dark:text-white">
                             {elem.regiDate}
                         </div>
                       </div>

@@ -9,7 +9,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
 import Link from 'next/link';
-import PresidentSlider from './Slider';
+import PresidentSlider from './PresidentSlider';
 
 export default function President() {
 
