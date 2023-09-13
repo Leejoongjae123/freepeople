@@ -26,12 +26,12 @@ export default function Navbar() {
     const router = useRouter();
   if (pathname==="/"){
     return (
-        <Disclosure as="nav" className="w-max-full lg:w-full bg-gray-800 fixed z-50 ">
+        <Disclosure as="nav" className="w-full bg-gray-800 fixed z-50 ">
           {({ open }) => (
             <>
               <div className="mx-auto px-2">
                 <div className="items-center justify-center relative flex sm:space-x-1 lg:space-x-4 text-xs lg:text-lg">
-                        {navigation.map((item,index) => (
+                        {navigation.map((item,index) => ( 
                           <Link to={index.toString()} spy={true} smooth={true} offset={-50} key={index}>
                           <button
                             key={item.name}
