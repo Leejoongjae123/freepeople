@@ -77,6 +77,7 @@ export default function Parliament() {
           <h1 className='mb-5 text-2xl font-bold text-center'>국민의힘</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">  
               <div>
+              <img className="opacity-10 absolute inset-0 w-full h-full object-contain z-0 backdrop-blur-md" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/gukhim-removebg-preview.png"></img>
                 <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                       <tr>
@@ -123,11 +124,17 @@ export default function Parliament() {
 
 
         <div>
-          <h1 className='mb-5 text-2xl font-bold text-center'>더불어민주당</h1>
+          <div className='flex'>
+              
+              <h1 className='mb-5 text-2xl font-bold text-center'>더불어민주당</h1>
+          </div>
+          
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
             
             <div>
-              <table className="table-fixed w-full text-sm text-left text-gray-500 ">
+              <img className="opacity-10 absolute inset-0 w-full h-full object-contain z-0 backdrop-blur-md" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/dubul-removebg-preview.png"></img>
+              <table className="table-fixed w-full text-sm text-left text-gray-500 z-50">
+                
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
                     <th scope="col" className="text-center px-6 py-3 w-1/2">
@@ -171,8 +178,8 @@ export default function Parliament() {
         <div>
           <h1 className='mb-5 text-2xl font-bold text-center'>국회입법조사처</h1>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
-            
             <div>
+            <img className="opacity-10 absolute inset-0 w-full h-full object-contain z-0 backdrop-blur-md" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/gukip-removebg-preview.png"></img>
               <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
