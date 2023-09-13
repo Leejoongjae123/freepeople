@@ -2,7 +2,10 @@
 import React from 'react'
 
 export default function Statistics() {
-  return (
+  
+  
+  
+    return (
 
     <div className="w-full mx-auto lg:px-20">
         <div className="py-8">

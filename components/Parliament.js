@@ -96,7 +96,7 @@ export default function Parliament() {
                         gukhimarticle.map((elem,index)=>{
                           return (
                           <tr key={index} className="bg-white border-b ">
-                            <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                            <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
                                 <a target='_blank' href={elem.url}>{elem['title']}</a>
                             </th>
                             <td className="truncate w-1/4 px-6 py-4">
@@ -146,7 +146,7 @@ export default function Parliament() {
                       minjuarticle.map((elem,index)=>{
                         return (
                         <tr key={index} className="bg-white border-b ">
-                          <th scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                          <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
                               <a target='_blank' href={elem.url}>{elem['title']}</a>
                           </th>
                           <td className="truncate w-1/4 px-6 py-4">

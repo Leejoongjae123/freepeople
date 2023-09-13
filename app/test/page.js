@@ -6,7 +6,7 @@ export default function page() {
   return (
     
   <>
-    <div class="grid grid-cols-1 lg:grid-cols-4">
+    <div className="grid grid-cols-1 lg:grid-cols-4">
     <div className="col-span-1 bg-red-500 ">
       <p className="truncate ...">This isffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff </p>
     </div>

@@ -256,29 +256,28 @@ export default function FromTheBlog(){
               <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
               <h1 className='text-2xl font-bold text-center my-5'>미래민중 논평</h1>
               <div className='flex flex-col'>
-                <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
+                <ul className="grid w-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
                   {futureData.map((elem,index)=>(
-                      <li key={index*111} className="pb-3 mx-auto sm:pb-4 border-b-2">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                            {elem.regiDate}
-                        </div>
-                        <div className="flex-1">
-                            <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                            <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
-                              {elem.title}
-                            </p>
-                            </button>
-                            {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
+                      <div className="grid grid-cols-4 items-center space-x-4">
+                        <div className="col-span-3">
+                          <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
+                          <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
+                            {elem.title}
+                          </p>
+                          </button>
+                          {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {elem.contents}
+                          </p> */}
+                          <div className="col-span-1">
+                            <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
-                            </p> */}
-                            <div >
-                              <p id="truncate" className="text-sm text-gray-500 dark:text-gray-400">
-                                {elem.contents}
-                              </p>
-                            </div>
-                            
+                            </p>
+                          </div>
+                        </div>
+                        <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
+                            {elem.regiDate}
                         </div>
                       </div>
                     </li>   
@@ -329,26 +328,26 @@ export default function FromTheBlog(){
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
                   {columnData.map((elem,index)=>(
-                      <li key={index*111} className="pb-3 mx-auto sm:pb-4 border-b-2">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                            {elem.regiDate}
-                        </div>
-                        <div className="flex-1">
-                            <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                            <p id="truncate" className="text-sm font-bold text-gray-900 truncate dark:text-white">
-                              {elem.title}
-                            </p>
-                            </button>
-                            {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
+                      <div className="grid grid-cols-4 items-center space-x-4">
+
+                        <div className="col-span-3">
+                          <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
+                          <p className="text-left whitespace-normal text-sm font-bold text-gray-900 truncate dark:text-white">
+                            {elem.title}
+                          </p>
+                          </button>
+                          {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {elem.contents}
+                          </p> */}
+                          <div>
+                            <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
                               {elem.contents}
-                            </p> */}
-                            <div>
-                              <p id="truncate" className="text-sm text-gray-500 dark:text-gray-400">
-                                {elem.contents}
-                              </p>
-                            </div>
-                            
+                            </p>
+                          </div>
+                        </div>
+                        <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
+                            {elem.regiDate}
                         </div>
                       </div>
                     </li>   

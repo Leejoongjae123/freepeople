@@ -167,10 +167,10 @@ export default function President() {
                       return(
                         <tr className=" bg-white border-b ">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              <p className='font-bold truncate ...'><a href={elem.url}>{elem.title}</a></p>
-                              <p className='text-gray-500 truncate ...'>{elem.contents}</p>
+                              <p className='font-bold '><a href={elem.url}>{elem.title}</a></p>
+                              <p className='whitespace-normal text-left text-gray-500'>{elem.contents}</p>
                           </th>
-                          <td className="grid-col truncate px-6 py-4 text-center">
+                          <td className="grid-col px-6 py-4 text-center">
                               {elem.regiDate}
                           </td>
                         </tr>
@@ -205,8 +205,8 @@ export default function President() {
                       return(
                         <tr className=" bg-white border-b ">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                              <p className='font-bold truncate ...'><a href={elem.url}>{elem.title}</a></p>
-                              <p className='text-gray-500 truncate ...'>{elem.contents}</p>
+                              <p className='font-bold '><a href={elem.url}>{elem.title}</a></p>
+                              <p className='text-gray-500 '>{elem.contents}</p>
                           </th>
                           <td className="grid-col truncate px-6 py-4 text-center">
                               {elem.regiDate}

@@ -91,13 +91,13 @@ export default function Policy() {
       <div className=' py-10 lg:px-20'>
       <div className="grid grid-cols-1 gap-8 mb-6 lg:mb-16 md:grid-cols-2">
         <div className='flex flex-col'>
-          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
-            <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
-            </div>
-            <div className="col-span-2 p-5">
+          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+            
+              <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
+            
+            <div className="p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-3'>동향자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
               </div>
               
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
@@ -107,7 +107,7 @@ export default function Policy() {
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                    <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                    <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
                 </li>
                   )
                 })}
@@ -122,13 +122,13 @@ export default function Policy() {
         </div>
         
         <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow grid md:grid-cols-3 grid-cols-1">
-            <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
-            </div>
+          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+            
+              <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+            
             <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-3'>정책자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
@@ -138,7 +138,7 @@ export default function Policy() {
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                      <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                      <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
                     </li>
                     )
                   })
@@ -153,15 +153,15 @@ export default function Policy() {
           </div>  
         </div>
         <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
-            <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
-            </div>
+          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+            
+            <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
+            
 
 
             <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-3'>정책자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
@@ -171,7 +171,7 @@ export default function Policy() {
                         <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                         </svg>
-                        <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                        <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
                     </li>
                     )
                   })
@@ -186,13 +186,13 @@ export default function Policy() {
           </div>
 
           <div>
-          <div className="items-center bg-gray-50 rounded-lg shadow md:grid-cols-3 grid grid-cols-1">
-            <div className='col-span-1'>
-              <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
-            </div>
+          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+            
+            <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
+            
             <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-3'>동향자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
@@ -202,7 +202,7 @@ export default function Policy() {
                       <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                      <span className='truncate ...'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                      <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
                     </li>
                     )
                   })
