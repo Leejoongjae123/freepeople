@@ -3,10 +3,12 @@ import React from 'react'
 import { usePathname, useRouter } from 'next/navigation';
 import LoginBtn from './LoginBtn';
 import Link from 'next/link';
+import { useState,useEffect } from 'react';
+import ArticleModal from './ArticleModal';
 export default function Footer() {
   const pathname = usePathname();
   const router = useRouter();
-  
+
   if (pathname==="/"){
     return (
 
@@ -18,10 +20,10 @@ export default function Footer() {
                   <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">소개</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#" className=" hover:underline">미래민중은</a>
+                        <Link href="/about" className="hover:underline">미래민중은</Link>
                       </li>
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">서비스범위</a>
+                        <Link href="/service" className="hover:underline">서비스범위</Link>
                       </li>
                   </ul>
               </div>

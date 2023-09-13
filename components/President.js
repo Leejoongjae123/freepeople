@@ -165,7 +165,7 @@ export default function President() {
                   {
                     presidentbrief.map((elem,index)=>{
                       return(
-                        <tr className=" bg-white border-b ">
+                        <tr key={index} className=" bg-white border-b ">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                               <p className='font-bold '><a href={elem.url}>{elem.title}</a></p>
                               <p className='whitespace-normal text-left text-gray-500'>{elem.contents}</p>
@@ -203,7 +203,7 @@ export default function President() {
                   {
                     presidentNBS.map((elem,index)=>{
                       return(
-                        <tr className=" bg-white border-b ">
+                        <tr key={index} className=" bg-white border-b ">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                               <p className='font-bold '><a href={elem.url}>{elem.title}</a></p>
                               <p className='whitespace-normal text-gray-500 '>{elem.contents}</p>

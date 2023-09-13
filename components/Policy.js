@@ -93,7 +93,7 @@ export default function Policy() {
         <div className='flex flex-col'>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-              <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
+              <img className="absolute top-0 left-0 w-1/4 md:h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
             
             <div className="p-5">
               <div>

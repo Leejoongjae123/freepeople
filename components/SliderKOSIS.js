@@ -41,7 +41,7 @@ export default function SliderKOSIS() {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 4,
+      items: 1,
       slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
@@ -87,19 +87,19 @@ export default function SliderKOSIS() {
                 <p className="font-bold text-sm truncate ...">
                   {elem.title}
                 </p>
-                <div className="flex justify-evenly items-center">
-                  <p className="text-base font-bold text-cyan-600 text-gray-500">
+                <div className="flex justify-center items-center">
+                  <p className="text-2xl font-bold text-cyan-600">
                     {elem.value}
                   </p>
-                  <p className="text-xs text-gray-500">
-                    ({elem.year}기준)
-                  </p>
+
                 </div>
                 <div className="flex mx-auto">
                 <p className="text-xs text-gray-500">
+                  ({elem.year}기준)
+                </p>
+                <p className="ml-2 text-xs text-gray-500">
                   {elem.prev}
                 </p>
-
                 
                 {elem.updown==="up"?(
                   

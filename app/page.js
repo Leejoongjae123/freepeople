@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 // import ApexCharts from "react-apexcharts";
 const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
-import FromTheBlog from '@/components/FromTheBlog'
+import Review from '@/components/Review'
 import JijidoReal from '@/components/JijidoReal'
 import JijidoNBS from '@/components/JijidoNBS'
 import {FcVoicePresentation} from 'react-icons/fc'
@@ -56,7 +56,7 @@ export default function Home() {
 
     <Element name="1"></Element>
     <div id="mySection" className="mx-auto px-10 lg:px-20 pb-10 bg-gray-100">
-      <FromTheBlog></FromTheBlog>
+      <Review></Review>
     </div>
 
     <Element name="2"></Element>

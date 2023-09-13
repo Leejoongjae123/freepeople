@@ -11,7 +11,7 @@ import { Element } from 'react-scroll'
 import CardSkeleton from './CardSkeleton'
 import { FcNext,FcPrevious } from 'react-icons/fc'
 
-export default function FromTheBlog(){
+export default function Review(){
     
     const [bigKindsData, setBigKindsData] = useState([]);
     const [bigKindsLoading, setBigKindsLoading] = useState(true);
@@ -188,15 +188,15 @@ export default function FromTheBlog(){
                   
               ):(
                 <>
-                <div className= 'bg-white border border-gray-200 rounded-lg shadow max-h-lg'>
-                <h1 className='text-2xl font-bold text-center mt-5'>빅카인즈 논평</h1>
+                <div className= 'min-h-fit bg-white border border-gray-200 rounded-lg shadow'>
+                <h1 className='text-2xl font-bold text-center my-5'>빅카인즈 논평</h1>
                 <div className='grid grid-cols-2 items-center'>
                   <div className='flex justify-center'>
-                    <img className="w-1/2 object-cover overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
+                    <img className="w-2/3 object-cover overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
                   </div>
                   <div className="">
                     <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
-                      <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
+                      <h5 className="text-center mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
                     </button>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
@@ -241,11 +241,6 @@ export default function FromTheBlog(){
             }
         </div>
         <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20  pt-6 mt-6 lg:mx-0 lg:grid-cols-2">
-
-            
-
-
-            
             {/* 두번째 섹션 */}
             
               {futureLoading?(
@@ -253,65 +248,65 @@ export default function FromTheBlog(){
                 <Spinner></Spinner>
               </div> 
               ):(
-              <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
-              <h1 className='text-2xl font-bold text-center my-5'>미래민중 논평</h1>
-              <div className='flex flex-col'>
-                <ul className="grid w-full justify-start px-10 grid-rows-5 gap-4 items-center">
-                  
-                  {futureData.map((elem,index)=>(
-                      <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
-                      <div className="grid grid-cols-4 items-center space-x-4">
-                        <div className="col-span-3">
-                          <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                          <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
-                            {elem.title}
-                          </p>
-                          </button>
-                          {/* <p className="text-sm text-gray-500 dark:text-gray-400">
-                            {elem.contents}
-                          </p> */}
-                          <div className="col-span-1">
-                            <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
-                              {elem.contents}
+              <div className='flex h-full flex-col bg-white border border-gray-200 rounded-lg shadow'>
+                <h1 className='text-2xl font-bold text-center my-5'>미래민중 논평</h1>
+                <div className='flex flex-col'>
+                  <ul className="grid w-full justify-start px-10 grid-rows-5 gap-4 items-center">
+                    
+                    {futureData.map((elem,index)=>(
+                        <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
+                        <div className="grid grid-cols-4 items-center space-x-4">
+                          <div className="col-span-3">
+                            <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
+                            <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
+                              {elem.title}
                             </p>
+                            </button>
+                            {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                              {elem.contents}
+                            </p> */}
+                            <div className="col-span-1">
+                              <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                                {elem.contents}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
+                              {elem.regiDate}
                           </div>
                         </div>
-                        <div className="col-span-1 text-base font-semibold text-gray-900 dark:text-white">
-                            {elem.regiDate}
-                        </div>
-                      </div>
-                    </li>   
-                  ))       
-                  }
-                </ul>
-                <div className='flex justify-center my-3'>
-                  <ul className="inline-flex -space-x-px text-sm">
-                    <li>
-                      <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `}><FcPrevious size={10}></FcPrevious> </button>
-                    </li>
-                    <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[0]}</button>
-                    </li>
-                    <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[1])} className={`${futureNo==futureNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[1]}</button>
-                    </li>
-                    <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[2])} className={`${futureNo==futureNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[2]}</button>
-                    </li>
-                    <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[3])} className={`${futureNo==futureNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[3]}</button>
-                    </li>
-                    <li>
-                      <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[4])} className={`${futureNo==futureNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[4]}</button>
-                    </li>
-                    <li>
-                      <button onClick={() => handleNextClick2()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 "><FcNext size={10}></FcNext></button>
-                    </li>
+                      </li>   
+                    ))       
+                    }
                   </ul>
+                  <div className='flex justify-center my-3'>
+                    <ul className="inline-flex -space-x-px text-sm">
+                      <li>
+                        <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `}><FcPrevious size={10}></FcPrevious> </button>
+                      </li>
+                      <li>
+                        <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[0]}</button>
+                      </li>
+                      <li>
+                        <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[1])} className={`${futureNo==futureNoList[1]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[1]}</button>
+                      </li>
+                      <li>
+                        <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[2])} className={`${futureNo==futureNoList[2]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[2]}</button>
+                      </li>
+                      <li>
+                        <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[3])} className={`${futureNo==futureNoList[3]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[3]}</button>
+                      </li>
+                      <li>
+                        <button value={1} onClick={(e) => handleLinkClick2(e, futureNoList[4])} className={`${futureNo==futureNoList[4]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[4]}</button>
+                      </li>
+                      <li>
+                        <button onClick={() => handleNextClick2()} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 "><FcNext size={10}></FcNext></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>  
                 </div>
-              </div>  
-              </div>
-              )}
+                )}
                                
 
 
@@ -322,7 +317,7 @@ export default function FromTheBlog(){
                   <Spinner></Spinner>
                 </div> 
               ):(
-              <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-evenly'>
+              <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow '>
               <h1 className='text-2xl font-bold text-center my-5'>칼럼 논평</h1>
               <div className='flex flex-col'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
