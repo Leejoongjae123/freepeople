@@ -93,12 +93,13 @@ export default function Policy() {
         <div className='flex flex-col'>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-              <img className="absolute top-0 left-0 w-1/4 md:h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Bonnie Avatar"/>
+            <img className="ml-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
-            <div className="p-5">
+            <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
               </div>
+              
               
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {kdistatus.map((elem,index)=>{
@@ -124,7 +125,7 @@ export default function Policy() {
         <div>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-              <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+              <img className="ml-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -155,7 +156,7 @@ export default function Policy() {
         <div>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
+            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
             
 
 
