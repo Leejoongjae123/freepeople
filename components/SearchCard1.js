@@ -1,6 +1,96 @@
+'use client'
 import React from 'react'
+import { useState,useEffect } from 'react';
+import axios from 'axios';
+import ArticleModal from './ArticleModal'
 
 export default function SearchCard1() {
+
+  const [select1Value, setSelect1Value] = useState('제20대 대통령선거');
+  const [select2Value, setSelect2Value] = useState('국민의힘');
+  const [isSelect,setIsSelect]=useState(false)
+  const [count,setCount]=useState(1)
+  
+
+  const [partyData, setPartyData] = useState([]);
+  const [partyDataLoading, setPartyDataLoading] = useState(true);
+
+  const [showModal,setShowModal]=useState(false);
+    
+  const [modalTitle,setModalTitle]=useState("")
+
+  const [modalText,setModalText]=useState(["","",""])
+
+  const handleSelect1Change = (e) => {
+    const selectedValue = e.target.value;
+    setSelect1Value(selectedValue);
+    setSelect2Value("")
+
+    // select1에서 A를 선택하면 select2를 초기화
+    if (selectedValue === 'A') {
+      setSelect2Value('');
+    }
+    if (selectedValue === 'B') {
+      setSelect2Value('');
+    }
+    if (selectedValue === 'C') {
+      setSelect2Value('');
+    }
+    if (selectedValue === 'D') {
+      setSelect2Value('');
+    }
+  };
+
+  const handleSelect2Change = (e) => {
+    const selectedValue = e.target.value;
+    setSelect2Value(selectedValue);
+    setIsSelect(true)
+    setCount(count+1)
+  };
+
+  if (select1Value.length>=1 && select2Value.length>=1){
+    console.log(select1Value,select2Value)
+  }
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/PartyInfo?sgId=${select1Value}&partyName=${select2Value}`);
+      setPartyData(response.data);
+      setPartyDataLoading(false);
+      console.log("loading완료정당")
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    // 데이터를 가져오는 함수를 정의합니다.
+    fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
+  }, []);
+
+  useEffect(() => {
+    // 데이터를 가져오는 함수를 정의합니다.
+    fetchData(); // 함수를 호출하여 데이터를 가져옵니다.
+  }, [count]);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleButtonClick = (title,contents,imageUrl) => {
+    console.log(title)
+    console.log(contents)
+    console.log(imageUrl)
+    setModalText([title,contents,imageUrl])
+    toggleModal()
+  };
+
+
+
   return (
     <div>
       <div className="container w-full px-4 mx-auto sm:px-8">
@@ -10,7 +100,7 @@ export default function SearchCard1() {
                     정당정책정보
                 </h2>
                 <div className="flex gap-x-2 text-end">
-                  <select defaultValue="BIG" id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  {/* <select defaultValue="BIG" id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option >선거종류</option>
                     <option value="BIG">대선</option>
                     <option value="ALL">총선</option>
@@ -21,203 +111,100 @@ export default function SearchCard1() {
                     <option value="BIG">대선</option>
                     <option value="ALL">총선</option>
                     <option value="REST">지선</option>
+                  </select> */}
+                  <select value={select1Value} onChange={handleSelect1Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="">-- 선택 --</option>
+                    <option value="제20대 대통령선거">제20대 대통령선거</option>
+                    <option value="제21대 국회의원선거">제21대 국회의원선거</option>
+                    <option value="제19대 대통령선거">제19대 대통령선거</option>
+                    <option value="제20대 국회의원선거">제20대 국회의원선거</option>
                   </select>
-                  <select defaultValue="BIG" id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option >지역구2</option>
-                    <option value="BIG">대선</option>
-                    <option value="ALL">총선</option>
-                    <option value="REST">지선</option>
-                  </select>
+                  {select1Value &&(
+                    <>
+                    {
+                      select1Value==="제20대 대통령선거"&&(
+                        <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">-- 선택 --</option>
+                        <option value="국민의힘">국민의힘</option>
+                        <option value="더불어민주당">더불어민주당</option>
+                        <option value="정의당">정의당</option>
+                        </select>
+                      )
+                    }
+                    {
+                      select1Value==="제21대 국회의원선거"&&(
+                        <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">-- 선택 --</option>
+                        <option value="더불어민주당">더불어민주당</option>
+                        <option value="미래통합당">미래통합당</option>
+                        <option value="미래한국당">미래한국당</option>
+                        </select>
+                      )
+                    }
+                                        {
+                      select1Value==="제19대 대통령선거"&&(
+                        <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">-- 선택 --</option>
+                        <option value="더불어민주당">더불어민주당</option>
+                        <option value="자유한국당">자유한국당</option>
+                        <option value="국민의당">국민의당</option>
+                        </select>
+                      )
+                    }
+                                        {
+                      select1Value==="제20대 국회의원선거"&&(
+                        <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">-- 선택 --</option>
+                        <option value="더불어민주당">더불어민주당</option>
+                        <option value="새누리당">새누리당</option>
+                        <option value="국민의당">국민의당</option>
+                        </select>
+                      )
+                    }
+                    </>
+
+                  )
+                  }
+                                    
+          
                 </div>
                 </div>
                 <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
                     <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
                         <table className="min-w-full leading-normal">
-                            <thead>
-                                <tr>
-                                    <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                        User
-                                    </th>
-                                    <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                        Role
-                                    </th>
-                                    <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                        Created at
-                                    </th>
-                                    <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                        status
-                                    </th>
-                                    <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                    </th>
-                                </tr>
-                            </thead>
                             <tbody>
-                                <tr>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0">
-                                                <a href="#" className="relative block">
-                                                    <img alt="profil" src="/images/person/8.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                                </a>
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    Jean marc
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            Admin
+                              {partyData.map((elem,index)=>{
+                                return(
+                                <tr key={index}>
+                                  <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <div className="flex items-center">
+                                      <div className="flex-shrink-0">
+                                      </div>
+                                      <div className="ml-3">
+                                        <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
+
+                                        <p className="whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                          {elem.title}
                                         </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            12/09/2020
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                            <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
-                                            </span>
-                                            <span className="relative">
-                                                active
-                                            </span>
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Edit
-                                        </a>
-                                    </td>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  
                                 </tr>
-                                <tr>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0">
-                                                <a href="#" className="relative block">
-                                                    <img alt="profil" src="/images/person/9.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                                </a>
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    Marcus coco
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            Designer
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            01/10/2012
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                            <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
-                                            </span>
-                                            <span className="relative">
-                                                active
-                                            </span>
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0">
-                                                <a href="#" className="relative block">
-                                                    <img alt="profil" src="/images/person/10.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                                </a>
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    Ecric marc
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            Developer
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            02/10/2018
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                            <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
-                                            </span>
-                                            <span className="relative">
-                                                active
-                                            </span>
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <div className="flex items-center">
-                                            <div className="flex-shrink-0">
-                                                <a href="#" className="relative block">
-                                                    <img alt="profil" src="/images/person/6.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                                </a>
-                                            </div>
-                                            <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    Julien Huger
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            User
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <p className="text-gray-900 whitespace-no-wrap">
-                                            23/09/2010
-                                        </p>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                            <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
-                                            </span>
-                                            <span className="relative">
-                                                active
-                                            </span>
-                                        </span>
-                                    </td>
-                                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
+                                )
+                              })}
+
+                                
                             </tbody>
                         </table>
 
                     </div>
                 </div>
             </div>
+            {
+        showModal&&(<ArticleModal modalText={modalText} closeModal={closeModal}></ArticleModal>)
+      }
         </div>
 
 

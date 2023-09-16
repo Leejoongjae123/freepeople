@@ -30,7 +30,7 @@ export default function ArticleModal({modalText, closeModal}) {
 
 
                 <div className="flex p-6 space-y-6 ">
-                  <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                  <p className="whitespace-pre-wrap text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     {modalText[1]}
                   </p>
                     
