@@ -12,13 +12,15 @@ export default function SearchCard1() {
   const [select4Value, setSelect4Value] = useState('종로구');
   const [select4List, setSelect4List] = useState([]);
 
+  
+
 
   const [isSelect,setIsSelect]=useState(false)
   const [count,setCount]=useState(1)
   
 
-  const [partyData, setPartyData] = useState([]);
-  const [partyDataLoading, setPartyDataLoading] = useState(true);
+  const [electionResult, setElectionResult] = useState({'result':[]});
+  const [electionResultLoading, setElectionResultLoading] = useState(true);
 
   const [showModal,setShowModal]=useState(false);
     
@@ -29,35 +31,28 @@ export default function SearchCard1() {
   const handleSelect1Change = (e) => {
     const selectedValue = e.target.value;
     setSelect1Value(selectedValue);
-    setSelect2Value("")
-
-    // select1에서 A를 선택하면 select2를 초기화
-    if (selectedValue === '대선') {
-      setSelect2Value('');
-      setSelect3Value('');
-      setSelect4Value('');
-    }
-    if (selectedValue === '총선') {
-      setSelect2Value('');
-      setSelect3Value('');
-      setSelect4Value('');
-    }
-    if (selectedValue === '지선') {
-      setSelect2Value('');
-      setSelect3Value('');
-      setSelect4Value('');
-    }
+    setSelect2Value('')  
+    setSelect3Value('');
+    setSelect4Value('');
+    setIsSelect(false)
+    
   };
 
   const handleSelect2Change = (e) => {
     const selectedValue = e.target.value;
     setSelect2Value(selectedValue);
+    setIsSelect(false)
 
   };
 
   const handleSelect3Change = (e) => {
     const selectedValue = e.target.value;
     setSelect3Value(selectedValue);
+    setIsSelect(false)
+    if(select1Value==="지선"){
+      setCount(count+1)
+    }
+    
   };
 
   
@@ -65,17 +60,32 @@ export default function SearchCard1() {
   const handleSelect4Change = (e) => {
     const selectedValue = e.target.value;
     setSelect4Value(selectedValue);
-    // const indexOfRegion1 = regionDict.select2Value.region1.findIndex(item => item === '서울특별시');
+    setIsSelect(true)
+    setCount(count+1)
+
+
   };
 
-
-
-  // if (select1Value.length>=1 && select2Value.length>=1){
-  //   console.log(select1Value,select2Value)
-  // }
+  console.log(select1Value,select2Value,select3Value,select4Value)
 
   const fetchData = async () => {
-    console.log("AA")
+    try {
+      
+      let url=`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/ElectionResult?sgName=${select2Value}&sdName=${select3Value}&wiwName=${select4Value}`
+      
+      const response = await axios.get(url);
+      
+      setElectionResult(response.data);
+      setElectionResultLoading(false);
+      console.log("loading완료개표결과")
+      console.log('electionResult:',electionResult)
+    } catch (error) {
+      
+      setElectionResult({'result':[]});
+      setElectionResultLoading(false);
+      console.log("loading실패개표결과")
+      
+    }    
   };
 
   useEffect(() => {
@@ -101,7 +111,7 @@ export default function SearchCard1() {
     toggleModal()
   };
 
-
+  
 
 
   const region1=['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
@@ -142,6 +152,7 @@ export default function SearchCard1() {
                     {
                       select1Value==="대선"&&(
                         <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        
                         <option value="">-- 선택 --</option>
                         <option value="제20대 대통령선거">제20대 대통령선거</option>
                         <option value="제19대 대통령선거">제19대 대통령선거</option>
@@ -163,9 +174,9 @@ export default function SearchCard1() {
                       select1Value==="지선"&&(
                         <select value={select2Value} onChange={handleSelect2Change} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="">-- 선택 --</option>
-                        <option value="더불어민주당">제8회 전국동시지방선거</option>
-                        <option value="자유한국당">제7회 전국동시지방선거</option>
-                        <option value="국민의당">제6회 전국동시지방선거</option>
+                        <option value="제8회 전국동시지방선거">제8회 전국동시지방선거</option>
+                        <option value="제7회 전국동시지방선거">제7회 전국동시지방선거</option>
+                        <option value="제6회 전국동시지방선거">제6회 전국동시지방선거</option>
                         </select>
                       )
                     }
@@ -207,23 +218,69 @@ export default function SearchCard1() {
                 </div>
                 </div>
                 <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
+                    <div className='text-right text-gray-600'>선거인수:{electionResult&&(<span>{electionResult['totalCount']}</span>)}, 유효투표수:{electionResult&&(<span>{electionResult['effectiveCount']}</span>)}</div>
                     <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
+                        
                         <table className="min-w-full leading-normal">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+                          <tr>
+                            <th scope="col" className="text-center px-6 py-3 w-1/2">
+                                정당
+                            </th>
+                            <th scope="col" className="text-center px-6 py-3 w-1/4">
+                                후보자명
+                            </th>
+                            <th scope="col" className="text-center px-6 py-3 w-1/4">
+                                득표수
+                            </th>
+                          </tr>
+                        </thead>
                             <tbody>
-                              {partyData.map((elem,index)=>{
+                            {electionResult['result'].map((elem,index)=>{
                                 return(
                                 <tr key={index}>
                                   <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <div className="flex items-center">
+                                    <div className="flex items-center justify-center">
                                       <div className="flex-shrink-0">
                                       </div>
-                                      <div className="ml-3">
-                                        <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
+                                      <div className="">
+                                        
 
-                                        <p className="whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
-                                          {elem.title}
+                                        <p className="mx-auto text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                          {elem[0]}
                                         </p>
-                                        </button>
+                                        
+                                        
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <div className="flex items-center justify-center">
+                                      <div className="flex-shrink-0">
+                                      </div>
+                                      <div className="">
+                                        
+
+                                        <p className="text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                          {elem[1]}
+                                        </p>
+                                        
+                                        
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <div className="flex items-center justify-center">
+                                      <div className="flex-shrink-0">
+                                      </div>
+                                      <div className="">
+                                        
+
+                                        <p className="text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                          {elem[2]}
+                                        </p>
+                                        
+                                        
                                       </div>
                                     </div>
                                   </td>
@@ -231,6 +288,7 @@ export default function SearchCard1() {
                                 </tr>
                                 )
                               })}
+                            
 
                                 
                             </tbody>
