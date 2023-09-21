@@ -189,7 +189,7 @@ export default function Review(){
               ):(
                 <>
                 <div className= 'min-h-fit bg-white border border-gray-200 rounded-lg shadow'>
-                <h1 className='text-2xl font-bold text-center my-5'>빅카인즈 논평</h1>
+                <h1 className='text-2xl font-bold text-center my-5'>정치경제현안분석</h1>
                 <div className='grid grid-cols-2 items-center'>
                   <div className='flex justify-center'>
                     <img className="w-2/3 object-cover overflow-hidden rounded-t-lg" src={bigKindsData.imageUrl} alt="" />
