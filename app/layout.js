@@ -14,7 +14,7 @@ import LoginBtn from '@/components/LoginBtn'
 
 export default async function RootLayout({ children }) {
   let session=await getServerSession(authOptions)
-  console.log(session)
+  // console.log(session)
   return (
     <html lang="kr">
       <body className="">

@@ -1,76 +1,9 @@
-'use client'
 import React from 'react'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import { getServerSession } from 'next-auth'
-import { useState} from 'react'
-import axios from 'axios';
-
-export default function AddTopic() {
-  
-
-  const [selectedInputs, setSelectedInputs] = useState();
-  const [inputTitle, setInputTitle] = useState('');
-  const [inputContents, setInputContents] = useState('');
-
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    if (e.target.checked) {
-      // 선택된 input을 추가
-      setSelectedInputs(inputValue);
-    } else {
-      // 선택이 해제된 input을 제거
-      setSelectedInputs(selectedInputs.filter((item) => item !== inputValue));
-    }
-  };
-
-    // input 요소의 값이 변경될 때 호출되는 함수
-  const handleTitleChange = (e) => {
-      // 입력된 텍스트를 상태 변수에 저장
-    setInputTitle(e.target.value);
-  };
-
-  const handleContentsChange = (e) => {
-    // 입력된 텍스트를 상태 변수에 저장
-  setInputContents(e.target.value);
-  };
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.post(
-        'http://localhost:8000/addFuturePosting',
-        // '[\n  {\n    "id": 0,\n    "title": "string",\n    "contents": "string",\n    "regiDate": "string"\n  }\n]',
-        [
-          {
-            'id': 0,
-            'title': 'string',
-            'contents': 'string',
-            'regiDate': 'string'
-          }
-        ],
-        {
-          headers: {
-            'accept': 'application/json',
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
-          }
-        }
-      );
-    console.log(response.data)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  const handleButtonClick = () => {
-    console.log('버튼이 클릭되었습니다.');
-    fetchData()
-  };
 
 
-
-
+export default function EditTopic(props) {
+	console.log(props.params.detail)
   return (
     <>
     
@@ -79,6 +12,7 @@ export default function AddTopic() {
 
       </div>
       <div className='flex-1 bg-white'>
+        <form>
         <div className='h-24'></div>
         <div className="space-y-12 mx-10">
           <div className="border-b border-gray-900/10 pb-12">
@@ -97,8 +31,6 @@ export default function AddTopic() {
                     id="first-name"
                     autoComplete="given-name"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    value={inputTitle}
-                    onChange={handleTitleChange}
                   />
                 </div>
               </div>
@@ -113,6 +45,7 @@ export default function AddTopic() {
                       type="text"
                       name="first-name"
                       id="first-name"
+											
                       autoComplete="given-name"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
@@ -137,8 +70,7 @@ export default function AddTopic() {
                     name="about"
                     rows={3}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    value={inputContents}
-                    onChange={handleContentsChange}
+                    defaultValue={''}
                   />
                   </div>
                   </div>
@@ -159,12 +91,10 @@ export default function AddTopic() {
                       id="push-everything"
                       name="push-notifications"
                       type="radio"
-                      value="option1"
                       className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      onChange={handleInputChange}
                     />
                     <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-gray-900">
-                      정치경제현안
+                      카테고리1
                     </label>
                   </div>
                   <div className="flex items-center gap-x-3">
@@ -172,12 +102,10 @@ export default function AddTopic() {
                       id="push-email"
                       name="push-notifications"
                       type="radio"
-                      value="option2"
                       className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      onChange={handleInputChange}
                     />
                     <label htmlFor="push-email" className="block text-sm font-medium leading-6 text-gray-900">
-                      미래민중논평
+                    카테고리2
                     </label>
                   </div>
                   <div className="flex items-center gap-x-3">
@@ -185,12 +113,10 @@ export default function AddTopic() {
                       id="push-nothing"
                       name="push-notifications"
                       type="radio"
-                      value="option3"
                       className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      onChange={handleInputChange}
                     />
                     <label htmlFor="push-nothing" className="block text-sm font-medium leading-6 text-gray-900">
-                      칼럼논평
+                      카테고리3
                     </label>
                   </div>
                 </div>
@@ -200,18 +126,21 @@ export default function AddTopic() {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6 mx-10">
+          <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+          </button>
           <button
+            type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={handleButtonClick}
           >
             게시하기
           </button>
         </div>
-      
+      </form>
       </div>
 
     </div>
-    
+
+
     
     
   </>
