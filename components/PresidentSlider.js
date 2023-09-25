@@ -59,11 +59,15 @@ export default function PresidentSlider() {
       >
         {presidentRealmeter.map((elem, index) => {
           return (
-            <div className="flex flex-col slider h-2/3" key={index}>
-              <img className="object-cover" src={elem.imageSrc} alt="movie" />
-              <p className="font-bold text-base">
+            <div className="flex flex-col slider" key={index}>
+              <div className="h-56">
+                <img className="object-cover overflow-hidden" src={elem.imageSrc} alt="movie" />
+              </div>
+              <a href={elem.url} target="_blank">
+              <p className="line-clamp-2 font-bold text-base">
                 {elem.title}
               </p>
+              </a>
               <p className="text-right text-gray-500">
                 {elem.regiDate}
               </p>
@@ -73,7 +77,7 @@ export default function PresidentSlider() {
         
       </Carousel>
       <div className='text-right pr-5'>
-        <p className="absolute right-0 bottom-0 text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+        <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
       </div>  
     </div>
 
