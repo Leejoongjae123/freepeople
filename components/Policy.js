@@ -129,7 +129,7 @@ export default function Policy() {
             
             <div className="col-span-2 p-5">
               <div>
-                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
+                <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {
@@ -150,7 +150,7 @@ export default function Policy() {
             </div>
           </div> 
           <div className='text-right my-3 pr-5'>
-            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://ydi.or.kr/board/list/data020102/1'>Read more</Link></p>
+            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://eiec.kdi.re.kr/policy/materialList.do?topic=O'>Read more</Link></p>
           </div>  
         </div>
         <div>
@@ -182,7 +182,7 @@ export default function Policy() {
             </div>
           </div>
           <div className='text-right my-3 pr-5'>
-            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://idp.theminjoo.kr/board/lists/briefing'>Read more</Link></p>
+            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.ydi.or.kr/board/list/data020102/1'>Read more</Link></p>
           </div>   
           </div>
 
@@ -214,7 +214,7 @@ export default function Policy() {
             
           </div>  
           <div className='text-right my-3 pr-5'>
-            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://eiec.kdi.re.kr/policy/materialList.do?topic=O'>Read more</Link></p>
+            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://idp.theminjoo.kr/board/lists/briefing'>Read more</Link></p>
           </div>  
         </div>
       </div>          

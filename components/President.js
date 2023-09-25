@@ -314,7 +314,9 @@ export default function President() {
             </div>
           </div>
         </div>        
-
+        <div className='text-right pr-5'>
+          <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://finance.naver.com/'>Read more</Link></p>
+        </div> 
       </section>
     </>
 
