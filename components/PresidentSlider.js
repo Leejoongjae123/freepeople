@@ -7,7 +7,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import Image from "next/image";
-
+import Link from "next/link";
 
 export default function PresidentSlider() {
   const [presidentRealmeter,setPresidentRealmeter] = useState([]);
@@ -48,7 +48,8 @@ export default function PresidentSlider() {
 
       
     return (
-      <div className="parent">
+      <div className="relative parent">
+      
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -69,7 +70,11 @@ export default function PresidentSlider() {
             </div>
           );
         })}
+        
       </Carousel>
+      <div className='text-right pr-5'>
+        <p className="absolute right-0 bottom-0 text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://www.realmeter.net/category/politics/'>Read more</Link></p>
+      </div>  
     </div>
 
     

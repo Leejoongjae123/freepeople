@@ -4,6 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 import { useState} from 'react'
 import axios from 'axios';
+import { useRouter,usePathname } from 'next/navigation';
 
 export default function AddTopic() {
   
@@ -11,6 +12,8 @@ export default function AddTopic() {
   const [selectedInputs, setSelectedInputs] = useState();
   const [inputTitle, setInputTitle] = useState('');
   const [inputContents, setInputContents] = useState('');
+
+  const router=useRouter()
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
@@ -35,29 +38,34 @@ export default function AddTopic() {
   };
 
   const fetchData = async () => {
+    let url=''
+    if( selectedInputs==="option1"){
+      url='https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/addBigKinds'
+    }else if (selectedInputs==='option2'){
+      url='https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/addFuturePosting'
+    }else if(selectedInputs==='option3'){
+      url='https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/addColumnPosting'
+    }
     try {
+      
       const response = await axios.post(
-        'http://localhost:8000/addFuturePosting',
-        // '[\n  {\n    "id": 0,\n    "title": "string",\n    "contents": "string",\n    "regiDate": "string"\n  }\n]',
+        url,
         [
           {
             'id': 0,
-            'title': 'string',
-            'contents': 'string',
-            'regiDate': 'string'
+            'title': inputTitle,
+            'contents': inputContents,
+            'imageUrl': 'http://www.datamarket.kr/wp-content/uploads/2014/05/129.jpg',
+            'regiDate': '2023-09-24'
           }
         ],
         {
           headers: {
             'accept': 'application/json',
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+            'Content-Type': 'application/json'
           }
         }
       );
-    console.log(response.data)
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -66,6 +74,7 @@ export default function AddTopic() {
   const handleButtonClick = () => {
     console.log('버튼이 클릭되었습니다.');
     fetchData()
+    router.push('/admin/list')
   };
 
 

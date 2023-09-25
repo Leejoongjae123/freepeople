@@ -180,6 +180,9 @@ export default function President() {
                 </tbody>
               </table>
             </div>
+            <div className='text-right pr-5'>
+              <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/briefing'>Read more</Link></p>
+            </div>  
           </div>
           
           
@@ -217,7 +220,11 @@ export default function President() {
                   }
                 </tbody>
               </table>
+
             </div>
+            <div className='text-right pr-5'>
+              <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='http://nbsurvey.kr'>Read more</Link></p>
+            </div>  
           </div>                 
         
         </div>
