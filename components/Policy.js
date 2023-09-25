@@ -93,7 +93,7 @@ export default function Policy() {
         <div className='flex flex-col'>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="ml-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+            <img className="ml-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -105,11 +105,18 @@ export default function Policy() {
                 {kdistatus.map((elem,index)=>{
                   return(
                     <li key={index} className="flex items-center space-x-3">
-                      <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                    <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
-                </li>
+                      <div className='flex flex-col'>
+                        <span className='flex text-lg text-black font-bold whitespace-normal'>
+                          <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                        </span>
+                        <p className='font-bold text-gray-6'>{elem.category}</p>
+                        <span className='whitespace-normal'>{elem.regiDate}</span>
+                      </div>
+                    
+                    </li>
                   )
                 })}
               </ul>
@@ -125,7 +132,7 @@ export default function Policy() {
         <div>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-              <img className="ml-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+              <img className="ml-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -135,11 +142,18 @@ export default function Policy() {
                 {
                   kdipolicy.map((elem,index)=>{
                     return (
-                    <li key={index} className="flex items-center space-x-3">
-                      <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                      <li key={index} className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                      <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                      <div className='flex flex-col'>
+                        <span className='flex text-lg text-black font-bold whitespace-normal'>
+                          <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                        </span>
+                        <p className='font-bold text-gray-6'>{elem.category}</p>
+                        <span className='whitespace-normal'>{elem.regiDate}</span>
+                      </div>
+                    
                     </li>
                     )
                   })
@@ -156,7 +170,7 @@ export default function Policy() {
         <div>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
+            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
             
 
 
