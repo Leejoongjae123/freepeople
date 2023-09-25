@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {FcDocument} from 'react-icons/fc'
+import {FcDocument,FcDownload} from 'react-icons/fc'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
@@ -104,17 +104,22 @@ export default function Policy() {
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
                 {kdistatus.map((elem,index)=>{
                   return(
-                    <li key={index} className="flex items-center space-x-3">
+                    <li key={index} className="w-full flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
                       <div className='flex flex-col'>
                         <span className='flex text-lg text-black font-bold whitespace-normal'>
                           <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                          <div><FcDocument size='30'></FcDocument></div>
                         </span>
                         <p className='font-bold text-gray-6'>{elem.category}</p>
                         <span className='whitespace-normal'>{elem.regiDate}</span>
                       </div>
+                      <div className='flex-auto justify-end'>
+                        
+                      </div>
+                      
                     
                     </li>
                   )
@@ -149,6 +154,7 @@ export default function Policy() {
                       <div className='flex flex-col'>
                         <span className='flex text-lg text-black font-bold whitespace-normal'>
                           <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                          <div><FcDocument size='30'></FcDocument></div>
                         </span>
                         <p className='font-bold text-gray-6'>{elem.category}</p>
                         <span className='whitespace-normal'>{elem.regiDate}</span>
