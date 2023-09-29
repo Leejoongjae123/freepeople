@@ -64,11 +64,11 @@ export default function PresidentSlider() {
                 <img className="object-cover overflow-hidden" src={elem.imageSrc} alt="movie" />
               </div>
               <a href={elem.url} target="_blank">
-              <p className="line-clamp-2 font-bold text-base">
+              <p className="text-lg line-clamp-2 font-bold font-black ">
                 {elem.title}
               </p>
               </a>
-              <p className="text-right text-gray-500">
+              <p className="text-right text-gray-500 text-sm">
                 {elem.regiDate}
               </p>
             </div>

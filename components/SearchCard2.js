@@ -223,13 +223,13 @@ export default function SearchCard1() {
                         <table className="w-full h-full leading-normal">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                           <tr>
-                            <th scope="col" className="text-center px-6 py-3 w-1/2">
+                            <th scope="col" className="font-bold text-lg text-center px-6 py-3 w-1/2">
                                 정당
                             </th>
-                            <th scope="col" className="text-center px-6 py-3 w-1/4">
+                            <th scope="col" className="font-bold text-lg text-center px-6 py-3 w-1/4">
                                 후보자명
                             </th>
-                            <th scope="col" className="text-center px-6 py-3 w-1/4">
+                            <th scope="col" className="font-bold text-lg text-center px-6 py-3 w-1/4">
                                 득표수
                             </th>
                           </tr>
@@ -245,7 +245,7 @@ export default function SearchCard1() {
                                       <div className="">
                                         
 
-                                        <p className="mx-auto text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                        <p className="text-base mx-auto text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
                                           {elem[0]}
                                         </p>
                                         
@@ -260,7 +260,7 @@ export default function SearchCard1() {
                                       <div className="">
                                         
 
-                                        <p className="text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                        <p className="text-base text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
                                           {elem[1]}
                                         </p>
                                         
@@ -275,7 +275,7 @@ export default function SearchCard1() {
                                       <div className="">
                                         
 
-                                        <p className="text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                        <p className=" text-base text-center whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
                                           {elem[2]}
                                         </p>
                                         

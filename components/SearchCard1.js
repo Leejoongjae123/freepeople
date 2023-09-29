@@ -183,7 +183,7 @@ export default function SearchCard1() {
                                       <div className="ml-3">
                                         <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
 
-                                        <p className="whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
+                                        <p className="text-base whitespace-pre-wrap text-gray-900 whitespace-no-wrap">
                                           {elem.title}
                                         </p>
                                         </button>

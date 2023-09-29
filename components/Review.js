@@ -196,10 +196,10 @@ export default function Review(){
                   </div>
                   <div className="">
                     <button onClick={()=>{handleButtonClick(bigKindsData.title,bigKindsData.contents,bigKindsData.imageUrl)}}>
-                      <h5 className="text-center mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
+                      <h5 className="text-center mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{bigKindsData.title}</h5>
                     </button>
-                    <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
-                    <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
+                    <p className="mb-3 text-base font-normal text-gray-700 dark:text-gray-400">{bigKindsData.contents}</p>
+                    <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">{bigKindsData.regiDate}</p>
                   </div>
                 </div> 
                 <div className="hidden duration-700 ease-in-out" data-carousel-item>
@@ -258,7 +258,7 @@ export default function Review(){
                         <div className="grid grid-cols-4 items-center space-x-4">
                           <div className="col-span-3">
                             <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                            <p className="text-sm font-bold text-gray-900 truncate dark:text-white">
+                            <p className="text-lg font-bold text-gray-900 truncate dark:text-white">
                               {elem.title}
                             </p>
                             </button>
@@ -266,7 +266,7 @@ export default function Review(){
                               {elem.contents}
                             </p> */}
                             <div className="col-span-1">
-                              <p className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
+                              <p className="line-clamp-2 text-base text-gray-500 dark:text-gray-400">
                                 {elem.contents}
                               </p>
                             </div>
@@ -328,7 +328,7 @@ export default function Review(){
 
                         <div className="col-span-3">
                           <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                          <p className="text-left whitespace-normal text-sm font-bold text-gray-900 truncate dark:text-white">
+                          <p className="text-left whitespace-normal text-lg font-bold text-gray-900 truncate dark:text-white">
                             {elem.title}
                           </p>
                           </button>
@@ -336,7 +336,7 @@ export default function Review(){
                             {elem.contents}
                           </p> */}
                           <div>
-                            <p className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
+                            <p className="line-clamp-2 text-base text-gray-500 dark:text-gray-400">
                               {elem.contents}
                             </p>
                           </div>

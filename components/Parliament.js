@@ -24,7 +24,18 @@ export default function Parliament() {
     const fetchData3 = async () => {
       try {
         const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getgukhimarticle?page=1`);
-        setGukhimarticle(response.data);
+
+        const articles=response.data
+          // 그룹화할 크기를 정의합니다.
+        const groupSize = 2;
+
+        // 그룹화된 배열을 생성합니다.
+        const groupedArticles = [];
+        for (let i = 0; i < articles.length; i += groupSize) {
+          groupedArticles.push(articles.slice(i, i + groupSize));
+        }
+        
+        setGukhimarticle(groupedArticles);
         setGukhimarticleLoading(false);
         console.log("loading완료3")
       } catch (error) {
@@ -34,7 +45,18 @@ export default function Parliament() {
     const fetchData4 = async () => {
       try {
         const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getminjuarticle?page=1`);
-        setMinjuarticle(response.data);
+        
+        const articles=response.data
+        // 그룹화할 크기를 정의합니다.
+        const groupSize = 2;
+
+        // 그룹화된 배열을 생성합니다.
+        const groupedArticles = [];
+        for (let i = 0; i < articles.length; i += groupSize) {
+          groupedArticles.push(articles.slice(i, i + groupSize));
+        }
+        
+        setMinjuarticle(groupedArticles);
         setMinjuarticleLoading(false);
         console.log("loading완료4")
       } catch (error) {
@@ -44,7 +66,17 @@ export default function Parliament() {
     const fetchData5 = async () => {
       try {
         const response = await axios.get(`https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getParliamentCreator?page=1`);
-        setParliamentCreator(response.data);
+        
+        const articles=response.data
+        // 그룹화할 크기를 정의합니다.
+        const groupSize = 2;
+
+        // 그룹화된 배열을 생성합니다.
+        const groupedArticles = [];
+        for (let i = 0; i < articles.length; i += groupSize) {
+          groupedArticles.push(articles.slice(i, i + groupSize));
+        }
+        setParliamentCreator(groupedArticles);
         setParliamentCreatorLoading(false);
         console.log("loading완료5")
       } catch (error) {
@@ -81,25 +113,38 @@ export default function Parliament() {
                 <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                       <tr>
-                          <th scope="col" className="text-center px-6 py-3 w-1/2">
+                          <th scope="col" className="text-center text-lg px-6 py-3 w-1/2">
                               제목
                           </th>
-                          <th scope="col" className="text-center px-6 py-3 w-1/4">
+                          <th scope="col" className="text-center text-lg px-6 py-3 w-1/4">
+                              작성일
+                          </th>
+                          <th scope="col" className="text-center text-lg px-6 py-3 w-1/2">
+                              제목
+                          </th>
+                          <th scope="col" className="text-center text-lg px-6 py-3 w-1/4">
                               작성일
                           </th>
                       </tr>
                   </thead>
                   <tbody>
                       {
-                        gukhimarticle.slice(0,5).map((elem,index)=>{
+                        gukhimarticle.map((elem,index)=>{
                           return (
                           <tr key={index} className="bg-white border-b ">
                             <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
-                                <a target='_blank' href={elem.url}><span className=' font-bold text-cyan-600'>{elem['category']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
+                                <a target='_blank' href={elem[0].url}><span className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</span></a><span className='text-base text-cyan-600'>{elem[0]['category']}</span>
+                                
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
-                                {elem['regiDate']}
+                                {elem[0]['regiDate']}
                             </td>                            
+                            <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
+                                <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
+                            </td>
+                            <td className="text-center truncate w-1/4 px-6 py-4">
+                                {elem[1]['regiDate']}
+                            </td>           
                         </tr>
                           )
                         })
@@ -108,36 +153,7 @@ export default function Parliament() {
                       
                   </tbody>
                 </table>
-                <table className="table-fixed w-full text-sm text-left text-gray-500 ">
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                      <tr>
-                          <th scope="col" className="text-center px-6 py-3 w-1/2">
-                              제목
-                          </th>
-                          <th scope="col" className="text-center px-6 py-3 w-1/4">
-                              작성일
-                          </th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      {
-                        gukhimarticle.slice(5,10).map((elem,index)=>{
-                          return (
-                          <tr key={index} className="bg-white border-b ">
-                            <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
-                                <a target='_blank' href={elem.url}><span className='font-bold text-cyan-600'>{elem['category']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
-                            </td>
-                            <td className="text-center truncate w-1/4 px-6 py-4">
-                                {elem['regiDate']}
-                            </td>                            
-                        </tr>
-                          )
-                        })
-                      }
-
-                      
-                  </tbody>
-                </table>
+                
               </div>
               
             </div>
@@ -167,29 +183,6 @@ export default function Parliament() {
                     <th scope="col" className="text-center px-6 py-3 w-1/4">
                         작성일
                     </th>
-                  </tr>
-                </thead>
-                  <tbody>
-                    {
-                      minjuarticle.slice(0,5).map((elem,index)=>{
-                        return (
-                        <tr key={index} className="bg-white border-b ">
-                          <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
-                              <a target='_blank' href={elem.url}><span className='font-bold text-cyan-600'>{elem['category']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
-                          </th>
-                          <td className="text-center truncate w-1/4 px-6 py-4">
-                              {elem['regiDate']}
-                          </td>
-                      </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-              </table>
-              <table className="table-fixed w-full text-sm text-left text-gray-500 z-50">
-                
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                  <tr>
                     <th scope="col" className="text-center px-6 py-3 w-1/2">
                         제목
                     </th>
@@ -200,14 +193,20 @@ export default function Parliament() {
                 </thead>
                   <tbody>
                     {
-                      minjuarticle.slice(5,10).map((elem,index)=>{
+                      minjuarticle.map((elem,index)=>{
                         return (
                         <tr key={index} className="bg-white border-b ">
-                          <th scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
-                              <a target='_blank' href={elem.url}><span className='font-bold text-cyan-600'>{elem['category']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
-                          </th>
+                          <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
+                              <a target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['category']}</span></a>
+                          </td>
                           <td className="text-center truncate w-1/4 px-6 py-4">
-                              {elem['regiDate']}
+                              {elem[0]['regiDate']}
+                          </td>
+                          <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
+                              <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
+                          </td>
+                          <td className="text-center truncate w-1/4 px-6 py-4">
+                              {elem[1]['regiDate']}
                           </td>
                       </tr>
                         )
@@ -238,30 +237,6 @@ export default function Parliament() {
                       <th scope="col" className="text-center  px-6 py-3 w-1/4">
                           작성일
                       </th>
-                    </tr>
-                  </thead>
-                    <tbody>
-
-                      {
-                        parliamentCreator.slice(0,5).map((elem,index)=>{
-                          return (
-                          <tr key={index} className="bg-white border-b z-50 ">
-                            <td scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <a className='z-50' target='_blank' href={elem.url}><span className='font-bold text-cyan-600'>{elem['writer']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
-                            </td>
-                            <td className="text-center truncate w-1/4 px-6 py-4">
-                                {elem['regiDate']}
-                            </td>
-                        </tr>
-                          )
-                        })
-                      }
-                      
-                    </tbody>
-                </table>
-                <table className="table-fixed w-full text-sm text-left text-gray-500 ">
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                    <tr>
                       <th scope="col" className="text-center  px-6 py-3 w-1/2">
                           제목
                       </th>
@@ -273,14 +248,20 @@ export default function Parliament() {
                     <tbody>
 
                       {
-                        parliamentCreator.slice(5,10).map((elem,index)=>{
+                        parliamentCreator.map((elem,index)=>{
                           return (
                           <tr key={index} className="bg-white border-b z-50 ">
                             <td scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <a className='z-50' target='_blank' href={elem.url}><span className='font-bold text-cyan-600'>{elem['writer']}</span><p className='line-clamp-1'>{elem['title']}</p></a>
+                                <a className='z-50' target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['writer']}</span></a>
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
-                                {elem['regiDate']}
+                                {elem[0]['regiDate']}
+                            </td>
+                            <td scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                <a className='z-50' target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p><span className='text-base text-cyan-600'>{elem[1]['writer']}</span></a>
+                            </td>
+                            <td className="text-center truncate w-1/4 px-6 py-4">
+                                {elem[1]['regiDate']}
                             </td>
                         </tr>
                           )

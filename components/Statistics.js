@@ -111,23 +111,23 @@ export default function Statistics() {
                                     return(
                                       <tr className='w-full' key={index}>
                                         <td className="w-1/4 px-5 py-5 text-md bg-white border-b border-gray-200">
-                                          <p className="text-gray-900 text-md whitespace-no-wrap text-center">
+                                          <p className="text-gray-900 text-base whitespace-no-wrap text-center">
                                             {elem.CLASS_NAME}  
                                           </p>
                                         </td>
                                         <td className="w-1/4 px-5 py-5 text-md bg-white border-b border-gray-200">
-                                          <p className="text-gray-900 whitespace-no-wrap text-center">
+                                          <p className="text-gray-900 text-base whitespace-no-wrap text-center">
                                           {elem.KEYSTAT_NAME}  
                                           </p>
                                         </td>
                                         <td className="w-1/4 px-5 py-5 text-md bg-white border-b border-gray-200">
-                                          <p className="text-cyan-600 font-bold whitespace-no-wrap text-center ">
+                                          <p className="text-cyan-600 text-base font-bold  whitespace-no-wrap text-center ">
                                           {elem.DATA_VALUE} <span className='text-gray-600 font-medium'>({elem.UNIT_NAME})</span>
                                           </p>
 
                                         </td>
                                         <td className="w-1/4 px-5 py-5 text-md bg-white border-b border-gray-200">
-                                          <p className="text-gray-900 whitespace-no-wrap text-center">
+                                          <p className="text-gray-900 text-base whitespace-no-wrap text-center">
                                           {elem.CYCLE}  
                                           </p>
                                         </td>
