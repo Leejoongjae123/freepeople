@@ -111,7 +111,7 @@ export default function Policy() {
                       <div className='flex flex-col'>
                         <span className='flex text-lg text-black font-bold whitespace-normal'>
                           <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
-                          <div><FcDocument size='30'></FcDocument></div>
+                          <a href={elem.downloadUrl}><div><FcDocument size='30'></FcDocument></div></a>
                         </span>
                         <p className='font-bold text-gray-6'>{elem.category}</p>
                         <span className='whitespace-normal'>{elem.regiDate}</span>
@@ -144,8 +144,51 @@ export default function Policy() {
                 <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                {
-                  kdipolicy.map((elem,index)=>{
+              {kdipolicy.map((elem,index)=>{
+                  return(
+                    <li key={index} className="w-full flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                      </svg>
+                      <div className='flex flex-col'>
+                        <span className='flex text-lg text-black font-bold whitespace-normal'>
+                          <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                          <a href={elem.downloadUrl}><div><FcDocument size='30'></FcDocument></div></a>
+                        </span>
+                        <p className='font-bold text-gray-6'>{elem.category}</p>
+                        <span className='whitespace-normal'>{elem.regiDate}</span>
+                      </div>
+                      <div className='flex-auto justify-end'>
+                        
+                      </div>
+                      
+                    
+                    </li>
+                  )
+                })}
+
+                
+              </ul>                
+            </div>
+          </div> 
+          <div className='text-right my-3 pr-5'>
+            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://eiec.kdi.re.kr/policy/materialList.do?topic=O'>Read more</Link></p>
+          </div>  
+        </div>
+        <div>
+          <div className="relative h-full items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+            
+            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
+            
+
+
+            <div className="col-span-2 p-5">
+              <div>
+                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
+              </div>
+              <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
+              {
+                  yyd.map((elem,index)=>{
                     return (
                       <li key={index} className="flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -154,7 +197,7 @@ export default function Policy() {
                       <div className='flex flex-col'>
                         <span className='flex text-lg text-black font-bold whitespace-normal'>
                           <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
-                          <div><FcDocument size='30'></FcDocument></div>
+                          <a href={elem.downloadUrl}><div><FcDocument size='30'></FcDocument></div></a>
                         </span>
                         <p className='font-bold text-gray-6'>{elem.category}</p>
                         <span className='whitespace-normal'>{elem.regiDate}</span>
@@ -168,38 +211,6 @@ export default function Policy() {
                 
               </ul>                
             </div>
-          </div> 
-          <div className='text-right my-3 pr-5'>
-            <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://eiec.kdi.re.kr/policy/materialList.do?topic=O'>Read more</Link></p>
-          </div>  
-        </div>
-        <div>
-          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
-            
-            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
-            
-
-
-            <div className="col-span-2 p-5">
-              <div>
-                <h3 className='text-2xl text-center font-bold my-5'>정책자료</h3>
-              </div>
-              <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                {
-                  yyd.map((elem,index)=>{
-                    return (
-                    <li key={index} className="flex items-center space-x-3">
-                        <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                        </svg>
-                        <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
-                    </li>
-                    )
-                  })
-                }
-                
-              </ul>                
-            </div>
           </div>
           <div className='text-right my-3 pr-5'>
             <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.ydi.or.kr/board/list/data020102/1'>Read more</Link></p>
@@ -207,7 +218,7 @@ export default function Policy() {
           </div>
 
           <div>
-          <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
+          <div className="relative h-full items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
             <img className="absolute top-0 left-0 h-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
             
@@ -216,14 +227,20 @@ export default function Policy() {
                 <h3 className='text-2xl text-center font-bold my-5'>동향자료</h3>
               </div>
               <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                {
+              {
                   minju.map((elem,index)=>{
                     return (
-                    <li key={index} className="flex items-center space-x-3">
-                      <svg className="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                      <li key={index} className="flex items-center space-x-3">
+                      <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                       </svg>
-                      <span className='whitespace-normal'><a target='_blank' href={elem.url}>{elem.title}</a></span>
+                      <div className='flex flex-col'>
+                        <span className='flex text-lg text-black font-bold whitespace-normal'>
+                          <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                        </span>
+                        <span className='whitespace-normal'>{elem.regiDate}</span>
+                      </div>
+                    
                     </li>
                     )
                   })

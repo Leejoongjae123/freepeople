@@ -92,7 +92,7 @@ export default function SearchCard1() {
 
 
   return (
-    <div>
+    <div className='h-full'>
       <div className="container w-full px-4 mx-auto sm:px-8">
         <div className="py-8">
             <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
