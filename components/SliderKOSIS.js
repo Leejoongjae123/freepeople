@@ -8,6 +8,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import Image from "next/image";
 import { FcUp,FcDown } from "react-icons/fc";
+import Link from "next/link";
 
 
 export default function SliderKOSIS() {
@@ -117,6 +118,9 @@ export default function SliderKOSIS() {
           );
         })}
       </Carousel>
+      <div className='text-right my-2 pr-5'>
+        <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://kosis.kr/visual/nsportalStats/main.do'>Read more</Link></p>
+      </div>  
     </div>
 
     

@@ -153,8 +153,8 @@ export default function President() {
 
                 </div>
                 </div>
-                  <div className='text-right my-2 pr-5'>
-                    <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/briefing'>Read more</Link></p>
+                <div className='text-right my-2 pr-5'>
+                  <p className="text-base font-semibold text-blue-500 text-right"><Link target='_blank' className='z-50' href='https://www.president.go.kr/newsroom/briefing'>Read more</Link></p>
                 </div>  
               </div>
 
