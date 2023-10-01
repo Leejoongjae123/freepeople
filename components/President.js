@@ -153,10 +153,10 @@ export default function President() {
               <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
-                    <th scope="col" className="w-3/4 px-6 py-3 text-center">
+                    <th scope="col" className="w-3/4 text-lg px-6 py-3 text-center">
                         제목
                     </th>
-                    <th scope="col" className="w-1/4px-6 py-3 text-center">
+                    <th scope="col" className="w-1/4px-6 text-lg py-3 text-center">
                         게시일
                     </th>
                   </tr>
@@ -165,7 +165,7 @@ export default function President() {
                   {
                     presidentbrief.map((elem,index)=>{
                       return(
-                        <tr key={index} className=" bg-white border-b ">
+                        <tr key={index} className=" bg-white border-b h-48">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                               <p className='text-lg font-bold '><a target='_blank' href={elem.url}>{elem.title}</a></p>
                               <p className='text-base font-bold whitespace-normal line-clamp-2 text-left text-gray-700'>{elem.subtitle}</p>
@@ -195,10 +195,10 @@ export default function President() {
               <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
-                    <th scope="col" className="w-3/4 px-6 py-3 text-center">
+                    <th scope="col" className="w-3/4 text-lg px-6 py-3 text-center">
                         제목
                     </th>
-                    <th scope="col" className="w-1/4px-6 py-3 text-center">
+                    <th scope="col" className="w-1/4 text-lg px-6 py-3 text-center">
                         게시일
                     </th>
                   </tr>
@@ -207,7 +207,7 @@ export default function President() {
                   {
                     presidentNBS.map((elem,index)=>{
                       return(
-                        <tr key={index} className=" bg-white border-b ">
+                        <tr key={index} className=" bg-white border-b h-48">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                               <p className='text-lg font-bold '><a target="_blank" href={elem.url}>{elem.title}</a></p>
                               
@@ -268,7 +268,7 @@ export default function President() {
                 <p className="mt-2 text-lg font-bold text-cyan-600">{economyIndicators.kosdaq}</p>
               </div>
             </div>
-            
+
             <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50">
                 <FcMoneyTransfer  size='40'></FcMoneyTransfer>

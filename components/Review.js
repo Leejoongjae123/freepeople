@@ -209,7 +209,7 @@ export default function Review(){
                   <div className=''>
                   <ul className="flex">
                     <li>
-                      <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100`} ><FcPrevious size={10}></FcPrevious></button>
+                      <button onClick={() => handlePreviousClick1()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 rounded-l-lg`} ><FcPrevious size={10}></FcPrevious></button>
                     </li>
                     <li>
                       <button value={1} onClick={(e) => handleLinkClick1(e,bigKindsNoList[0])} className={`${bigKindsNo==bigKindsNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{bigKindsNoList[0]}</button>
@@ -250,11 +250,11 @@ export default function Review(){
               ):(
               <div className='flex h-full flex-col bg-white border border-gray-200 rounded-lg shadow'>
                 <h1 className='text-2xl font-bold text-center my-5'>미래민중 논평</h1>
-                <div className='flex flex-col'>
+                <div className='flex flex-col h-full justify-center'>
                   <ul className="grid w-full justify-start px-10 grid-rows-5 gap-4 items-center">
                     
                     {futureData.map((elem,index)=>(
-                        <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
+                        <li key={index*111} className="w-full pb-3 mx-auto h-32 sm:pb-4 border-b-2 ">
                         <div className="grid grid-cols-4 items-center space-x-4">
                           <div className="col-span-3">
                             <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
@@ -282,7 +282,7 @@ export default function Review(){
                   <div className='flex justify-center my-3'>
                     <ul className="inline-flex -space-x-px text-sm">
                       <li>
-                        <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `}><FcPrevious size={10}></FcPrevious> </button>
+                        <button onClick={() => handlePreviousClick2()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 rounded-l-lg`}><FcPrevious size={10}></FcPrevious> </button>
                       </li>
                       <li>
                         <button value={1} onClick={(e) => handleLinkClick2(e,futureNoList[0])} className={`${futureNo==futureNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{futureNoList[0]}</button>
@@ -319,11 +319,11 @@ export default function Review(){
               ):(
               <div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow '>
               <h1 className='text-2xl font-bold text-center my-5'>칼럼 논평</h1>
-              <div className='flex flex-col'>
+              <div className='flex flex-col justify-center h-full'>
                 <ul className="grid h-full justify-start px-10 grid-rows-5 gap-4 items-center">
                   
                   {columnData.map((elem,index)=>(
-                      <li key={index*111} className="w-full pb-3 mx-auto sm:pb-4 border-b-2">
+                      <li key={index*111} className="w-full pb-3 mx-auto h-32 sm:pb-4 border-b-2">
                       <div className="grid grid-cols-4 items-center space-x-4">
 
                         <div className="col-span-3">
@@ -341,7 +341,7 @@ export default function Review(){
                             </p>
                           </div>
                         </div>
-                        <div className="col-span-1 text-sm text-center text-gray-900 dark:text-white">
+                        <div className="col-span-1 text- text-center text-gray-900 dark:text-white">
                             {elem.regiDate}
                         </div>
                       </div>
@@ -352,7 +352,7 @@ export default function Review(){
                 <div className='flex justify-center my-3'>
                   <ul className="inline-flex -space-x-px text-sm">
                     <li>
-                      <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 `} ><FcPrevious size={10}></FcPrevious></button>
+                      <button onClick={() => handlePreviousClick3()} className={`flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 rounded-l-lg`} ><FcPrevious size={10}></FcPrevious></button>
                     </li>
                     <li>
                       <button value={1} onClick={(e) => handleLinkClick3(e,columnNoList[0])} className={`${columnNo==columnNoList[0]?('text-blue-500 font-bold'):('text-gray-500')} flex items-center justify-center px-3 h-8 leading-tightbg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 `}>{columnNoList[0]}</button>
