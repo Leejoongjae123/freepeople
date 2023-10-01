@@ -86,11 +86,11 @@ export default function SliderKOSIS() {
               </div>
               <div className="flex flex-col text-center">
                 <p className="font-bold text-sm truncate ...">
-                  {elem.title}
+                  <a href={elem.url} target="_blank">{elem.title}</a>
                 </p>
                 <div className="flex justify-center items-center">
                   <p className="text-2xl font-bold text-cyan-600">
-                    {elem.value}
+                    <a target="_blank" href={elem.url}>{elem.value}</a>
                   </p>
 
                 </div>
