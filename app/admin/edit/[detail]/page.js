@@ -1,9 +1,62 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-
+import axios from 'axios'
 
 export default function EditTopic(props) {
-	console.log(props.params.detail)
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+  
+  console.log(props.params.detail)
+  let [firstOne,secondOne]=props.params.detail.split("_")
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getOnePostings', {
+        params: {
+          'category': firstOne,
+          'id': secondOne
+        },
+        headers: {
+          'accept': 'application/json'
+        }
+      });
+      setTitle(response.data.title);
+      setContents(response.data.contents);
+      console.log("loading완료")
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+  const updateArticle = async () => {
+    try {
+      const response = await axios.get('https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getOnePostings', {
+        params: {
+          'category': firstOne,
+          'id': secondOne
+        },
+        headers: {
+          'accept': 'application/json'
+        }
+      });
+      setTitle(response.data.title);
+      setContents(response.data.contents);
+      console.log("loading완료")
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const handleButtonClick = () => {
+    console.log('수정 버튼이 클릭되었습니다.');
+    updateArticle()
+    router.push('/admin/list')
+  };
+  
   return (
     <>
     
@@ -15,7 +68,7 @@ export default function EditTopic(props) {
         <form>
         <div className='h-24'></div>
         <div className="space-y-12 mx-10">
-          <div className="border-b border-gray-900/10 pb-12">
+          <div className=" border-gray-900/10 pb-12">
             <h2 className="text-4xl font-semibold leading-7 text-gray-900">게시글 작성</h2>
             <p className="py-5 text-3xl mt-1 leading-6 text-gray-600">포스팅하실 글의 내용을 작성해주세요</p>
 
@@ -31,6 +84,7 @@ export default function EditTopic(props) {
                     id="first-name"
                     autoComplete="given-name"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    value={title}
                   />
                 </div>
               </div>
@@ -71,6 +125,7 @@ export default function EditTopic(props) {
                     rows={3}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={''}
+                    value={contents}
                   />
                   </div>
                   </div>
@@ -79,10 +134,10 @@ export default function EditTopic(props) {
             </div>
           </div>
 
-          <div className="border-b border-gray-900/10 pb-12">
+          <div className="pb-12">
 
             <div className="mt-10 space-y-10">
-              <fieldset>
+              {/* <fieldset>
                 <legend className="text-sm font-semibold leading-6 text-gray-900">글 종류</legend>
                 <p className="mt-1 text-sm leading-6 text-gray-600">게시할 글의 종류를 선택하세요</p>
                 <div className="mt-6 space-y-6">
@@ -120,7 +175,7 @@ export default function EditTopic(props) {
                     </label>
                   </div>
                 </div>
-              </fieldset>
+              </fieldset> */}
             </div>
           </div>
         </div>
@@ -131,8 +186,9 @@ export default function EditTopic(props) {
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={handleButtonClick}
           >
-            게시하기
+            수정하기
           </button>
         </div>
       </form>

@@ -167,7 +167,7 @@ export default function President() {
                       return(
                         <tr key={index} className=" bg-white border-b h-48">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              <p className='text-lg font-bold '><a target='_blank' href={elem.url}>{elem.title}</a></p>
+                          <a target='_blank' href={elem.url}><p className='text-lg font-bold line-clamp-2'>{elem.title}</p></a>
                               <p className='text-base font-bold whitespace-normal line-clamp-2 text-left text-gray-700'>{elem.subtitle}</p>
                               <p className='whitespace-normal line-clamp-2 text-left text-gray-500'>{elem.contents}</p>
                           </th>
@@ -209,7 +209,7 @@ export default function President() {
                       return(
                         <tr key={index} className=" bg-white border-b h-48">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                              <p className='text-lg font-bold '><a target="_blank" href={elem.url}>{elem.title}</a></p>
+                              <p className='text-lg font-bold'><a target="_blank" href={elem.url}>{elem.title}</a></p>
                               
                               <p className='text-sm whitespace-normal text-gray-500 '>{elem.contents}</p>
 

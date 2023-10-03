@@ -99,7 +99,7 @@ export default function Parliament() {
         </div>
         <div>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-            여/야 주요 보도자료
+            논평 및 서면 브리핑
             </p>
         </div>   
       </div>
@@ -133,14 +133,14 @@ export default function Parliament() {
                           return (
                           <tr key={index} className="bg-white border-b ">
                             <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
-                                <a target='_blank' href={elem[0].url}><span className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</span></a><span className='text-base text-cyan-600'>{elem[0]['category']}</span>
+                                <a target='_blank' href={elem[0].url}><span className='text-lg font-bold line-clamp-2'>{elem[0]['title']}</span></a><span className='text-base text-cyan-600'>{elem[0]['category']}</span>
                                 
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem[0]['regiDate']}
                             </td>                            
                             <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900 ">
-                                <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
+                                <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-2'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem[1]['regiDate']}
@@ -197,13 +197,13 @@ export default function Parliament() {
                         return (
                         <tr key={index} className="bg-white border-b ">
                           <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
-                              <a target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['category']}</span></a>
+                              <a target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-2'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['category']}</span></a>
                           </td>
                           <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem[0]['regiDate']}
                           </td>
                           <td scope="row" className="whitespace-normal px-6 py-4 font-medium text-gray-900">
-                              <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
+                              <a target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-2'>{elem[1]['title']}</p></a><span className='text-base text-cyan-600'>{elem[1]['category']}</span>
                           </td>
                           <td className="text-center truncate w-1/4 px-6 py-4">
                               {elem[1]['regiDate']}
@@ -252,13 +252,13 @@ export default function Parliament() {
                           return (
                           <tr key={index} className="bg-white border-b z-50 ">
                             <td scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <a className='z-50' target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-1'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['writer']}</span></a>
+                                <a className='z-50' target='_blank' href={elem[0].url}><p className='text-lg font-bold line-clamp-2'>{elem[0]['title']}</p><span className='text-base text-cyan-600'>{elem[0]['writer']}</span></a>
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem[0]['regiDate']}
                             </td>
                             <td scope="row" className="truncate px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <a className='z-50' target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-1'>{elem[1]['title']}</p><span className='text-base text-cyan-600'>{elem[1]['writer']}</span></a>
+                                <a className='z-50' target='_blank' href={elem[1].url}><p className='text-lg font-bold line-clamp-2'>{elem[1]['title']}</p><span className='text-base text-cyan-600'>{elem[1]['writer']}</span></a>
                             </td>
                             <td className="text-center truncate w-1/4 px-6 py-4">
                                 {elem[1]['regiDate']}
