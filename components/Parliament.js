@@ -177,16 +177,16 @@ export default function Parliament() {
                 
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                   <tr>
-                    <th scope="col" className="text-center px-6 py-3 w-1/2">
+                    <th scope="col" className="text-lg text-center px-6 py-3 w-1/2">
                         제목
                     </th>
-                    <th scope="col" className="text-center px-6 py-3 w-1/4">
+                    <th scope="col" className="text-lg text-center px-6 py-3 w-1/4">
                         작성일
                     </th>
-                    <th scope="col" className="text-center px-6 py-3 w-1/2">
+                    <th scope="col" className="text-lg text-center px-6 py-3 w-1/2">
                         제목
                     </th>
-                    <th scope="col" className="text-center px-6 py-3 w-1/4">
+                    <th scope="col" className="text-lg text-center px-6 py-3 w-1/4">
                         작성일
                     </th>
                   </tr>
@@ -231,16 +231,16 @@ export default function Parliament() {
               <table className="table-fixed w-full text-sm text-left text-gray-500 ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
-                      <th scope="col" className="text-center  px-6 py-3 w-1/2">
+                      <th scope="col" className="text-lg text-center  px-6 py-3 w-1/2">
                           제목
                       </th>
-                      <th scope="col" className="text-center  px-6 py-3 w-1/4">
+                      <th scope="col" className="text-lg text-center  px-6 py-3 w-1/4">
                           작성일
                       </th>
-                      <th scope="col" className="text-center  px-6 py-3 w-1/2">
+                      <th scope="col" className="text-lg text-center  px-6 py-3 w-1/2">
                           제목
                       </th>
-                      <th scope="col" className="text-center  px-6 py-3 w-1/4">
+                      <th scope="col" className="text-lg text-center  px-6 py-3 w-1/4">
                           작성일
                       </th>
                     </tr>

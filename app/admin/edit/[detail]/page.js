@@ -2,11 +2,15 @@
 import React, { useEffect, useState } from 'react'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import axios from 'axios'
+import { useRouter,usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function EditTopic(props) {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   
+  const router=useRouter()
+
   console.log(props.params.detail)
   let [firstOne,secondOne]=props.params.detail.split("_")
 
@@ -34,17 +38,22 @@ export default function EditTopic(props) {
 
   const updateArticle = async () => {
     try {
-      const response = await axios.get('https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getOnePostings', {
-        params: {
-          'category': firstOne,
-          'id': secondOne
-        },
-        headers: {
-          'accept': 'application/json'
+      const response = await axios.post(
+        'https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/updateOnePosting',
+        '',
+        {
+          params: {
+            'category': firstOne,
+            'id': secondOne,
+            'title': title,
+            'contents': contents
+          },
+          headers: {
+            'accept': 'application/json',
+            'content-type': 'application/x-www-form-urlencoded'
+          }
         }
-      });
-      setTitle(response.data.title);
-      setContents(response.data.contents);
+      );
       console.log("loading완료")
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -56,6 +65,17 @@ export default function EditTopic(props) {
     updateArticle()
     router.push('/admin/list')
   };
+
+
+  const handleTitleChange = (e) => {
+    // 입력된 텍스트를 상태 변수에 저장
+  setTitle(e.target.value);
+};
+
+const handleContentsChange = (e) => {
+  // 입력된 텍스트를 상태 변수에 저장
+setContents(e.target.value);
+};
   
   return (
     <>
@@ -65,7 +85,7 @@ export default function EditTopic(props) {
 
       </div>
       <div className='flex-1 bg-white'>
-        <form>
+        
         <div className='h-24'></div>
         <div className="space-y-12 mx-10">
           <div className=" border-gray-900/10 pb-12">
@@ -85,6 +105,7 @@ export default function EditTopic(props) {
                     autoComplete="given-name"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     value={title}
+                    onChange={handleTitleChange}
                   />
                 </div>
               </div>
@@ -126,6 +147,7 @@ export default function EditTopic(props) {
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={''}
                     value={contents}
+                    onChange={handleContentsChange}
                   />
                   </div>
                   </div>
@@ -180,18 +202,19 @@ export default function EditTopic(props) {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-end gap-x-6 mx-10">
-          <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          </button>
+        <div className="my-10 flex items-center justify-end gap-x-6 mx-10">
+
+          
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={handleButtonClick}
           >
-            수정하기
+          수정하기
           </button>
+          
         </div>
-      </form>
+      
       </div>
 
     </div>

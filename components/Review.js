@@ -258,7 +258,7 @@ export default function Review(){
                         <div className="grid grid-cols-4 items-center space-x-4">
                           <div className="col-span-3">
                             <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                            <p className="text-lg font-bold text-gray-900 truncate dark:text-white">
+                            <p className="text-left text-lg font-bold text-gray-900 dark:text-white">
                               {elem.title}
                             </p>
                             </button>
@@ -328,7 +328,7 @@ export default function Review(){
 
                         <div className="col-span-3">
                           <button onClick={()=>{handleButtonClick(elem.title,elem.contents,"")}}>
-                          <p className="text-left whitespace-normal text-lg font-bold text-gray-900 truncate dark:text-white">
+                          <p className="line-clamp-2 text-left text-lg font-bold text-gray-900  dark:text-white">
                             {elem.title}
                           </p>
                           </button>
