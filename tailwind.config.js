@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        SongMyung: ["Song Myung"],
+        SongMyung: ["Song Myung",'sans-serif'],
       },
     },
   },

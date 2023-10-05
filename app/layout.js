@@ -11,12 +11,17 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { SessionProvider } from 'next-auth/react'
 import LoginBtn from '@/components/LoginBtn'
+import { Roboto } from '@next/font/google'
+import Head from 'next/head'
+
 
 export default async function RootLayout({ children }) {
   let session=await getServerSession(authOptions)
-  // console.log(session)
+  
+  
   return (
     <html lang="kr">
+
       <body className="">
       <Navbar></Navbar>
         {children}

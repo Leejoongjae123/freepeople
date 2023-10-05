@@ -8,7 +8,6 @@ import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 // import ApexCharts from "react-apexcharts";
-const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 import Review from '@/components/Review'
 import JijidoReal from '@/components/JijidoReal'
 import JijidoNBS from '@/components/JijidoNBS'
@@ -21,7 +20,11 @@ import { FcDocument } from 'react-icons/fc'
 import Policy from '@/components/Policy'
 import Election from '@/components/Election'
 import Test from '@/components/Test'
+import { Song_Myung } from 'next/font/google'
+import { East_Sea_Dokdo } from 'next/font/google'
 
+const SongMyung=Song_Myung({subsets:['latin'],weight:['400']})
+const EastSeaDokdo=East_Sea_Dokdo({subsets:['latin'],weight:['400']})
 
 function classNames(...classNamees) {
   return classNamees.filter(Boolean).join(' ')
@@ -37,11 +40,11 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto  max-w-2xl text-center mt-16">
           {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2> */}
-          <p className="mt-3 font-bold text-base lg:text-2xl leading-8 text-sky-900">
+          <p style={EastSeaDokdo.style} className="mt-3 font-bold text-6xl leading-8 text-sky-900">
             오직 민중을 위한
           </p>
-          <h1 className="font-SongMyung text-8xl my-2 lg:my-5 font-bold tracking-tight text-gray-900 lg:text-6xl ">
-            미 래 민 중
+          <h1 className="my-2 lg:my-5 font-bold tracking-tight text-gray-900 lg:text-6xl ">
+            <p style={SongMyung.style} className="text-9xl">미 래 민 중</p>
           </h1>
           
         </div>

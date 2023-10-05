@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Song+Myung&display=swap');
 
-
-@font-face {
-  font-family: "Song Myung";
-  font-weight: 200;
-  src: url("/fonts/SongMyung-Regular.ttf") format("truetype");
-};
-
-body {
+/* body {
   background: #272525;
   color: #333;
-  font-family: 'Noto Sans KR', sans-serif;
-};
-
-
+  font-family:"Noto Sans KR"
+}; */
