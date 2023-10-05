@@ -31,7 +31,6 @@ export default function Review(){
     const [showModal,setShowModal]=useState(false);
     
     const [modalTitle,setModalTitle]=useState("")
-
     const [modalText,setModalText]=useState(["","",""])
     
     useEffect(() => {
@@ -138,7 +137,8 @@ export default function Review(){
         console.log('error')
       }
     };
-
+    
+    //모달창 켜고 끄는 부분
     const toggleModal = () => {
       setShowModal(!showModal);
     };

@@ -5,9 +5,17 @@ import LoginBtn from './LoginBtn';
 import Link from 'next/link';
 import { useState,useEffect } from 'react';
 import ArticleModal from './ArticleModal';
+import AppModal from './ReactModal';
+import FooterModal from './FooterModal';
+import ServiceModal from './ServiceModal';
+
 export default function Footer() {
   const pathname = usePathname();
   const router = useRouter();
+
+
+
+
 
   if (pathname==="/"){
     return (
@@ -20,10 +28,12 @@ export default function Footer() {
                   <h2 className="mb-6 text-lg font-semibold text-gray-900 uppercase dark:text-white">소개</h2>
                   <ul className="text-black dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                        <Link href="/about" className="hover:underline">미래민중은</Link>
+                        {/* <Link href="/about" className="hover:underline">미래민중은</Link> */}
+                        <FooterModal></FooterModal>
                       </li>
                       <li className="mb-4">
-                        <Link href="/service" className="hover:underline">서비스범위</Link>
+                        {/* <Link href="/service" className="hover:underline">서비스범위</Link> */}
+                        <ServiceModal></ServiceModal>
                       </li>
                   </ul>
               </div>
@@ -65,8 +75,9 @@ export default function Footer() {
 
 
           </div>
-
+      
       </footer>
+
     </div>
 
     )
