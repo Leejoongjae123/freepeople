@@ -122,9 +122,9 @@ export default function SearchCard1() {
     <div className='h-full'>
       <div className="container h-full w-full px-4 mx-auto sm:px-8">
         <div className="py-8">
-            <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
-                <h2 className="text-2xl leading-tight font-bold">
-                    개표결과정보
+            <div className="flex flex-row items-center justify-around w-full mb-1 sm:mb-0">
+                <h2 className="text-lg  leading-tight font-bold">
+                    개표결과
                 </h2>
                 <div className="flex gap-x-2 text-end">
                   {/* <select defaultValue="BIG" id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -218,7 +218,7 @@ export default function SearchCard1() {
                 </div>
                 </div>
                 <div className="h-full px-4 py-4  overflow-x-auto sm:px-8">
-                    <div className='text-right text-gray-600'>선거인수:{electionResult&&(<span>{electionResult['totalCount']}</span>)}, 유효투표수:{electionResult&&(<span>{electionResult['effectiveCount']}</span>)}</div>
+                    
                     <div className="inline-block w-full overflow-hidden rounded-lg shadow">
                         <table className="w-full h-full leading-normal">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
@@ -292,8 +292,10 @@ export default function SearchCard1() {
                                 
                             </tbody>
                         </table>
+                        
 
                     </div>
+                    <div className='font-bold text-right text-gray-600'>※ 선거인수:{electionResult&&(<span>{electionResult['totalCount']}</span>)}, 유효투표수:{electionResult&&(<span>{electionResult['effectiveCount']}</span>)}</div>
                 </div>
             </div>
             {

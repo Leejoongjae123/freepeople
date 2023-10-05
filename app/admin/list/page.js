@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth'
 
 export default async function page() {
   let session=await getServerSession(authOptions)
+  console.log('session:',session)
   return (
 
 

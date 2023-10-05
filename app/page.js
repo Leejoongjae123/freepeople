@@ -35,12 +35,12 @@ export default function Home() {
     <Element name="0"></Element>
     <div className="bg-white py-1 lg:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mt-16">
+        <div className="mx-auto  max-w-2xl text-center mt-16">
           {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">정치/경제 종합 정보 제공</h2> */}
           <p className="mt-3 font-bold text-base lg:text-2xl leading-8 text-sky-900">
             오직 민중을 위한
           </p>
-          <h1 className="my-2 lg:my-5  font-bold tracking-tight text-gray-900 lg:text-6xl text-3xl">
+          <h1 className="font-SongMyung text-8xl my-2 lg:my-5 font-bold tracking-tight text-gray-900 lg:text-6xl ">
             미 래 민 중
           </h1>
           
