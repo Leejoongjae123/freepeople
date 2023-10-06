@@ -92,12 +92,16 @@ export default function Policy() {
       <div className="grid grid-cols-1 gap-8 mb-6 lg:mb-16 md:grid-cols-1">
         <div className='flex flex-col'>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
-            {/* <img className="absolute top-0 left-0 p-2 w-20 h-20 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/> */}
+            
             <div className="col-span-2 p-5">
+            <div className='absolute flex'>
+              <img className="opacity-10 p-2 z-0 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+            </div>
+            
               <div>
                 <h3 className='text-2xl text-center font-bold my-5'>KDI 정책자료</h3>
               </div>
-              <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
+              <ul className="space-y-4 z-50 text-left text-gray-500 dark:text-gray-400">
                 {kdistatus.map((elem,index)=>{
                   return(
                     <li key={index} className="w-full items-center space-x-3">
