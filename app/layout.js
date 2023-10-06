@@ -8,7 +8,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+// import { authOptions } from '../../api/auth/[...nextauth]/route'
+
 import { SessionProvider } from 'next-auth/react'
 import LoginBtn from '@/components/LoginBtn'
 import { Roboto } from '@next/font/google'
@@ -16,7 +17,7 @@ import Head from 'next/head'
 
 
 export default async function RootLayout({ children }) {
-  let session=await getServerSession(authOptions)
+
   
   
   return (

@@ -53,7 +53,6 @@ export default function Footer() {
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <LoginBtn></LoginBtn>
-                          
                       </li>
                       <li>
                       

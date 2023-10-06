@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { authOptions } from '../../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import { useState} from 'react'
 import axios from 'axios';

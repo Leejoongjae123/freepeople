@@ -93,7 +93,7 @@ export default function Policy() {
         <div className='flex flex-col'>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="ml-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+            <img className="absolute top-0 left-0 p-2 w-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -137,7 +137,7 @@ export default function Policy() {
         <div>
           <div className="relative items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-              <img className="ml-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
+              <img className="p-2 w-1/6 absolute top-0 left-0 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/KDI-removebg-preview.png" alt="Jese Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -178,7 +178,7 @@ export default function Policy() {
         <div>
           <div className="relative h-full items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="ml-3 mt-3 absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
+            <img className="w-1/6 p-2 absolute top-0 left-0 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/yeoyuido-removebg-preview.png" alt="Michael Avatar"/>
             
 
 
@@ -220,7 +220,7 @@ export default function Policy() {
           <div>
           <div className="relative h-full items-center bg-gray-50 rounded-lg shadow grid grid-cols-1">
             
-            <img className="absolute top-0 left-0 h-1/6 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
+            <img className="absolute p-2 top-0 left-0 w-1/4 object-contain" src="https://freepeopleimage.s3.ap-northeast-2.amazonaws.com/minju-removebg-preview.png" alt="Sofia Avatar"/>
             
             <div className="col-span-2 p-5">
               <div>
@@ -237,7 +237,7 @@ export default function Policy() {
                       <div className='flex flex-col'>
                         <span className='flex text-lg text-black font-bold whitespace-normal'>
                           <p><a target='_blank' href={elem.url}>{elem.title}</a></p>
-                          <a href={elem.downloadUrl}><div><FcDocument size='30'></FcDocument></div></a>
+                          {/* <a href={elem.downloadUrl}><div><FcDocument size='30'></FcDocument></div></a> */}
                         </span>
                         <p className='font-bold text-gray-6'>정책브리핑</p>
                         <span className='whitespace-normal'>{elem.regiDate}</span>

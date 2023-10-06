@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+// import { authOptions } from '@/pages/api/auth/[...nextauth]'
+// import { authOptions } from '../../api/auth/[...nextauth]/route'
+import { authOptions } from '../../../api/auth/[...nextauth]/route'
 import axios from 'axios'
 import { useRouter,usePathname } from 'next/navigation';
 import Link from 'next/link';

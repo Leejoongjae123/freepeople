@@ -240,7 +240,7 @@ export default function Review(){
               )
             }
         </div>
-        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20  pt-6 mt-6 lg:mx-0 lg:grid-cols-2">
+        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-5 lg:px-20  pt-6 mt-6 lg:mx-0 lg:grid-cols-1">
             {/* 두번째 섹션 */}
             
               {futureLoading?(
@@ -378,11 +378,13 @@ export default function Review(){
               </div>
               )}
                                
-
+                               
 
         </div>
         </div>
+        
       </div>
+      
       {
         showModal&&(<ArticleModal modalText={modalText} closeModal={closeModal}></ArticleModal>)
       }

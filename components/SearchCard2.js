@@ -227,7 +227,7 @@ export default function SearchCard1() {
                                 정당
                             </th>
                             <th scope="col" className="font-bold text-lg text-center px-6 py-3 w-1/4">
-                                후보자명
+                                후보자
                             </th>
                             <th scope="col" className="font-bold text-lg text-center px-6 py-3 w-1/4">
                                 득표수
