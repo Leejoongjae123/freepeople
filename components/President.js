@@ -165,7 +165,7 @@ export default function President() {
                   {
                     presidentbrief.map((elem,index)=>{
                       return(
-                        <tr key={index} className=" bg-white border-b h-48">
+                        <tr key={index} className=" bg-white border-b">
                           <th scope="row" className="grid-cols-2 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                           <a target='_blank' href={elem.url}><p className='text-lg font-bold line-clamp-2'>{elem.title}</p></a>
                               <p className='text-base font-bold whitespace-normal line-clamp-2 text-left text-gray-700'>{elem.subtitle}</p>
