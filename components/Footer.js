@@ -1,27 +1,34 @@
 'use client'
-import React from 'react'
-import { usePathname, useRouter } from 'next/navigation';
+import React, { useReducer } from 'react'
 import LoginBtn from './LoginBtn';
 import Link from 'next/link';
-import { useState,useEffect } from 'react';
 import ArticleModal from './ArticleModal';
 import AppModal from './ReactModal';
 import FooterModal from './FooterModal';
 import ServiceModal from './ServiceModal';
+import { getServerSession } from 'next-auth'
+// import { authOptions } from '../../api/auth/[...nextauth]/route'
+import { authOptions } from '../app/api/auth/[...nextauth]/route'
+import { usePathname } from 'next/navigation';
+
+
 
 export default function Footer() {
-  const pathname = usePathname();
-  const router = useRouter();
 
+  // let session=await getServerSession(authOptions)
+  const pathname = usePathname()
+  console.log('usePathname:',pathname)
+  let isBase=pathname==="/"
+  console.log('isbase:',isBase)
 
-
-
-
-  if (pathname==="/"){
     return (
-
     <div>
-      <footer className="bg-gray-500 dark:bg-gray-900">
+      {isBase&&(
+        <div>
+      
+    
+      
+        <footer className="bg-gray-500 dark:bg-gray-900">
           <div className="px-20">
             <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-3">
               <div className='mx-auto'>
@@ -52,19 +59,29 @@ export default function Footer() {
                   <h2 className="mb-6 text-lg font-semibold text-gray-900 uppercase dark:text-white">관리자센터</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <LoginBtn></LoginBtn>
+                      <LoginBtn></LoginBtn>
+                        
+
+
                       </li>
                       <li>
                       
-                      <button
-                      type="submit"
-                      className="flex justify-center rounded-md bg-gray-200 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+
+
+
+
+                          <button
+                          type="submit"
+                          className="flex justify-center rounded-md bg-gray-200 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                          >
+                        <a href='/admin/list'>
+                        관리자 사이트로 이동
+                        </a>
+                        </button>
+
+                 
                       
-                      >
-                      <Link href='/admin/list'>
-                      관리자 사이트로 이동
-                      </Link>
-                      </button>
+
                       
                       </li>
                   </ul>
@@ -76,11 +93,9 @@ export default function Footer() {
           </div>
       
       </footer>
-
     </div>
-
+      )}
+    </div> 
+    
     )
-  }else{
-    return <div></div>
-  }
 }

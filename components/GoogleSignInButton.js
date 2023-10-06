@@ -7,7 +7,7 @@ import Button from './Button'
 
 const GoogleSignInButton = () => {
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get('callbackUrl')
+  const callbackUrl = '/admin/list'
 
   return (
     <div>

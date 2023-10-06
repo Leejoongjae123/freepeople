@@ -13,7 +13,7 @@ export default async function page() {
   if (!session) {
     redirect('/signin?callbackUrl=/admin/list')
   }
-  // console.log('session:',session)
+  console.log('session:',session)
 
   return (
     <div className='flex'>
@@ -21,7 +21,7 @@ export default async function page() {
       </div>
       <div className='flex-1 bg-white'>
         {session.user.name==='이중재'?(
-        <>
+        <div>
         <TopicsList></TopicsList>
         <nav aria-label="Page navigation example">
           <div className='flex'>
@@ -31,7 +31,7 @@ export default async function page() {
             </div>
           </div>
         </nav>
-        </>
+        </div>
         ):(
           <div className='flex w-full h-screen items-center justify-center text-center text-5xl'>
             <div>관리자로 로그인하세요</div>

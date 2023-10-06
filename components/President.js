@@ -144,7 +144,7 @@ export default function President() {
             </div>
         </div>
       
-        <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 ">
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-1">
           <div className='truncate'>
             <h1 className='text-2xl font-bold text-center my-5'>대통령 브리핑</h1>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg"></div>

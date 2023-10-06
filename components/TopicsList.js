@@ -116,12 +116,12 @@ export default function TopicsList() {
             <div className='flex gap-2'>
             <div className="text-red-400">
               <button onClick={(e)=>{handleDelete(e,elem.title)}}>
-                <HiOutlineTrash size={24}></HiOutlineTrash>
+                <div><HiOutlineTrash size={24}></HiOutlineTrash></div>
               </button>
               
             </div>
             <Link value={elem.id} href={`/admin/edit/${categoryIndex}_${elem.id}`}>
-              <HiPencilAlt size={24}></HiPencilAlt>
+              <div><HiPencilAlt size={24}></HiPencilAlt></div>
             </Link>
             </div>
           </div>

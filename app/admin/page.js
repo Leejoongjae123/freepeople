@@ -19,7 +19,6 @@ export default function Admin() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
             <div>
               <button
                 type="submit"
@@ -28,9 +27,9 @@ export default function Admin() {
                 로그인
               </button>
             </div>
-          </form>
+          
         </div>
-      </div>    
+    </div>    
     </>
   )
 }

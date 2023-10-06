@@ -8,6 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { getServerSession } from 'next-auth'
+import Provider from '@/components/Provider'
 // import { authOptions } from '../../api/auth/[...nextauth]/route'
 
 import { SessionProvider } from 'next-auth/react'
@@ -16,7 +17,7 @@ import { Roboto } from '@next/font/google'
 import Head from 'next/head'
 
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
 
   
   
@@ -24,9 +25,12 @@ export default async function RootLayout({ children }) {
     <html lang="kr">
 
       <body className="">
-      <Navbar></Navbar>
-        {children}
-      <Footer></Footer>
+      
+        <Navbar></Navbar>
+          {children}
+        {/* <Provider> */}
+          <Footer></Footer>
+        {/* </Provider> */}
       </body>
     </html>
   )
